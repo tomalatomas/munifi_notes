@@ -14,7 +14,7 @@
 ### Safety, bezpečí
 
 - Stav bytí, ve kterém platí, že za definovaných podmínek někdo či
-něco nezpůsobí škodu.
+  něco nezpůsobí škodu.
 - Bezpečí se mnohdy chápe jako chránění proti nahodilým událostem.
 
 ### Security, bezpečnost
@@ -23,7 +23,7 @@ něco nezpůsobí škodu.
 - Bezpečnost = zajištění, jak něco NEDĚLAT.
 - Abychom bezpečnost zajistili efektivně, musíme znát co se nesmí dělat.
 - Nelze se bránit proti účinkům škodících akcí realizovaných na bázi dosud
-neexistujících/neznámých technologií.
+  neexistujících/neznámých technologií.
 
 ## Informační bezpečnost
 
@@ -36,7 +36,7 @@ neexistujících/neznámých technologií.
     - Dostupná oprávněným subjektům (do stanovené doby)
 - Informace je bezpečná, když je zajištěná její:
   - **Důvěrnost** (confidentiality, C),
-    - omezení přístupu k informacím a jejich zpřístupnění pouze oprávněným uživatelům („správným lidem“) a zabránění přístupu k informacím nebo jejich prozrazení neoprávněným uživatelům 
+    - omezení přístupu k informacím a jejich zpřístupnění pouze oprávněným uživatelům („správným lidem“) a zabránění přístupu k informacím nebo jejich prozrazení neoprávněným uživatelům
   - **Integrita** (integrity, I),
     - Integrita zdroje - změny zdroje smí provádět pouze autorizované subjekty a autorizované mechanismy
     - Integrita dat - data nesmí být nevhodně, náhodně a/nebo záměrně nějakou škodlivou činností změněna
@@ -69,16 +69,18 @@ neexistujících/neznámých technologií.
   - Útok provádí útočník využitím zranitelnosti informačního aktiva (realizovaná hrozba)
   - Přírodní katastrofy/Externí útoky/Interní útoky/Lidské chyby
 - **Škoda**
-  - důsledek útoku na (hodnotu) aktiva 
+  - důsledek útoku na (hodnotu) aktiva
 - **Bezpečnostní incident** (Security incident)
 - **Riziko** (Risk)
   - Velikost rizika je daná pravděpodobností provedení útoku a výší škody vzniklé útokem
   - Známe hrozby jimž jsou vystavena aktiva a odpovídající rizika – analýza rizik
-  - **Perfektní bezpečnost** - absolutní eliminace všech rizik
 - **Opatření** (Control)
   - Nástroj, služba pro snížení/eliminaci rizika
+  - Typicky kombinace technologie, chování a procedury
+  - Podmínka efektivnosti opatření: cena opatření <= výše škody
 - **Bezpečnost**
   - zamezení škodám eliminací zranitelných míst nebo útočníků
+  - **Perfektní bezpečnost** - absolutní eliminace všech rizik
   - **Systém bude úspěšný** (bezpečný), když bude zajišťovat ochranu proti všem možným útokům, a to vč. útoků, které se v době jeho tvorby dosud nevyskytly
   - Útočník bude úspěšný, když pro útok využije jedinou nedokonalost v bezpečnostních ochranách
   - Skutečně dosahovaná úroveň informační bezpečnosti se odvozuje od chápání informační bezpečnosti legislativou uživateli a provozovateli bezpečnostních, operačních, komunikačních a dalších typů systémů
@@ -163,7 +165,7 @@ neexistujících/neznámých technologií.
 ### Bezpečnostní politika
 
 - Soubor pravidel specifikující uplatňování opatření potřebných pro
-dosažení akceptovatelné úrovně rizik
+  dosažení akceptovatelné úrovně rizik
 - BP říká
   - co proti čemu/komu se chrání
   - stanovuje bezpečnostní cíle
@@ -171,7 +173,7 @@ dosažení akceptovatelné úrovně rizik
   - určuje způsob dosažení bezpečnostních cílů pomocí implementových opatření
 - Pro ověřitelně validní prosazování informační bezpečnosti IS je bezpodmínečně nutné definovat bezpečnostní politiku IS odpovídající hrozbám a rizikům, kterým je IS vystavený
 - Detailnost bezpečnostní politiky závisí na účelu a na chráněné oblasti, ve
-které je politika uplatňovaná
+  které je politika uplatňovaná
 - Nižší BP
   - Plán zvládání rizik IS
   - Horizont 1 až 2 let
@@ -185,6 +187,7 @@ které je politika uplatňovaná
 ## Anatomie informační bezpečnosti
 
 ### Klasifikace aktiv (zákonem o kybernetické bezpečnosti)
+
 - Dle **důvěrnosti** aktiv
   - Nízká
     - Aktiva veřejně přístupná
@@ -249,10 +252,10 @@ které je politika uplatňovaná
 
 #### Klasifikace hrozeb pro organizaci
 
-- Vnitřní hrozby
+- **Vnitřní** hrozby
   - Zdroj hrozby (útočník) se nachází uvnitř (zranitelné) organizace
   - Nezkušený zaměstnanec
-- Vnější hrozby
+- **Vnější** hrozby
   - Zdroj hrozby (útočník) se nachází mimo vnitřní síť organizace
   - Hackeři na Internetu, konkurence, cílení či náhodní nepřátelé
 
@@ -266,24 +269,112 @@ které je politika uplatňovaná
   - Informační bezpečnost řeší narozdíl od kyberbezpečnosti i data na papíře.
   - Kyberbezpečnost řeší i věci nad rámec informační bezpečnosti, neřeší pouze data samotná, ale i lidi
 
-### Ůtočník
+#### Klasifikace útočníka
+
+- slabý (stačí jen slabá opatření)
+  - amatér, náhodný útočník
+- středně silní (středně silná opatření)
+  - hacker, vandal, hračička: často má znalosti, ale ne zázemí
+- silní (nutná silná opatření)
+  - profesionál-kriminálník: často se zázemím, motivovaný
+- Dle firmy IBM:
+  - cript kiddies, chytří nezasvěcení útočníci, dobře vybavení lidé z venku, zasvěcení insideři, dobře finančně podporované organizace
 
 #### Model útočníka
 
-
-#### Klasifikace útočníka
-
-
+- Atributy protivníka, které je třeba zvážit
+  - Cíle
+    - často naznačují cílové aktiva vyžadující zvláštní ochranu
+  - Metody
+    - techniky útoku nebo typy útoků
+  - Schopnosti
+    - - výpočetní zdroje, znalosti, dovednosti
+  - Úroveň financování
+    - ovlivňuje odhodlání útočníka, metody a schopnosti
+  - Outsider vs. insider
 
 ### Opatření
 
+- nástroj pro snižování rizik
+- Provedená akce relevantní jisté hrozbě
+
 #### Klasifikace
 
-#### Technická opatření
+- Podle technologie implementace
+  - administrativní
+    - standardy pro návrh, kódování, testování a údržbu SW, směrnice pro tvorbu hesel, licenc. podmínky
+  - logická (software)
+    - funkce řízení přístupu, dig. podpis, antivir, šifrování
+  - technická (hardware)
+    - tokeny, ID karty, šifrovače, archiv. pamě
+  - fyzická
+    - trezory, zamčené. dveř
+- Konceptuální klasifikace
+  - preventivní: hlavně velká rizika, opatř. jsou drahá
+  - heuristické: pro střední rizika
+  - detekční a opravné: povoluje riziko a pak ho řeší
+  - podpůrná
+- Podle oblasti jejich nasazení
+  - Technická opatření
+    - arch. systémů, mix HW, SW a firmware
+    - Preventivní technická opatření
+      - Autentizace, autorizace, řízení přístupu, podpisování, ochrana komunikací,
+    - Detekční technická opatření
+      - Audit, detekce útoků, návraty do bezpečného stavu, detekce virů
+    - Podpůrná technická opatření
+      - Identifikace, správa krypto-klíčů
+  - Řídící opatření
+    - politiky, návody, standardy
+    - Preventivní řídicí opatření
+      - Přidělení adresné odpovědnosti za bezpečnost kritických podnikatelských procesů
+      - Průběžné bezpečnostních školení
+    - Detekční řídicí opatření
+      - Periodické zkoumání efektivnosti bezpečnostních opatření
+      - Vedení průběžného řízení rizik pro ohodnocování a zvládání rizik
+    - Opravná řídicí opatření
+      - Plán zachování kontinuity činnosti po havárii
+      - Plán činnosti po detekci incidentu
+  - Provozní opatření
+    - Preventivní provozní opatření
+      - Virové ochrany
+      - Protipožární ochrana
+      - Řízený fyzický přístup k datovým médiím
+    - Detekční provozní opatření
+      - Zajištění fyzické bezpečnosti a bezpečnosti prostředí
 
-#### Řídicí opatření
+### Bezpečnostní mechanismy
 
-#### Provozní opatření
+- Opatření musíme účinnou formou implementovat
+  vhodnými (bezpečnostními) mechanismy
+  - Mechanismy administrativního, technického, logického, … charakteru
+  - Opatření řešící problém nepopiratelnosti - digitální podpis
+    - mechanismus = asymetrická kryptografie
+  - Opatření řešící řízení přístupu
+    - mechanismus = fyzické klíče, identifikační karty, biometriky
+  - Opatření řešící problém důvěrnosti
+    - mechanismus = šifrování, trezory, smluvní závazek (NDA)
+
+#### Klasifikace
+
+- Mechanismy základní síly, slabé bezpečnostní mechanismy
+  - Ochrana proti náhodným, neúmyslným útokům, amatérům
+- Bezpečnostní mechanismy střední síly
+  - Ochrana proti „běžným“ útokům
+- Silné bezpečnostní mechanismy
+  - Ochrana proti profesionálům, točníkům s vysokou úrovní, znalostí, s velkými příležitostmi, s velkými prostředky
+
+## Generické rysy zabezpečování informací
+
+- Minimalizovat prostor využitelný pro útok
+- Jako implicitní řešení používat bezpečná řešení
+- Princip nejmenších práv
+- Důkladný a komplexní princip ochran
+- Každý externí systém vůči bezpečné aplikaci musí být implicitně považovaný za nedůvěryhodný
+- Chybný je koncept „Security through Obscurity“
+  - Spoléhá na utajení vnitřních mechanismů před útočníkem – např. ukrytí klíče pod rohožkou
+- Separace rolí
+- V jednoduchosti je síla
+- Správně opravovat chyby
 
 # Přednáška #2
 
