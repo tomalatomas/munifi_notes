@@ -383,6 +383,123 @@
 - Co se rozumí řízením rizik
 - Kdo má v instituci na starosti dosažení informační bezpečnosti
 
+## Standardy (normy) informační bezpečnosti
+
+- Cíl přednášky
+  - Co to jsou standardy, normy, doporučení?
+  - Jak vznikají standardy a doporučení?
+  - Kdo je kdo ve světě standardů a doporučení ?
+  - Které standardy informační bezpečnosti jsou reprezentativní ?
+- Standard
+  - Úmluva o technické specifikaci nebo jiném stanoveném kritériu
+  - Umožňují dosáhnout základní "kvalitativní" úrovně podobné nebo dokonce kompatibilních systémů a podpořit jejich interoperabilitu
+  - Standardy lze použít jako měřítko pro porovnávání
+  - Standard je jen dokument
+    - interpretace se mohou lišit, zvláště při překladu do různých jazyků
+  - Pokud produkt vyhoví jen podstatné části standardu, pak v podstatě vyhovuje standardu, ale není vyhovující standardu
+- Standard x Norma x Doporučení
+  - V Česku se tradičně používá pojem „norma“, celosvětově standard
+  - Doporučení - termín používaný některými organizacemi
+
+### De facto standard
+
+- Standard vypracovaný v rámci jisté komunity
+- před jeho vydáním odsouhlasí, že standard odpovídá jí stanoveným cílům
+- De facto standard reprezentuje spíše liberální pohled na svět
+- Vyzrálé de facto standardy, které se ukázaly jako efektivní, se často přepracovávají/přebírají na de iure standardy
+- Např. standardy RFC (Internet standardy), ISACA (Výpočetní systémy), OWASP (Web aplikace), ISF (Informační bezpečnost)
+- Firemní, proprietární standardy
+  - Např. PKCS (Public-Key Cryptography Standards) publikovaný RSA Labs
+
+### De iure standard
+
+- Standard „podle práva“
+- Schválený autoritou (státní)
+- De iure standard reprezentuje silně konzervativní pohled na svět
+- Vydávají se pomaleji jak Dfs
+
+### Závaznost standardů
+
+- Žádný standard sám o sobě nemá charakter právního předpisu
+- Právní předpis může stanovit povinné vyhovění standardu
+  - V tom případě se obvykle dává přednost de iure standardům
+
+### Certifikát
+
+- Produkt, služba, proces, … může být prohlášena za vyhovující standardu
+  - Požadavek vyhovění může být předepsaný zákonem, smlouvou
+- Produkt, služba, proces, … může být certifikovaný
+  - existuje certifikát potvrzující, že je vyhovující standardu
+  - Certifikace - neutrální důvěryhodná třetí strana prověří validitu prohlášení o vyhovění standard a vydá o tom relevantní certifikát
+
+### ISO Standardy
+
+- ISO (International Organization for Standardization)
+- Důležitá rodina standardů ISO/IEC 27000
+  - V současnosti celosvětové uznávaný základní standard zajišťování informační bezpečnosti
+
+#### Životní cyklus ISO standardu
+
+- Odpovědnost za tvorbu norem v dílčích oblastech mají technické výbory, Technical Committees, TC
+- Návrh nové pracovní položky -> úrovně návrh standardu (Committee Draft – 3 měsíce, Draft International Standard – 6 měsíců, Final DIS – 2 měsíce)
+- Obvykle pětiletá perioda hodnocení mezinárodního standardu
+  - Když se odhalí vada standardu , jsou přijímána opatření, aby standardy byly revidovány i dříve
+
+#### ISO/IEC 27001
+
+- Definuje požadavky na funkcionalitu a vlastnosti systému správy (řízení)
+  informační bezpečnosti
+- Standard je detailním popisem požadavků, které musí/má ISMS splnit, pokud ISMS chce standardu vyhovět
+- Je nezávislý na technologii, určený pro organizace všech typů, velikostí a podstat, působících v jakémkoli sektoru, kdekoli ve světě
+- 27001 nařizuje použít 27002 jak zdroj návodů pro volbu a implementaci opatření, nezakazuje použití i dalších zdrojů
+
+#### ISO/IEC 27002
+
+- V dodatku standard 27001 uvádí seznam cílů opatření definovaných v ISO/IEC 27002
+  - ISO/IEC 27002 obsahuje návody, jak je implementovat
+- Doporučení jak navrhovat, implementovat, udržovat a vylepšovat opatření prosazující informační bezpečnost, používá slova may , should(může, měl by)
+
+## Legislativa informační bezpečnosti
+
+TODO: Po půlsemestrálce
+
+## Řízení rizik
+
+- Popsáno v ISO/IEC 27005
+
+### Rizika
+
+- Využití zranitelnosti
+- Mohou plynout z
+  - změna byznys modelu
+  - nevyhovíme zákonu
+  - nízká kvalita návrhu, provozu aplikací
+  - z přírody
+- Riziko se vyjadřuje
+  - V pravděpodobnostních pojmech
+    - s jakou pravděpodobností se hrozba uplatní
+  - V pojmech charakterizujících dopad hrozby
+    - velikost škody způsobené útokem
+  - Generické kombinované vyjádření úrovně rizika
+    - úroveň rizika = F(pravděpodobnost útoku) × F´(dopad útoku)
+- Rizika se zvládají volbou a uplatňováním vhodných opatření
+- Abychom riziko eliminovali nebo snížili, musíme:
+  - ohodnotit
+  - identifikovat
+  - analyzovat
+  - vyhodnotit (určit jeho úroveň)
+
+### Procesy řízení rizik
+
+- Ustanovení kontextu
+- Ohodnocení rizik
+- Zvládnutí rizik
+- Akceptace rizik
+- Informování o rizicích
+- Monitorování a přezkoumávání rizik a procesu řízení rizik
+
+## Řízení informační bezpečnosti v organizaci - Management, role a odpovědnosti
+
 # Přednáška #3
 
 - Politiky jako specifikátory toho co a jak dělat
