@@ -2,7 +2,7 @@
 
 **Use at your own risk**
 
-# Přednáška #1
+# [Přednáška #1](https://is.muni.cz/auth/el/fi/podzim2022/PV017/um/PV017_01.pdf)
 
 - Co se rozumí bezpečností a informační bezpečností zvláště
 - Koncept a anatomie informační bezpečnosti
@@ -376,7 +376,7 @@
 - V jednoduchosti je síla
 - Správně opravovat chyby
 
-# Přednáška #2
+# [Přednáška #2](https://is.muni.cz/auth/el/fi/podzim2022/PV017/um/PV017_02.pdf)
 
 - Jak významná je role standardů, bez nich ani ránu
 - Legislativní rámec
@@ -666,6 +666,81 @@ radou
 - Systém procesů zajišťující kontinuální efektivitu zabezpečování
 - Jak takový systém procesů projektovat
 - Schvaluje metody ochran mobilních zařízení a komunikací
+
+## Politika
+
+- pravidla řídící dosažení cílů určenými způsoby
+- Organizace může mít řadu politik, jednu pro každou z oblastí činnosti, které jsou pro organizaci důležité.
+- Pro oblasti bezpečnosti organizace mají být politiky organizovány hierarchicky
+  - Na nejvyšší úrovni je bezpečnostní politika organizace
+    - Souhrn bezpečnostních zásad a předpisů, pravidel definujících správu a ochranu aktiv
+    - Definuje způsob zabezpečení organizace jako celku
+  - Politika InfoSec 
+    - co proti čemu chránit
+    - souhrn bezpečnostních zásad a předpisů pro ochranu informačních aktiv
+    - Stanovuje koncepci informační bezpečnosti organizace v horizontu 5-10 let
+    - nezávislá na konkrétně použitých IT
+  - Politika ISMS
+    - jak navrhovat, vyvíjet, provozovat a hodnotit procesy plnící politiku InfoSec
+  - ISO/IEC 27001 žádá, aby organizace měla jak politiku ISMS tak i politiku informační bezpečnosti
+
+### Bezpečnostní politika systému zpracování informací
+
+- normy, pravidla, praktiky, předpisy konkrétně definující způsob správy, ochrany, distribuce citlivé informace a jiných IT zdrojů v oblasti vymezené systémem
+- Určuje způsob zabezpečení informací v daném systému v horizontu 2–5 let
+
+### Tvorba politiky informační bezpečnosti
+
+- Tvorba politiky je obvykle iterativní proces
+- Politika musí být
+  - Schválená vedením organizace
+  - Pravidelně přezkoumávaná a aktualizovaná
+- Politika informační bezpečnosti má pokrývat/obsahovat:
+  - Kritéria evaluace (vyhodnocení) rizik
+  - Strukturu procesu ohodnocení rizik
+  - Nástin přístupu k řízení rizik
+- Tipy
+  - Zaměstnanci musí být školení pro dodržování bezpečnostní politiky
+  - Bezpečnostní politika nebude organizaci chránit před všemi možnými hrozbami
+  - Politika informační bezpečnosti by měla být klíčovým faktorem při všech rozhodnutích o činnosti organizace
+    - není pravda, že ovlivňuje činnost pouze IT oddělení
+- Většina organizací vytváří politiku informační bezpečnosti podle standardu ISO/IEC 27002
+- Důvěryhodná bezpečnostní politika zpracování informací je základní kámen **systému řízení informační bezpečnosti ISMS**
+  
+#### Deklarace politiky informační bezpečnosti
+
+- Maximální rozsah 2 až 3 strany A4
+- Odpovědi na klíčové otázky
+  - Pro koho bude politika informační bezpečnosti závazná?
+  - Kde bude oblast působnosti politiky informační bezpečnosti?
+  - Co politika informační bezpečnosti chrání ?
+  - Proč se politika informační bezpečnosti zavádí ?
+
+### Management/správa bezpečnosti
+
+- Mezi řídící úkony z hlediska bezpečnosti patří:
+  - Nové funkce systému
+  - Bezchybné detekování dosud neidefikovaných zranitelností systému
+
+### Bezpečnostní audit
+
+- Hlavní cíle auditu
+  - Kontrola, zda byly bezpečnostní procedury definované správně
+  - Detekce „bezpečnostních děr“
+- Audit provádí role plně nezávislá na bezpečnostní exekutivě
+
+## ISMS
+
+- Information Security Management System, ISMS, Systém řízení informační bezpečnosti
+- Cílem ISMS je zajistit trvalou aktuálnost politiky informační bezpečnosti a trvalou úroveň zabezpečení informací
+- Bázová idea
+  - Model Plan-Do-Check-Act , PDCA - cyklický proces:
+    → Plan (zavedení ISMS, projekt a detailní návrh ISMS)
+    → Do (implementace ISMS)
+    → Check (sledování, monitorování, měření efektivnosti ISMS)
+    → Act(definice vylepšení ISMS)
+    → Plan …
+<img src="images/pdca.png" height="400"/>
 
 # Přednáška #4
 
