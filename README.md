@@ -492,19 +492,180 @@ TODO: Po půlsemestrálce
 ### Procesy řízení rizik
 
 - Ustanovení kontextu
+  - Vymezení účelu provedení řízení rizik
+  - Zajištění zdrojů pro řízení rizik
+  - Stanovení kritérií pro vyhodnocení dopadů útoků, úrovní rizik, akceptovatelnosti rizik
 - Ohodnocení rizik
-- Zvládnutí rizik
-- Akceptace rizik
+  - získání informací pro účinné určení/volbu opatření potřebných ke změně rizik na přijatelnou úroveň pomocí procesů
+  - Výstupem ohodnocení rizik je
+    - seznam ohodnocených rizik, řazený podle kritérií hodnocení rizik
+    - Prohlášení o aplikovatelnosti vhodných opatření řešících snižování/eliminaci ohodnocených rizik
+  - **Identifikace rizik**
+  - **Analýza rizik** - určení velikosti rizik
+  - **Vyhodnocení rizik**- určení úrovní rizik porovnáním vůči stanoveným kritériím
+- Zvládnutí rizik 
+  - proces modifikující rizika, výběr a implementace opatření snižujících rizika
+  - Určí rizika
+    - která se eliminují
+    - která nelze eliminovat a sníží se na akceptovatelnou úroveň
+    - která se přenesou smluvně nebo pojištěním na jinou organizaci
+  - Určí tolerovaná rizika, pro která se po zvážení odmítla opatření, která by je udržovala na akceptovatelné úrovni, akceptovatelná rizika
+- Akceptace rizik 
+  - rozhodování o přijatelnosti rizika dle stanovených kritérií
 - Informování o rizicích
+  - sdělení informace o rizicích všem, kdo může rizika ovlivnit či být riziky ovlivněn
 - Monitorování a přezkoumávání rizik a procesu řízení rizik
 
 ## Řízení informační bezpečnosti v organizaci - Management, role a odpovědnosti
+
+- V organizaci musí fungovat systém procesů, standardů a praktik, kterým se řídí a ovládají aktivity zajišťující v organizaci informační bezpečnost
+- Řízení informační bezpečnosti musí 
+  - Sladit cíle a strategie informační bezpečnosti s podnikatelskými cíli a strategiemi
+  - Dodržovat legislativu, právní předpisy a smlouvy
+  - Být posuzováno, analyzováno a implementováno principy 
+    - danými výsledky řízením rizik
+    - podporovanými vnitřním řídícím a kontrolním systémem organizace
+
+### Vrcholový (top) management organizace 
+
+- odpovědné za chod organizace jako celku
+- vytváří  koncepce podnikání a strategie pro rozvoj organizace
+- definuje cíle, které jsou na nižších úrovních managementu postupně dekomponovány až na úroveň operativních cílů
+- Tradiční struktura organizace - dualistický model řízení
+  - správní rada řídí organizaci a dělí své pravomoce a odpovědnosti mezi dozorčí radu a výkonné vedení
+  - **Správní rada** (Governing Body)
+    - Určuje strategie vymezující politiky řídící činnosti organizace a zajišťuje jejich prosazování/dodržování
+    - Skupina osob odpovědných vlastníkům organizace za soulad činností organizace s jejími cíli
+    - obvykle dozorčí rada a výkonné vedení 
+  - **Dozorčí rada** (Supervizory Board)
+    - typicky se schází několikrát do roka (obvykle 4-8 x), aby mohlo odsouhlasit zásadní změny ve společnosti.
+  - **Výkonné vedení** (Executive Management)
+    - Osoba nebo skupina lidí, na které dozorčí rada přenáší odpovědnost za implementaci strategií a politik pro dosažení cílů organizace
+      - Veškerý chod organizace je pak delegovaný na výkonného (generálního) ředitele (CEO) 
+  - Board of Directors, řada ředitelů, nejvyšší (výkonný) management
+    - Chief Executive Officer, Chief Financial Officer, Chief Operating Officer
+  - Board of Directors – 1, střední (výkonný) management
+    - Chief Information Officer, Chief Information Security Officer
+
+### Zásady řízení informační bezpečnosti organizace
+
+- Informační bezpečnost se zavádí v rámci celé organizace
+- Odpovědnost za informační bezpečnost a za její sledovatelnost má být promítnuta do všech činnosti organizace
+- Zavedení informační bezpečnosti vychází z výstupů procesů řízení rizik
+- Investiční strategie informační bezpečnosti je dána podnikatelskými cíli organizace 
+- Musí být zajištěna shoda s interními a externími požadavky
+- Hodnocení výkonnosti informační bezpečnosti musí sledovat cíle podnikatelských činností 
+- Musí se podporovat prostředí s pozitivním přístupem k informační bezpečnosti 
+- Model (procesů) řízení informační bezpečnosti v organizaci
+  - <img src="images/proces.png" height="400"/>
+
+### Procesy řízení informační bezpečnosti organizace
+
+#### Hodnocení
+
+- Správní rada musí 
+  - Zajistit, aby podnikatelské iniciativy zohledňovaly problémy informační bezpečnosti
+- Výkonný management musí
+  - Zajistit, aby informační bezpečnost dostatečně podporovala a udržovala plnění
+podnikatelských cílů
+
+#### Řízení
+
+- Správní rada musí 
+  - Vymezit akceptovatelnou výši rizik pro organizaci
+  - Schvalovat strategii a politiku informační bezpečnosti
+  - Přidělit odpovídající investice a zdroje 
+- Výkonný management musí
+  - rozvíjet a realizovat strategii a politiku informační bezpečnosti
+  - slaďovat cíle informační bezpečnosti s podnikatelskými cíli
+  - prosazovat pozitivní kulturu informační bezpečnosti
+
+#### Monitorování
+
+- Správní rada musí
+  - Posuzovat účinnost řídicích aktivit informačních činností
+  - Zajišťovat shodu s interními a externími požadavky
+  - Brát do úvahy měnící se podnikatelské, právní a regulační prostředí a potenciální
+dopad jejich změn na informační rizika 
+- Výkonný management musí
+  - Vybrat výkonnostní metriky relevantní z hlediska podnikání
+  - Poskytovat správní radě zpětnou vazbu o výsledcích měření výkonu opatření
+informační bezpečnosti, včetně jejich dopadů na organizaci
+  - Upozorňovat správní radu na nové skutečnosti týkajících se informačních rizik a
+informační bezpečnosti
+
+#### Komunikace
+
+- Správní rada musí
+  - Externím zainteresovaným stranám sdělovat, že organizace uplatňuje úroveň informační bezpečnosti přiměřenou povaze jejího podnikání
+  - Sdělovat výkonnému managementu výsledky externích přezkumů, ve kterých byly identifikovány problémy v oblasti informační bezpečnosti, a požadovat po něm zajištění nápravných opatření
+  - Rozpoznávat legislativní závazky, očekávání zainteresovaných stran a potřeby podnikání z oblasti informační bezpečnosti
+- Výkonný management musí
+  - Informovat správní radu o všech záležitostech, které vyžadují pozornost a případně i rozhodnutí
+  - Instruovat příslušné zúčastněné strany detailních akcích, které se mají provést na podporu prosazení směrnic a rozhodnutí správní rady
+
+
+#### Získání záruk
+
+- Správní rada musí
+  - Objednávat nezávislé a objektivní názory na to, jak plní své odpovědnosti za
+zajištění a udržení požadované úrovně informační bezpečnosti
+- Výkonný management musí
+  - podporovat provádění auditu, hodnocení nebo certifikace objednané správní
+radou
+
+### Management organizace (z pohledu informační bezpečnosti)
+
+- Správní rada – výkonný management + dozorčí rada
+- Nejvyšší výkonný management (Board of Directors)
+- Střední výkonný management (Board of Directors – 1)
+- Řídící výbor (informační bezpečnosti), příp. samostatných architekt informační bezpečnosti
+- Ředitel odboru (manažer) informační bezpečnosti, CISO, Chief of Information Security Officer
+- Lokální správci (informační bezpečnosti)
+- Administrátoři systémů
+- Auditoři
+
+### Odpovědnosti řídícího výboru informační bezpečnosti
+
+- ......
+- Stanovení cílů informací bezpečnosti v organizaci
+- Odsouhlasení specifických rolí a odpovědností napříč celou organizací 
+- Odsouhlasení charakteristik metodologií a procesů použitých pro implementaci politiky informační bezpečnosti
+- Kontrola, zda jsou v organizaci dostupné zdroje pro dosažení cílů
+- Posuzování a schvalování BP
+- .....
+
+### Manažer informační bezpečnosti, CISO
+
+- Vypracovává seznam stran zainteresovaných na ITSec, seznam požadavků na ITSec od/na zainteresované strany
+- Koordinuje činnosti související s ochranou osobních dat
+- Posuzuje rizika, kvalitu ISMS
+- Navrhuje metody autentizace, šifrování
+
+### Odpovědnosti za informační bezpečnost
+
+- Oddělení IT
+  - Bezpečnost servroven
+  - Zajištění výkonu bezpečnostních opatření systémů, za které odpovídají
+- Lokální administrátoři/správci systémů
+  - monitorování systémů, příprava bezpečnostních postupů
+- Správci systémů na úrovni systému
+  - Identifikace hrozeb, hodnocení rizik, implementace vybraných systémových opatření
+- Správci sítí na úrovni domény nebo samostatné sítě
+  - Identifikace hrozeb v mezích sítě, hodnocení rizik, implementace vybraných síťových opatření 
+- Správci areálů
+  - Identifikace hrozeb, hodnocení rizik, implementace vybraných fyzických opatření
+- Uživatelé IT
+  -  dodržování přihlašovacích pravidel, zálohování dat
+- Třetí strany
+  - odpovědnosti stanoveny ve smlouvě
 
 # Přednáška #3
 
 - Politiky jako specifikátory toho co a jak dělat
 - Systém procesů zajišťující kontinuální efektivitu zabezpečování
 - Jak takový systém procesů projektovat
+- Schvaluje metody ochran mobilních zařízení a komunikací
 
 # Přednáška #4
 
