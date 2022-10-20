@@ -732,15 +732,166 @@ radou
 ## ISMS
 
 - Information Security Management System, ISMS, Systém řízení informační bezpečnosti
-- Cílem ISMS je zajistit trvalou aktuálnost politiky informační bezpečnosti a trvalou úroveň zabezpečení informací
-- Bázová idea
-  - Model Plan-Do-Check-Act , PDCA - cyklický proces:
-    → Plan (zavedení ISMS, projekt a detailní návrh ISMS)
-    → Do (implementace ISMS)
-    → Check (sledování, monitorování, měření efektivnosti ISMS)
-    → Act(definice vylepšení ISMS)
-    → Plan …
+- reprezentace jak organizace přistupuje k rizikům daným orientací na informační ekonomiku Cílem ISMS je zajistit trvalou aktuálnost politiky informační bezpečnosti a trvalou úroveň zabezpečení informací
+- systém řízení , který je
+  - Dokumentovaný, systematicky implementovaný a řízený
+  - Trvale přezkoumávaný, auditovaný a kontrolovaný, vylepšovaný
+  - DŮVĚRYHODNÝ systém pro řízení informační bezpečnosti
+- Z pohledu oblasti působnosti
+  - Jde o formální strukturu zajišťující konzistentní prosazování politiky informační bezpečnosti v oblasti, za kterou je management odpovědný
+- Cíl řízení pomocí procesů ISMS
+  - Správně fungující procesy podporující informační bezpečnost (autentizace, řízení přístupu, zálohování, podpisování, …) v činnostech organizace
+
+### ISO 27001/27002
+- **Bází pro budování ISMS** jsou standardy ISO 27001/ISO 27002
+  - 27001
+    - Říká jak navrhnout ISMS a co má ISMS dělat
+    - Splnění požadavků ISO 27001 lze potvrzovat certifikací
+      - Důkazem důvěryhodnosti ISMS
+      - v současnosti drží certifikát splnění ISO 27001 tisíce ISMS
+      - Musí existovat národní akreditační úřad (NAU)
+      - Certifikaci provádí třetí, nezávislá certifikační instituce
+        - u NAU se akredituje certifikační autorita
+      - **Certifikát ISO 9000 říká** - My jsme organizace kvalitně fungující z hlediska procesů činnosti (byznysu)
+      - **Certifikát ISO 27001 říká** - My jsme organizace kvalitně pečující o bezpečnost informací pomocí procesů cílených na zajištění informační bezpečnosti
+    - 27001:2013 - Specifikace ISMS ≡jak musí být ISMS udělaný
+      - Mimo jiné specifikuje Cíle a principy vybraných bezpečnostních opatření
+    - ISO/IEC 27001 obsahuje seznam nástrojů dle ISO/IEC 27002 jako menu
+      - Organizace přijímající ISO/IEC 27001 si z menu potřebné nástroje vybírá
+      - Výběr musí vycházet z výsledků analýzy rizik
+      - Škála opatření může být adekvátně rozšířena vůči ISO/IEC 27002
+  - 27002
+    - která bezpečnostní opatření může/má zabezpečovaný systém obsahovat
+
+### Výčet požadovaných a doporučovaných částí ISMS
+
+- Vlastnosti a charakter ISMS na první pohled výrazně charakterizuje výčet požadované a doporučované dokumentace ISMS
+  - Oblast působnosti ISMS
+  - Definice rolí a odpovědností v oblasti informační bezpečnosti
+    - Co nejpřesněji! Ne mělo by se provést , ale CISO každé pondělí v XX:YY udělá XYZ
+  - .....
+- Výčtová ilustrace požadovaných protokolů
+  - Viz přednáška
+- Výčtová ilustrace doporučované dokumentace ISMS
+  - Viz přednáška
+
+### Druhý vymezující faktor ISMS - oblast působnosti
+
+- Často samostatný, krátký dokument obvykle vypracovaný hned na počátku zavádění ISMS
+- Vymezení hranic toho, co se plánuje implementovat
+- Řízení informační bezpečnosti lze uplatňovat pouze v prostoru uvnitř vymezené oblasti
+- ISMS v definované oblasti zajišťuje řízení informační bezpečnosti v kontextu podnikatelských procesů organizace (procesů činnosti)
+- Informace do oblasti vstupuje a oblast opouští pomocí určených nástrojů
+  - V oblasti se musí nacházet úplná chráněná informace vč. všech souvisejících technických i netechnických procesů
+
+### Role participující na realizaci ISMS
+
+- CEO
+  - Odpovědnou osobou za ISMS vůči vedení firmy typicky bývá výkonný ředitel , CEO , Chief Executive Officer
+  - CEO může, ale nemusí být (a nebývá) šéfem projektu ISMS
+  - CEO musí plně podporovat šéfa projektu , poněvadž projekt ISMS je podnikatelský projekt, nikoli pouhý IT projekt
+  - CEO musí šéfovi projektu ISMS definovat strategická rizika pro organizaci a jejich projevy/preference z pohledu rizik pro informační bezpečnost
+- CISO
+  - správce informační bezpečnosti, role daná statutem organizace, má odpovědnost za zajišťování informační bezpečnosti
+- Šéf projektu ISMS
+  - osoba pověřená řízením vlastního projektu ISMS, role není standardem vázaná na roli CEO nebo na CIS
+
+- Projekt ISMS je projektem změny řízení v organizaci
+  - Vrcholový management se musí průkazně zavázat, že na realizaci projektu ISMS zajistí ekonomické a personální zdroje
+- Návrh a implementace ISMS je problém řízení, nikoli technologický problém 
+  - Dobrý manažer i bez znalostí a hlubokého porozumění technologiím zabezpečování a bez proniknutí do podstaty těchto technologií je schopný úspěšně vést návrh a implementaci ISMS
+
+### Postup budování ISMS
+
+- vydání seznamu aktuálních relevantních bezpečnostních problémů
+  - Pokud bude (certifikační) auditor pochybovat nebo bude nejistý, bude hledat radu a objasnění ve standardu
+  - To co standard nespecifikuje, to ještě nemusí být chybné - Standard vymezuje minimální požadavky, nikoli maximální požadavky
+- Zredukujte v zadání vše, co vypadá potencionálně složité, náročné na čas či zdroje, obtížné, … na to, o čem je každý přesvědčen, že je realizovatelné v rámci určeného času a přidělených zdrojů
+
+### Projekt zavedení, implementace ISMS
+
+- ISO/IEC 27003
+  - Návod k implementaci ISMS
+- Co je to projekt
+  -  soustava činností směřujících k předem stanovenému a jasně definovanému cíli
+
+#### Fáze zakázky projekt implementace ISMS
+
+- ZAHÁJENÍ PROJEKTU IMPLEMENTACE ISMS
+  - Získání souhlasu vedení organizace s projektem implementace ISMS
+  - Definování oblasti působnosti ISMS a politiky ISMS
+  - Dílčí fáze
+    - Uvědomění potřeby ISMS
+    - Získání odborných zkušeností
+    - Vymezení prostoru
+    - Formulování politiky
+- PŘÍPRAVA IMPLEMENTACE ISMS
+  - Analýza požadavků organizace na informační bezpečnost
+  - Ohodnocení rizik a vypracování plánu zvládnutí rizik
+- NÁVRH ISMS
+  - Návrh a implementace ISMS
+    - Úspěch projektu znamená splnění cíle ve třech dimenzích
+      - Věcně (CO, JAK, a V JAKÉ KVALITĚ se má udělat)
+      - Časově (KDY má být co provedeno - etapy/fáze, kroky, úkony)
+      - Nákladově (ZA KOLIK se to má udělat, nejprve ve spotřebované práci a pak v penězích)
+
+### Model PDCA
+
+- Standard ISO/IEC 27001 původně direktivně předpisoval použít pro projekt implementace ISMS procesní přístup podle metodologie PDCA
+- Model Plan-Do-Check-Act , PDCA - cyklický proces:
+  - Plan (zavedení ISMS, projekt a detailní návrh ISMS)
+    - Definice oblasti ISMS, politiky inf. bez., přístupu k ohodnocování rizik
+  - Do (implementace ISMS)
+    - Formulace plánu zvládání rizik a jeho dokumentace
+    - Implementace opatření v plánu zvládání rizik
+  - Check (sledování, monitorování, měření efektivnosti ISMS)
+    - Monitorování, ohodnocování, testování, audit činností řízených ISMS
+  - Act(definice vylepšení ISMS)
+    - Provedení oprav, identifikace, dokumentace a implementace vylepšení
 <img src="images/pdca.png" height="400"/>
+
+### Dokumentace ISMS
+
+- ISO 27001 požaduje dostupnost dokumentace
+- Tvorba dokumentace ISMS je časově nejnáročnější část projektu
+- Dokumentace ISMS musí být
+  - Úplná, vyčerpávající
+  - V souladu s požadavky standardu ISO 27001
+  - Dostupná a použitelná a adekvátně chráněná
+
+### 4-vrstvá struktura dokumentové základny ISMS
+
+<img src="images/4layerdocs.png" height="400"/>
+
+- Autorizační úrovně dokumentace
+  - 1. úroveň - vrcholový management, Board of Directors
+  - 2. úroveň - CSO (Chief Security Officer), správce bezpečnosti po projednání s řídicím výborem informační bezpečnosti
+  - 3. úroveň - CISO (Chief Information Security Officer), správce informační bezpečnosti + šéfové oddělení/odborů organizace
+  - 4. úroveň - CISO (Chief Information Security Officer), správce informační bezpečnosti + šéfové oddělení/odborů organizace
+
+- 1. vrstva - Politiky
+  - Nastavení politik - strategické poměrně řídce měněné dokumenty na vysoké úrovni abstrakce, stanovení principů
+  - Dokumenty autorizované nejvyšším managementem
+- 2. vrstva - Procedury
+  - Popis procedur pro implementaci politik, nastavení podnikatelských požadavků, procedur a procesů
+  - Dokumenty autorizované výkonným managementem
+- 3. vrstva - Pracovní instrukce 
+Dokumenty typu smlouva s uživatelem, popis práce, apod.
+- 4. vrstva - Zprávy
+  - Zprávy o tom, co se stalo, jak ISMS běžel
+
+### ISMS dále obsahuje dokumenty
+
+- Z oblasti správy informační bezpečnosti
+  - Soupis citlivých informačních aktiv v oblasti
+  - Hodnocení zranitelností, hrozeb a rizik pro tato aktiva
+  - Manuál ISMS obsahující Prohlášení o aplikovatelnosti
+- Z oblasti nástrojů pro plnění správy informační bezpečnosti 
+  - sestava popisů procesů, politik, procedur a návodů k činnostem zajišťující informační bezpečnost v oblasti
+
+### Typická dokumentová základna ISMS
+
+- Dokumenty tvořící Manuál ISMS, Důkazy akcí provedených organizací, Popis systému řízení informační bezpečnosti, Plán zvládání rizik, Procedury řídící správu a inspekci ISMS, Pracovní instrukce, Formuláře, šablony, zprávy o auditech
 
 # Přednáška #4
 
