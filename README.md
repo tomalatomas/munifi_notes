@@ -503,14 +503,14 @@ TODO: Po půlsemestrálce
   - **Identifikace rizik**
   - **Analýza rizik** - určení velikosti rizik
   - **Vyhodnocení rizik**- určení úrovní rizik porovnáním vůči stanoveným kritériím
-- Zvládnutí rizik 
+- Zvládnutí rizik
   - proces modifikující rizika, výběr a implementace opatření snižujících rizika
   - Určí rizika
     - která se eliminují
     - která nelze eliminovat a sníží se na akceptovatelnou úroveň
     - která se přenesou smluvně nebo pojištěním na jinou organizaci
   - Určí tolerovaná rizika, pro která se po zvážení odmítla opatření, která by je udržovala na akceptovatelné úrovni, akceptovatelná rizika
-- Akceptace rizik 
+- Akceptace rizik
   - rozhodování o přijatelnosti rizika dle stanovených kritérií
 - Informování o rizicích
   - sdělení informace o rizicích všem, kdo může rizika ovlivnit či být riziky ovlivněn
@@ -519,29 +519,29 @@ TODO: Po půlsemestrálce
 ## Řízení informační bezpečnosti v organizaci - Management, role a odpovědnosti
 
 - V organizaci musí fungovat systém procesů, standardů a praktik, kterým se řídí a ovládají aktivity zajišťující v organizaci informační bezpečnost
-- Řízení informační bezpečnosti musí 
+- Řízení informační bezpečnosti musí
   - Sladit cíle a strategie informační bezpečnosti s podnikatelskými cíli a strategiemi
   - Dodržovat legislativu, právní předpisy a smlouvy
-  - Být posuzováno, analyzováno a implementováno principy 
+  - Být posuzováno, analyzováno a implementováno principy
     - danými výsledky řízením rizik
     - podporovanými vnitřním řídícím a kontrolním systémem organizace
 
-### Vrcholový (top) management organizace 
+### Vrcholový (top) management organizace
 
 - odpovědné za chod organizace jako celku
-- vytváří  koncepce podnikání a strategie pro rozvoj organizace
+- vytváří koncepce podnikání a strategie pro rozvoj organizace
 - definuje cíle, které jsou na nižších úrovních managementu postupně dekomponovány až na úroveň operativních cílů
 - Tradiční struktura organizace - dualistický model řízení
   - správní rada řídí organizaci a dělí své pravomoce a odpovědnosti mezi dozorčí radu a výkonné vedení
   - **Správní rada** (Governing Body)
     - Určuje strategie vymezující politiky řídící činnosti organizace a zajišťuje jejich prosazování/dodržování
     - Skupina osob odpovědných vlastníkům organizace za soulad činností organizace s jejími cíli
-    - obvykle dozorčí rada a výkonné vedení 
+    - obvykle dozorčí rada a výkonné vedení
   - **Dozorčí rada** (Supervizory Board)
     - typicky se schází několikrát do roka (obvykle 4-8 x), aby mohlo odsouhlasit zásadní změny ve společnosti.
   - **Výkonné vedení** (Executive Management)
     - Osoba nebo skupina lidí, na které dozorčí rada přenáší odpovědnost za implementaci strategií a politik pro dosažení cílů organizace
-      - Veškerý chod organizace je pak delegovaný na výkonného (generálního) ředitele (CEO) 
+      - Veškerý chod organizace je pak delegovaný na výkonného (generálního) ředitele (CEO)
   - Board of Directors, řada ředitelů, nejvyšší (výkonný) management
     - Chief Executive Officer, Chief Financial Officer, Chief Operating Officer
   - Board of Directors – 1, střední (výkonný) management
@@ -552,10 +552,10 @@ TODO: Po půlsemestrálce
 - Informační bezpečnost se zavádí v rámci celé organizace
 - Odpovědnost za informační bezpečnost a za její sledovatelnost má být promítnuta do všech činnosti organizace
 - Zavedení informační bezpečnosti vychází z výstupů procesů řízení rizik
-- Investiční strategie informační bezpečnosti je dána podnikatelskými cíli organizace 
+- Investiční strategie informační bezpečnosti je dána podnikatelskými cíli organizace
 - Musí být zajištěna shoda s interními a externími požadavky
-- Hodnocení výkonnosti informační bezpečnosti musí sledovat cíle podnikatelských činností 
-- Musí se podporovat prostředí s pozitivním přístupem k informační bezpečnosti 
+- Hodnocení výkonnosti informační bezpečnosti musí sledovat cíle podnikatelských činností
+- Musí se podporovat prostředí s pozitivním přístupem k informační bezpečnosti
 - Model (procesů) řízení informační bezpečnosti v organizaci
   - <img src="images/proces.png" height="400"/>
 
@@ -563,18 +563,18 @@ TODO: Po půlsemestrálce
 
 #### Hodnocení
 
-- Správní rada musí 
+- Správní rada musí
   - Zajistit, aby podnikatelské iniciativy zohledňovaly problémy informační bezpečnosti
 - Výkonný management musí
   - Zajistit, aby informační bezpečnost dostatečně podporovala a udržovala plnění
-podnikatelských cílů
+    podnikatelských cílů
 
 #### Řízení
 
-- Správní rada musí 
+- Správní rada musí
   - Vymezit akceptovatelnou výši rizik pro organizaci
   - Schvalovat strategii a politiku informační bezpečnosti
-  - Přidělit odpovídající investice a zdroje 
+  - Přidělit odpovídající investice a zdroje
 - Výkonný management musí
   - rozvíjet a realizovat strategii a politiku informační bezpečnosti
   - slaďovat cíle informační bezpečnosti s podnikatelskými cíli
@@ -586,13 +586,13 @@ podnikatelských cílů
   - Posuzovat účinnost řídicích aktivit informačních činností
   - Zajišťovat shodu s interními a externími požadavky
   - Brát do úvahy měnící se podnikatelské, právní a regulační prostředí a potenciální
-dopad jejich změn na informační rizika 
+    dopad jejich změn na informační rizika
 - Výkonný management musí
   - Vybrat výkonnostní metriky relevantní z hlediska podnikání
   - Poskytovat správní radě zpětnou vazbu o výsledcích měření výkonu opatření
-informační bezpečnosti, včetně jejich dopadů na organizaci
+    informační bezpečnosti, včetně jejich dopadů na organizaci
   - Upozorňovat správní radu na nové skutečnosti týkajících se informačních rizik a
-informační bezpečnosti
+    informační bezpečnosti
 
 #### Komunikace
 
@@ -604,15 +604,14 @@ informační bezpečnosti
   - Informovat správní radu o všech záležitostech, které vyžadují pozornost a případně i rozhodnutí
   - Instruovat příslušné zúčastněné strany detailních akcích, které se mají provést na podporu prosazení směrnic a rozhodnutí správní rady
 
-
 #### Získání záruk
 
 - Správní rada musí
   - Objednávat nezávislé a objektivní názory na to, jak plní své odpovědnosti za
-zajištění a udržení požadované úrovně informační bezpečnosti
+    zajištění a udržení požadované úrovně informační bezpečnosti
 - Výkonný management musí
   - podporovat provádění auditu, hodnocení nebo certifikace objednané správní
-radou
+    radou
 
 ### Management organizace (z pohledu informační bezpečnosti)
 
@@ -629,7 +628,7 @@ radou
 
 - ......
 - Stanovení cílů informací bezpečnosti v organizaci
-- Odsouhlasení specifických rolí a odpovědností napříč celou organizací 
+- Odsouhlasení specifických rolí a odpovědností napříč celou organizací
 - Odsouhlasení charakteristik metodologií a procesů použitých pro implementaci politiky informační bezpečnosti
 - Kontrola, zda jsou v organizaci dostupné zdroje pro dosažení cílů
 - Posuzování a schvalování BP
@@ -652,11 +651,11 @@ radou
 - Správci systémů na úrovni systému
   - Identifikace hrozeb, hodnocení rizik, implementace vybraných systémových opatření
 - Správci sítí na úrovni domény nebo samostatné sítě
-  - Identifikace hrozeb v mezích sítě, hodnocení rizik, implementace vybraných síťových opatření 
+  - Identifikace hrozeb v mezích sítě, hodnocení rizik, implementace vybraných síťových opatření
 - Správci areálů
   - Identifikace hrozeb, hodnocení rizik, implementace vybraných fyzických opatření
 - Uživatelé IT
-  -  dodržování přihlašovacích pravidel, zálohování dat
+  - dodržování přihlašovacích pravidel, zálohování dat
 - Třetí strany
   - odpovědnosti stanoveny ve smlouvě
 
@@ -675,7 +674,7 @@ radou
   - Na nejvyšší úrovni je bezpečnostní politika organizace
     - Souhrn bezpečnostních zásad a předpisů, pravidel definujících správu a ochranu aktiv
     - Definuje způsob zabezpečení organizace jako celku
-  - Politika InfoSec 
+  - Politika InfoSec
     - co proti čemu chránit
     - souhrn bezpečnostních zásad a předpisů pro ochranu informačních aktiv
     - Stanovuje koncepci informační bezpečnosti organizace v horizontu 5-10 let
@@ -706,7 +705,7 @@ radou
     - není pravda, že ovlivňuje činnost pouze IT oddělení
 - Většina organizací vytváří politiku informační bezpečnosti podle standardu ISO/IEC 27002
 - Důvěryhodná bezpečnostní politika zpracování informací je základní kámen **systému řízení informační bezpečnosti ISMS**
-  
+
 #### Deklarace politiky informační bezpečnosti
 
 - Maximální rozsah 2 až 3 strany A4
@@ -743,6 +742,7 @@ radou
   - Správně fungující procesy podporující informační bezpečnost (autentizace, řízení přístupu, zálohování, podpisování, …) v činnostech organizace
 
 ### ISO 27001/27002
+
 - **Bází pro budování ISMS** jsou standardy ISO 27001/ISO 27002
   - 27001
     - Říká jak navrhnout ISMS a co má ISMS dělat
@@ -769,7 +769,21 @@ radou
   - Oblast působnosti ISMS
   - Definice rolí a odpovědností v oblasti informační bezpečnosti
     - Co nejpřesněji! Ne mělo by se provést , ale CISO každé pondělí v XX:YY udělá XYZ
-  - .....
+- Dokumentace doporučená
+  - Správa dokumentů
+  - Nástroje pro správu protokolů
+  - proces opravné akce,
+  - politika vzdálené práce, klasifikace infcí, hesel, likvidace a destrukce, čistého stolu a monitoru, změn. řízení, zálohování, dopadů činnosti na IB
+  - plán cvičení a testování, údržby, oponentur
+  - strategie zachování činnosti
+- Záznamy požadované
+  - zápisy ze schůzí, zprávy specialistů, (oponentní) zprávy
+  - seznamy (aktiv, hrozeb, ...)
+  - výsledky auditů, testování
+  - výsledky měření a monitorování vč. KPI
+  - závěry z oponentur (jednání mngmentu)
+  - výsledky opravných akcí
+  - logy uživ. aktivit, BU, …
 - Výčtová ilustrace požadovaných protokolů
   - Viz přednáška
 - Výčtová ilustrace doporučované dokumentace ISMS
@@ -794,11 +808,12 @@ radou
 - CISO
   - správce informační bezpečnosti, role daná statutem organizace, má odpovědnost za zajišťování informační bezpečnosti
 - Šéf projektu ISMS
+
   - osoba pověřená řízením vlastního projektu ISMS, role není standardem vázaná na roli CEO nebo na CIS
 
 - Projekt ISMS je projektem změny řízení v organizaci
   - Vrcholový management se musí průkazně zavázat, že na realizaci projektu ISMS zajistí ekonomické a personální zdroje
-- Návrh a implementace ISMS je problém řízení, nikoli technologický problém 
+- Návrh a implementace ISMS je problém řízení, nikoli technologický problém
   - Dobrý manažer i bez znalostí a hlubokého porozumění technologiím zabezpečování a bez proniknutí do podstaty těchto technologií je schopný úspěšně vést návrh a implementaci ISMS
 
 ### Postup budování ISMS
@@ -813,7 +828,7 @@ radou
 - ISO/IEC 27003
   - Návod k implementaci ISMS
 - Co je to projekt
-  -  soustava činností směřujících k předem stanovenému a jasně definovanému cíli
+  - soustava činností směřujících k předem stanovenému a jasně definovanému cíli
 
 #### Fáze zakázky projekt implementace ISMS
 
@@ -846,9 +861,8 @@ radou
     - Implementace opatření v plánu zvládání rizik
   - Check (sledování, monitorování, měření efektivnosti ISMS)
     - Monitorování, ohodnocování, testování, audit činností řízených ISMS
-  - Act(definice vylepšení ISMS)
-    - Provedení oprav, identifikace, dokumentace a implementace vylepšení
-<img src="images/pdca.png" height="400"/>
+  - Act(definice vylepšení ISMS) - Provedení oprav, identifikace, dokumentace a implementace vylepšení
+    <img src="images/pdca.png" height="400"/>
 
 ### Dokumentace ISMS
 
@@ -864,6 +878,7 @@ radou
 <img src="images/4layerdocs.png" height="400"/>
 
 - Autorizační úrovně dokumentace
+
   - 1. úroveň - vrcholový management, Board of Directors
   - 2. úroveň - CSO (Chief Security Officer), správce bezpečnosti po projednání s řídicím výborem informační bezpečnosti
   - 3. úroveň - CISO (Chief Information Security Officer), správce informační bezpečnosti + šéfové oddělení/odborů organizace
@@ -875,8 +890,8 @@ radou
 - 2. vrstva - Procedury
   - Popis procedur pro implementaci politik, nastavení podnikatelských požadavků, procedur a procesů
   - Dokumenty autorizované výkonným managementem
-- 3. vrstva - Pracovní instrukce 
-Dokumenty typu smlouva s uživatelem, popis práce, apod.
+- 3. vrstva - Pracovní instrukce
+     Dokumenty typu smlouva s uživatelem, popis práce, apod.
 - 4. vrstva - Zprávy
   - Zprávy o tom, co se stalo, jak ISMS běžel
 
@@ -886,12 +901,20 @@ Dokumenty typu smlouva s uživatelem, popis práce, apod.
   - Soupis citlivých informačních aktiv v oblasti
   - Hodnocení zranitelností, hrozeb a rizik pro tato aktiva
   - Manuál ISMS obsahující Prohlášení o aplikovatelnosti
-- Z oblasti nástrojů pro plnění správy informační bezpečnosti 
+- Z oblasti nástrojů pro plnění správy informační bezpečnosti
   - sestava popisů procesů, politik, procedur a návodů k činnostem zajišťující informační bezpečnost v oblasti
 
 ### Typická dokumentová základna ISMS
 
 - Dokumenty tvořící Manuál ISMS, Důkazy akcí provedených organizací, Popis systému řízení informační bezpečnosti, Plán zvládání rizik, Procedury řídící správu a inspekci ISMS, Pracovní instrukce, Formuláře, šablony, zprávy o auditech
+
+### Testování
+
+- Typy: ext. nebo int. audit
+- Testy podle koncepce:
+  - myšlenkové: logické testování na papíře
+  - reálné: penetrační testy, ztráty energie, …
+  - scénářově orient. testy
 
 # Přednáška #4
 
