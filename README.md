@@ -104,6 +104,101 @@ Podle druhu a paremetrů klíčů dělíme na:
 - Nerozšifrováváme – dešifrujeme
 - Neautentikujeme, neautentifikujeme a neidentizujeme – autentizujeme a identifikujeme
 
+### Otázky
+
+- **Digitální podpis ověříme pomocí**
+
+  - Veřejného klíče podepisující osoby
+  - Soukromého klíče podepisující osoby
+  - Privátního klíče podepisující osoby
+  - Certifikátu veřejného klíče podepisující osoby
+  - Klíče sdíleného s podepisující osobou
+  <details> <summary>Odpověď</summary>
+
+  - Veřejného klíče podepisující osoby
+  - Certifikátu veřejného klíče podepisující osoby
+  </details>
+
+- **Digitální podpis může vytvořit**
+
+  - Pouze osoba vlastnící sdílený klíč
+  - Pouze osoba vlastnící soukromý klíč
+  - Pouze osoba vlastnící veřejný klíč
+  - Pouze osoba vlastnící certifikovaný klíč
+  <details> <summary>Odpověď</summary>
+
+  - Pouze osoba vlastnící soukromý klíč
+  </details>
+
+- **Co je to zaručený elektronický podpis**
+
+  - Jednoznačně ověřitelný podpis
+  - Podpis, který má záruky srovnatelné jako elektronický podpis
+  - Elektronický podpis, za který se dokážeme nějak důvěryhodně zaručit
+  - Podpis vytvořený pomocí kryptografických prostředků
+  <details> <summary>Odpověď</summary>
+  - Jednoznačně ověřitelný podpis
+  - Elektronický podpis, za který se dokážeme nějak důvěryhodně zaručit
+  </details>
+
+- **V dobrých autentizačních protokolech se typicky**
+
+  - Heslo posílá v hašované podobě
+  - Heslo neposílá vůbec
+  - Heslo posílá v otevřené podobě
+  <details> <summary>Odpověď</summary>
+
+  - Heslo posílá v hašované podobě
+  - Heslo neposílá vůbec
+  </details>
+
+- **Pro bezpečné používání digitálního podpisu**
+
+  - Je nutné zajistit integritu privátního klíče
+  - Je nutné zajistit integritu veřejného klíče
+  - Je nutné udržet privátní klíč v tajnosti
+  - Je nutné udržet veřejný klíč v tajnosti
+  <details> <summary>Odpověď</summary>
+
+  - Je nutné udržet privátní klíč v tajnosti
+  - Je nutné zajistit integritu veřejného klíče
+  </details>
+
+- **Při kombinaci šifrování veřejným klíčem a podpisu dokumentu se doporučuje operace provést v následujícím pořadí**:
+
+  - Podpis, šifrování, podpis
+  - Šifrování, podpis, šifrování
+  - Šifrování, podpis
+  - Na pořadí operací nezáleží
+  - Podpis, šifrování
+  <details> <summary><b>Odpověď</b></summary>
+
+  - Podpis, šifrování
+  </details>
+
+- **Integrita dat znamená**:
+
+  - Data v původní podobě lze obnovit i přesto, že byla modifikována
+  - Data nebyla neautorizovaně změněna pouze v průběhu přenosu nezabezpečeným kanálem
+  - Data nebyla neautorizovaně změněna
+  - Data nebyla autorizovaně předána
+  <details> <summary><b>Odpověď</b></summary>
+
+  - Data nebyla neautorizovaně změněna
+  </details>
+
+- **Nadpis**:
+
+  - Odp1
+  - Odp2
+  - Odp3
+  - Odp4
+  - Odp5
+  <details> <summary><b>Odpověď</b></summary>
+
+  - CorrOdp
+  </details>
+
 ## Přednáška #2: Autentizace uživatelů tajnými informacemi
 
 3 úrovně tajných informací
