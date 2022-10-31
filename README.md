@@ -30,13 +30,10 @@
 - Ochrana proti úmyslným škodám, nežádoucím akcím na informačních aktivech.
 - ISO/IEC 27002
   - Dokument, obsahující výčet technologií, standardů, politik a manažerských praktik vhodných pro zajištění informační bezpečnosti
-  - Dle standardu je informace je bezpečná, když je:
-    - Přístupná pouze oprávněným subjektům
-    - Modifikovatelná pouze oprávněnými subjekty
-    - Dostupná oprávněným subjektům (do stanovené doby)
+  - Dle standardu je informace je bezpečná, když je **Přístupná, Modifikovatelná a Dostupná** (do stanovené doby) pouze oprávněným subjektem
 - Informace je bezpečná, když je zajištěná její:
   - **Důvěrnost** (confidentiality, C),
-    - omezení přístupu k informacím a jejich zpřístupnění pouze oprávněným uživatelům („správným lidem“) a zabránění přístupu k informacím nebo jejich prozrazení neoprávněným uživatelům
+    - zpřístupnění přístupu k informacím pouze oprávněným uživatelům
   - **Integrita** (integrity, I),
     - Integrita zdroje - změny zdroje smí provádět pouze autorizované subjekty a autorizované mechanismy
     - Integrita dat - data nesmí být nevhodně, náhodně a/nebo záměrně nějakou škodlivou činností změněna
