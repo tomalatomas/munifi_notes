@@ -316,25 +316,86 @@ Nejčastěji používané tokeny:
 
   - **Útoky přes API** - API jsou často složitá, s mezerami, rozsáhlým složitým rozhraním, nedokumentovanými věcmi, kódem který se zapomněl odstranit, atd.
 
-**Autentizační kalkulátory** - tvoří důvěryhodný interface pro práci s čipovou kartou. Obvykle používají protokol výzva-odpověď, kde odpověď je funkcí tajné informace a výzvy. Přenos info vstup/výstup buď manuálně (klávesnice/display) nebo automaticky (optika, barcode, infrared). Může vyžadovat prostě standardní PIN (a někdy i nouzový, který útočníka pořád pustí dovnitř, ale třeba k tomu upozorní policii).
+**Autentizační kalkulátory** - tvoří důvěryhodný interface pro práci s čipovou kartou.
 
-**Tokeny založené na hodinách** - často v kombinaci s autentizačními kalkulátory. V daném okamžiku dávají správnou hodnotu jedinečnou pro daný přístroj, co platí pro určitý čas a server ji taky umí spočítat a čeká ji. Problém ztráty synchronizace hodin, často server bere i výstup z T-1 a T+1 a pokud obdrží takto zpožděný/dopředný záznam, bere to jako že hodiny se v tom desynchronizovaly a od příště počítá s touto hodnotou.
+- Obvykle používají protokol výzva-odpověď, kde odpověď je funkcí tajné informace a výzvy.
+- Přenos info vstup/výstup buď manuálně (klávesnice/display) nebo automaticky (optika, barcode, infrared).
+- Může vyžadovat prostě standardní PIN (a někdy i nouzový, který útočníka pořád pustí dovnitř, ale třeba k tomu upozorní policii).
+
+**Tokeny založené na hodinách** - často v kombinaci s autentizačními kalkulátory.
+
+- V daném okamžiku dávají správnou hodnotu jedinečnou pro daný přístroj, co platí pro určitý čas a server ji taky umí spočítat a čeká ji.
+- Problém ztráty synchronizace hodin, často server bere i výstup z T-1 a T+1 a pokud obdrží takto zpožděný/dopředný záznam, bere to jako že hodiny se v tom desynchronizovaly a od příště počítá s touto hodnotou.
 
 **Bezkontaktní karta** - posílá prostě jen svoje ID, lze snadno odpozorovat a zfalšovat.
 
-**Výhody tokenů**: Rychle se zjistí ztráta, nejdou jednoduše okopírovat, samy o sobě mohou být schopny zpracovat nebo přenést další informace.
+**FIDO Token** - Fast IDentity Online
 
-**Nevýhody tokenů**: Ke kontrole často třeba special čtečka/zařízení/školená osoba. Bez tokenu není uživatel autorizován (naproti tomu heslo/biometriku nejde “zapomenout doma”). Může se rozbít, přestat fungovat nebo fungovat částečně a jde to těžko detekovat. Token musí být dost složitý aby ho nešlo snadno okopírovat.
+- Pro každou aplikaci má dedikovanou sadu klíčů, nikoliv jeden klíč.
+- Lze svázat klíč s URL a kanálem TLS.
+- Podpora všech významných WWW prohlížečů
 
-<div style="page-break-after: always; break-after: page;"></div>
+**Výhody tokenů**:
 
-## Téma #4: Biometrické autentizační metody
+- Rychle se zjistí ztráta,
+- nejdou jednoduše okopírovat,
+- samy o sobě mohou být schopny zpracovat nebo přenést další informace.
+
+**Nevýhody tokenů**:
+
+- Ke kontrole často třeba special čtečka/zařízení/školená osoba.
+- Bez tokenu není uživatel autorizován (naproti tomu heslo/biometriku nejde “zapomenout doma”).
+- Může se rozbít, přestat fungovat nebo fungovat částečně a jde to těžko detekovat.
+- Token musí být dost složitý aby ho nešlo snadno okopírovat.
+
+## Přednáška #4: Biometrické autentizační metody
 
 **Biometriky** = “automatizované metody identifikace nebo ověření identity na základě měřitelných fyziologických nebo behaviorálních vlastností člověka”
 
-**Verifikace** biometrikami - 1:1, identita je známá, jde o ověření této identity
+**Verifikace (Autentizace)** biometrikami - 1:1, identita je známá, jde o ověření této identity
 
 **Identifikace** biometrikami - 1:N, identita není známa, je nutné projít celou databázi registrovaných osob, náročnější proces
+
+**Proces použití biometrik**:
+
+1. **registrace** -
+
+- prvotní nasnímání biometrických dat a zpracování
+  - důležitá kvalita (nechceme dokonalost, ale aby to odpovídalo kvalitou cca vzorkům odebíraným při provozu
+- registrační vzorek se vytvoří získáním důležitých charakteristik
+- registrační vzorek se uloží (na kartu, server, snímač, …)
+
+2. **verifikace/identifikac/autentizace** - musí být plně automatické bez speciální obsluhy, výsledkem je míra shody, na základě které je vydáno rozhodnutí ano/ne
+
+- nasnímání biometrických dat,
+- extrahování důležitých charakteristik
+- srovnání s reg. vzorkem
+
+**Variabilita** - biometrická data nejsou nikdy 100% shodná (kvůli kvalitě zpracování nebo mírné změně v času; pokud jsou 100% shodná, pravděpodobně jde o útok nebo mizernou kvalitu vstupu), je třeba povolit určitou míru odlišnosti = variabilitu
+
+**Chyby biometrických systémů**:
+![](images/bioerr.png)
+
+- Hlavní typy chyb: **FAR** (False Acceptance Rate) a **FRR** (False Rejection Rate).
+
+  - Když snížíme prahovou hodnotu přijetí vzorku (povolíme vyšší variabilitu), roste FAR a klesá FRR.
+  - **ERR** (Equal Error Rate) je když FAR = FRR, často to je ideální hodnota nastavení práhu (ale záleží na použití, někde kde je potřeba ultra tight security třeba nevadí, když to bude víc odmítat správné vzorky, security za cenu nepohodlí oprávněných uživatelů)
+
+- Další typy:
+
+  - **FTE** (Failure to Enroll) je procento případů, kdy se biometrickou charakteristiku při registraci ani podaří vytvořit (např. příliš požkozená bříška prstů).
+  - **FTA** (Failure to Acquire; nebo taky FTC = Failure to Capture) je procento případů, kdy se charakteristiku nepodaří získat při autentizaci (např. dočasné poranění prstu). Tyto případy vždy v určité míře nastanou, musíme mít možnot alternativního přístupu.
+
+- Někdy se chyby sdružují na **chyby I. druhu (False Positive Identification Rate)** = FAR, a **chyby II. druhu (False Negative Identification Rate)** = FRR + FTA + jiné.
+
+![](images/biometric.png)
+
+**Chybovost** biometrických systémů závisí na řadě faktorů:
+
+- Typ snímače (a jestli jsou všechny stejné)
+- prostředí (světlo, …),
+- nastavení (počet pokusů, ukládaná kvalita vzorku, …),
+- živatelé (trénovaní vs nováčci, manuální pracovníci vs ostatní, motivace uživatelů, …).
 
 **Biometrické technologie** mohou být založené na:
 
@@ -346,45 +407,64 @@ Nejčastěji používané tokeny:
 - genotypické - geneticky založené - např. DNA
 - fenotypické - ovlivněné prostředím, vývojem - např. otisk prstu
 
-**Proces použití biometrik**:
-
-1. **registrace** - prvotní nasnímání biometrických dat a zpracování, důležitá kvalita (nechceme dokonalost, ale aby to odpovídalo kvalitou cca vzorkům odebíraným při provozu), registrační vzorek se vytvoří získáním důležitých charakteristik a uloží se (na kartu, server, snímač, …)
-2. **verifikace/identifikac/autentizace** - nasnímání biometrických dat, extrahování důležitých charakteristik a srovnání s reg. vzorkem, musí být plně automatické bez speciální obsluhy, výsledkem je míra shody, na základě které je vydáno rozhodnutí ano/ne
-
-**Variabilita** - biometrická data nejsou nikdy 100% shodná (kvůli kvalitě zpracování nebo mírné změně v času; pokud jsou 100% shodná, pravděpodobně jde o útok nebo mizernou kvalitu vstupu), je třeba povolit určitou míru odlišnosti = variabilitu
-
-**Chyby biometrických systémů**:
-
-- Hlavní typy chyb: **FAR** (False Acceptance Rate) a **FRR** (False Rejection Rate). Když snížíme prahovou hodnotu přijetí vzorku (povolíme vyšší variabilitu), roste FAR a klesá FRR. **ERR** (Equal Error Rate) je když FAR = FRR, často to je ideální hodnota nastavení práhu (ale záleží na použití, někde kde je potřeba ultra tight security třeba nevadí, když to bude víc odmítat správné vzorky, security za cenu nepohodlí oprávněných uživatelů)
-
-- Další typy: **FTE** (Failure to Enroll) je procento případů, kdy se biometrickou charakteristiku při registraci ani podaří vytvořit (např. příliš požkozená bříška prstů). **FTA** (Failure to Acquire; nebo taky FTC = Failure to Capture) je procento případů, kdy se charakteristiku nepodaří získat při autentizaci (např. dočasné poranění prstu). Tyto případy vždy v určité míře nastanou, musíme mít možnot alternativního přístupu.
-
-- Někdy se chyby sdružují na **chyby I. druhu (False Positive Identification Rate)** = FAR, a **chyby II. druhu (False Negative Identification Rate)** = FRR + FTA + jiné.
-
-**Chybovost** biometrických systémů závisí na řadě faktorů: Typ snímače (a jestli jsou všechny stejné), prostředí (světlo, …), nastavení (počet pokusů, ukládaná kvalita vzorku, …), uživatelé (trénovaní vs nováčci, manuální pracovníci vs ostatní, motivace uživatelů, …).
-
 **Vybrané biometriky**
 
-- **Otisk prstů**. Jedna z nejstarších. Snímače otisku mohou být optické, kapacitní, elektrooptické, ultrazvukové, tepelné, tlakové. **Markanty** otisků - významné body otisku, které se extrahují a ukládají. Jde o věci jako delty, smyčky, kruhy, končící čáry, … Mají více úrovní, typicky se mapuje lvl 1 (dominující obrazec celého otisku) a 2 (delta, ukončení, částečná čára…). Uloží se do vektorové mapy a v takové podobě se srovnávají. Soudní systémy zemí určují, kolik markantů musí mít otisk schodný aby byl nepopiratelný (typicky 8-15).
-  _Rychlost_: 1ms - 1s, _Přesnost_: FAR pod 0.01%, FRR asi 5%
+- **Otisk prstů**. Jedna z nejstarších.
+  - Snímače otisku mohou být optické, kapacitní, elektrooptické, ultrazvukové, tepelné, tlakové.
+  - **Markanty** otisků - významné body otisku, které se extrahují a ukládají. Jde o věci jako delty, smyčky, kruhy, končící čáry, … Mají více úrovní, typicky se mapuje lvl 1 (dominující obrazec celého otisku) a 2 (delta, ukončení, částečná čára…). Uloží se do vektorové mapy a v takové podobě se srovnávají.
+  - Soudní systémy zemí určují, kolik markantů musí mít otisk schodný aby byl nepopiratelný (typicky 8-15).
+  - _Rychlost_: 1ms - 1s,
+  - _Přesnost_: FAR pod 0.01%, FRR asi 5%
 - **Geometrie ruky** snímá tvar ruky pomocí 2D nebo 3D snímače, vždy z vrchu (vytváří 2D obrys ruky nebo 3D náhled ruky). Není jedinečný.
-  _Rychlost_: ~1s. _Přesnost_: FAR i FRR 3-5%, nevhodné na identifikaci, max na verifikaci.
-- **Dynamika podpisu**. Důležitý není výsledný podpis, ale i dynamika psaní. Potřebuje určitý čas podepisování, aby to mělo z čeho mít vzorek. Je potřeba speciální snímač a tablet. Zaznamenává pořadí a směr psaní písmen, rychlost, přítlak…
-  _Rychlost_: Verifikace během 1s. _Přesnost_: Nedostatečná pro většinu aplikací, FAR i FRR až několik procent, přesto relativně populární (historický význam podpisu jako autentizace).
-- **Verifikace hlasu (mluvčího)** je založená na charakteristikách daných hlasovým ústrojím člověka. Může být ovlivněno nachlazením, emočním stavem atd. Probíhá typicky běžným mikrofonem, popř. tím v mobilním zařízení, žádný speciální setup. Může být použito na ověření na pozadí - **kontinuální autentizace** - uživatel se přihlásil a už hlasem ovládá systém, ale pokročilé funkce jsou mu zamezeny dokud to z jeho dosavadních příkazů neverifikuje hlasem.
-  _Rychlost_: docela rychlé, _Přesnost_: za ideálních podmínek FAR i FRR pod 2%, velmi ovlivněno šumem.
-- **Dynamika psaní na klávesnici** měří čas stlačení klávesy a čas mezi stisky kláves, nevyžaduje speciálni HW, porovnávání probíhá pomocí pattern matching nebo neuronovek. Možnost **kontinuální autentizace uživatele** během práce se systémem, některé funkce zamčeny dokud není autentizován podle příkazů, co doteď napsal. Pokud uživatel přejde na jinou klávesnici, může se dynamika lišit.
+  - _Rychlost_: ~1s.
+  - _Přesnost_: FAR i FRR 3-5%, nevhodné na identifikaci (málo přesné, tvar ruky není jedinečný), max na verifikaci.
+- **Dynamika podpisu**.
+  - Důležitý není pouze výsledný podpis, ale i dynamika psaní.
+  - Potřebuje určitý čas podepisování, aby to mělo z čeho mít vzorek.
+  - Je potřeba speciální snímač a tablet. Zaznamenává pořadí a směr psaní písmen, rychlost, přítlak…
+  - _Rychlost_: Verifikace během 1s.
+  - _Přesnost_: Nedostatečná pro většinu aplikací, FAR i FRR až několik procent, přesto relativně populární (historický význam podpisu jako autentizace).
+- **Verifikace hlasu (mluvčího)** je založená na charakteristikách daných hlasovým ústrojím člověka.
+  - Může být ovlivněno nachlazením, emočním stavem atd.
+  - Probíhá typicky běžným mikrofonem, popř. tím v mobilním zařízení, žádný speciální setup.
+  - Může být použito na ověření na pozadí - **kontinuální autentizace** - uživatel se přihlásil a už hlasem ovládá systém, ale pokročilé funkce jsou mu zamezeny dokud to z jeho dosavadních příkazů neverifikuje hlasem.
+  - _Rychlost_: docela rychlé,
+  - _Přesnost_: za ideálních podmínek FAR i FRR pod 2%, velmi ovlivněno šumem.
+- **Dynamika psaní na klávesnici** měří čas stlačení klávesy a čas mezi stisky kláves
+  - nevyžaduje speciálni HW, porovnávání probíhá pomocí pattern matching nebo neuronovek.
+  - Možnost **kontinuální autentizace uživatele** během práce se systémem, některé funkce zamčeny dokud není autentizován podle příkazů, co doteď napsal.
+  - Pokud uživatel přejde na jinou klávesnici, může se dynamika lišit.
 - **Oční duhovka** srovnává jedinečný vzor oční duhovky, černobílá kamera blízko u oka, popsána je 256B tzv. **iriscode**, pro porovnání stačí hammingova váha - super rychlé.
-  _Rychlost_: miliony srovnání za sekundu, _Přesnost_: FAR téměř nulové, FRR kolem 3%
-- **Oční sítnice** srovnává vzor cév na oční sítnici, snímání zdrojem infračerveného světla, nepříjemné.
-  _Přesnost_: velmi přesné (nízké FAR, relativně vysoké FRR ale).
-- **Rozpoznání obličeje**. Má problém s osvětlením, účesem brýlemi, obličej se mění v čase. Ale aspoň se přesnost za posledních pár roků zlepšila.
-  _Rychlost_: výpočetně náročné, verifikace v řádu vteřin. _Přesnost_: FRR i FAR několik procent.
+  - _Rychlost_: miliony srovnání za sekundu,
+  - _Přesnost_: FAR téměř nulové, FRR kolem 3%
+- **Oční sítnice** srovnává vzor cév na oční sítnici
+  - snímání zdrojem infračerveného světla, nepříjemné.
+  - _Přesnost_: velmi přesné (nízké FAR, relativně vysoké FRR ale).
+- **Rozpoznání obličeje**. Má problém s osvětlením, účesem brýlemi, obličej se mění v čase.
+  - _Rychlost_: výpočetně náročné, verifikace v řádu vteřin.
+  - _Přesnost_: FRR i FAR několik procent.
 - **Další**: DNA (délka analýzy stovky minut), lůžka nehtů, tvar ucha, vůně/pot (how), pohyby tváře, dynamika chůze, …
+  ![](biometcompare.png)
 
-BTW tu se bavíme o biometrikách jako autentizace do systémů. Biometriky mají ještě speciální místo ve forenzních vědách, kde jsou na ně kladeny úplně jiné požadavky a co není vhodné pro IT může být velmi žádané tam a naopak. Forenzní použití zajímá: vysoká přesnost, použití i třeba částečného ne moc kvalitního vzorku (např. z místa činu), ve forenzním využití biometrik nevadí, že zpracování trvá dlouho, že není automatické, že je potřeba specialista, ani nevadí že se ukládají velká data a zpracování jednoho vzorku je nákladné.
+**Nejslibnější technologie**:
 
-**Výhody biometrik**: Biometriku nelze zltratit, zapomenout ani někomu jen tak předat. Výsledky jsou rychle a relativně přesně. Nižší cena údržby než u tokenů (a často i než u hesel).
+- Otisk prstu
+  - výhody: hodně produktů a aktivit v oblasti výzkumu a vývoje, cena a velikost obecně přijatelné již dnes
+  - nevýhody: možnost podvodů.
+- Duhovka
+  - výhody: vynikající přesnost – identifikace i v obrovských skupinách lidí,
+  - nevýhody: možnost podvodů; nová technologie (patentový monopol)
+- Ověření mluvčího
+  - výhody: kontinuální verifikace a možnost ověření výzva-odpověď
+  - nevýhody: změna charakteristik a vývoj řeči.
+
+Tu se bavíme o biometrikách jako autentizace do systémů. Biometriky mají ještě speciální místo ve forenzních vědách, kde jsou na ně kladeny úplně jiné požadavky a co není vhodné pro IT může být velmi žádané tam a naopak. Forenzní použití zajímá: vysoká přesnost, použití i třeba částečného ne moc kvalitního vzorku (např. z místa činu), ve forenzním využití biometrik nevadí, že zpracování trvá dlouho, že není automatické, že je potřeba specialista, ani nevadí že se ukládají velká data a zpracování jednoho vzorku je nákladné.
+
+**Výhody biometrik**:
+
+- Biometriku nelze ztratit, zapomenout ani někomu jen tak předat.
+- Výsledky jsou rychle a relativně přesně.
+- Nižší cena údržby než u tokenů (a často i než u hesel).
 
 **Nevýhody biometrik / praktické problémy**:
 
@@ -397,11 +477,16 @@ BTW tu se bavíme o biometrikách jako autentizace do systémů. Biometriky maj�
 
 **Biometriky a kryptografie**: Biometriky nejsou tajné! Takže pro autentizaci dat (na podpis biometrikou) jsou nepoužitelné. Hodí se výhradně na autentizaci uživatelů. Mohou být max použity jako ochrana _přístupu_ k tajnému klíči např.
 
-<div style="page-break-after: always; break-after: page;"></div>
+- Biometrický podpis
+  - Varianta svého zařízení:
+    - Uživatel provede podpis na svém tabletu – vytvoří se charakteristika dynamiky podpisu i podpisu samotného (nebo obrazová data), následně lze uživatele autentizovat.
+  - Varianta cizího zařízení:
+    - Uživatel provede podpis na cizím tabletu a neví co se děje s jeho biometrickými daty, ani s jakým klíčem se vytvořil dig. podpis (pokud se nějaký vůbec vytvořil) a kdo/co k němu má dále přístup,
+    - Vlastník cizího zařízení může zneužít charakteristiku podpisu
 
-## Téma #5: Autentizace uživatelů - lokační a kontextové přístupy
+## Přednáška #5:
 
-[Toto téma bylo divný, rychle ho projel, nepřijde mi, že by se tu mluvilo o zkouškových věcech moc]
+### Autentizace uživatelů - lokační a kontextové přístupy
 
 Multifaktorová autentizace za posledních pár dekád nabírá na popularitě.
 
@@ -416,9 +501,7 @@ Další možnost autentizace - **kde** jsme.
 - relativní síťové - síťové prvky a identifikátory
 - volná vazba logická - různé povahy (např. google autentikátor na jiných zařízeních)
 
-<div style="page-break-after: always; break-after: page;"></div>
-
-## Téma #6: Autentizační protokoly
+### Autentizační protokoly
 
 **Protokol**: Několikastranný algoritmus definovaný posloupností kroků, které specifikují akce prováděné dvěma a více stranami, pro dosažení určitého cíle.
 
@@ -437,6 +520,7 @@ Autentizujeme během protokolu jednu stran, obě strany, popř. kontinuální au
 - **Útok impersonací**. Při autentizaci heslem může útočník odposlechnout heslo a použít na impersonaci.
 - **Útok přehráním**. Při autentizaci hashovaným heslem může útočník přenos hashe zaznamenat a potom znovu poslat při vydávání se za původního uživatele.
 - **Útok prolínáním** (interleaving) kombinuje zpráv z více průběhů obvykle stejného protokolu. (Komunikací s oběma stranami protokolem výzva odpověď získá dostatek informací, aby se úspěšně vydala za druhou stranu.)
+  ![](prol.png)
 - **Slovníkový útok** využívá často používaná hesla.
 - **Využití známého klíče**. U protoklů pro ustanovení klíče, kde se klíč ustanoví na základě staršího útočníkovi známého klíče.
 - Další útoky [nebo jen jiné názvy, idk]: **Odraz** (využití odeslané zprávy k okamžitému poslání odesilateli), **Man-in-the-middle**, **Volený text** (vhodná volba výzev v protokolech výzva-odpověď pro získání dlouhodbého klíče; cíleně posílá ty výzvy na které potřebuje znát odpověď).
@@ -450,13 +534,139 @@ Autentizujeme během protokolu jednu stran, obě strany, popř. kontinuální au
   - _Symetrických technikách_ - symetrické šifrování, jednosměrná funkce s klíčem (MAC), generátory passcode
   - _Asymetrických technikách_ - dešifrování, digitální podpis
 
-  [SKIP tuto byly ty jednotlivé metody popsány, slidy 15-22 prezentace L06_Protokoly, vynecháno protože se to v otázkách nevyskytovalo]
-
-**Časově proměnné parametry** využívané v kryptografických protokolech:
-
 - **Náhodná čísla** - nepredikovatelná čísla, zajišťuje jedinečnost a “čerstvost”. Vážně náhodná čísla je netriviální získat, v praxi používáme pseudonáhodná čísla.
 - **Sekvence** - monotonně rostoucí posloupnost čísel, které jednoznačně identifikují zprávy v rámci komunikace a umožňují tak detekovat útok přehrátím z jiné komunikace.
 - **Časová razítka** (timestamps) - obě strany musí mít synchronizované a zabezpečené hodiny, zajišťují jedinečnost a časovou přesnost.
+
+**Následující techniky se zatím nenácházely se v otázkách**
+
+- **Symetrické techniky**
+
+  - **Jednostranná autentizace (časové razítko)**
+
+    tA = strana A vezme časovou hodnotu co naměří a k získanému časovému razítku přídá identifikátor strany B. Zpráva se zašifruje sdíleným symetrickým klíčem.
+
+    $$
+    1.\ A \rightarrow B: E_{K}(tA, B)\ \ \
+    $$
+
+    Možné útoky
+
+    - **Útok přehráním**: odposlechnu EK (tA,“B“) a pošlu jej rychle znovu (v době platnosti tA)
+
+    - **Změna hodin**: odposlechnu EK(tA,“B“), později změním hodiny B tak,aby odpovídaly času tA a znovu pošlu EK(tA,“B“)
+
+  - **Jednostranná autentizace (náhodné číslo)**
+
+    $$
+    1.\ A \leftarrow B: r_{B}\ \ \
+    $$
+
+    $$
+    2.\ A \rightarrow B: E_{K}(r_{B}, B)\ \ \
+    $$
+
+    Možné útoky
+
+    - Útočník odposlouchává a ukládá [rB, EK(rB,“B“)], pokud se výzva rBopakuje, pak je schopen poslat správnou odpověď. Případně semůže aktivně snažit ovlivnit vytváření náhodných rB (např. ovlivněním vstupu generátoru náhodných čísel Boba)
+
+  - **Oboustranná autentizace (náhodné číslo)**
+
+    $$
+    1.\ A \leftarrow B: r_{B}\ \ \
+    $$
+
+    $$
+    2.\ A \rightarrow B: r_A, E_k(r_A,r_B, B)\ \ \
+    $$
+
+    $$
+    3.\ A \leftarrow B: E_k(r_B,r_A)\ \ \
+    $$
+
+    Možné útoky
+
+    - Útočník odposlouchává a ukládá [rB, EK(rB,“B“)], pokud se výzva rBopakuje, pak je schopen poslat správnou odpověď. Případně semůže aktivně snažit ovlivnit vytváření náhodných rB (např. ovlivněním vstupu generátoru náhodných čísel Boba)
+      **Časově proměnné parametry** využívané v kryptografických protokolech:
+
+  - **Oboustranná autentizace založená na klíčovaných jednosměrných funkcích**
+
+    $$
+    1.\ A \leftarrow B: r_{B}\ \ \
+    $$
+
+    $$
+    2.\ A \rightarrow B: r_A, h_k(r_A,r_B, B)\ \ \
+    $$
+
+    $$
+    3.\ A \leftarrow B: h_k(r_A,r_B, A)\ \ \
+    $$
+
+  - **Generátory passcode**: – hand-held (PDA, kapesní počítače) pro bezpečné uložení dlouhodobých klíčů doplněné zadáním PINu uživatele
+    - Subjekty A, B sdílí tajný klíč sA a tajný PIN pA
+      $$
+      1.\ A \leftarrow B: r_{B}\ \ \
+      $$
+    - subjekt A zadá do generátoru přijatou výzvu rB a vloží svůj PIN pA
+      $$
+      2.\ A \rightarrow B: f(r_B,s_A, p_A)\ \ \
+      $$
+
+- **Asymetrické techniky**
+
+  - **Jednostranná autentizace (hash)**
+
+    - h – hašovací funkce
+    - h(r) slouží k prokázání znalosti r bez jeho odhalení
+      $$
+      1.\ A \leftarrow B: h(r), B, P_A(r,B)\ \ \
+      $$
+      $$
+      2.\ A \rightarrow B: r\ \ \
+      $$
+      Možné útoky
+    - Útok přehráním: odposlechnu SA(tA,“B“) a pošlu jej rychle znovu (vdobě platnosti tA)
+    - Změna hodin: odposlechnu SA(tA,“B“), později změním hodiny B tak,aby odpovídaly času tA a znovu pošlu SA(tA,“B“)
+
+  - **Jednostranná autentizace (časové razítko)**
+
+    $$
+    1.\ A \leftarrow B: cert_A, t_A, B, S_A(t_A, B)\ \ \
+    $$
+
+    Možné útoky
+
+    - Útok přehráním: odposlechnu SA(tA,“B“) a pošlu jej rychle znovu (vdobě platnosti tA)
+    - Změna hodin: odposlechnu SA(tA,“B“), později změním hodiny B tak,aby odpovídaly času tA a znovu pošlu SA(tA,“B“)
+
+  - **Jednostranná autentizace (náhodné číslo)**
+
+    $$
+    1.\ A \leftarrow B: r_{B}\ \ \
+    $$
+
+    $$
+    2.\ A \rightarrow B: cert_A, r_A, B, S_A(r_A, r_B,B)\ \ \
+    $$
+
+    Možné útoky
+
+    - Obdobné útoky na náhodné rB jako v případě symetrických technik
+
+  - **Oboustranná autentizace (náhodné číslo)**
+
+    $$
+    1.\ A \leftarrow B: r_{B}\ \ \
+    $$
+
+    $$
+    2.\ A \rightarrow B: cert_A, r_A, B, S_A(r_A, r_B,B)\ \ \
+    $$
+
+    $$
+    3.\ A \leftarrow B: cert_B, A, S_B(r_B, r_A,A)\ \ \
+    $$
 
 **Protokoly pro správu klíčů**
 
@@ -473,7 +683,11 @@ Autentizujeme během protokolu jednu stran, obě strany, popř. kontinuální au
   - **Shamirův** protokol bez klíčů, využívá komutativní šifru E, každá strana si ustanoví svůj vlastní klíč. A nad X udělá šifru E podle svého klíče. B nad výsledkem udělá šifru E podle svého klíče (teď je tam dvojité šifrování). A využije komunitativnosti šifry, získá už X zašifrované jen podle klíče B a takto mu to pošle, B dokáže odšifrovat a vzít klíč.
     $$
     1.\ A \rightarrow B: E_{K_A}(X)\ \ \
+    $$
+    $$
     2.\ A \leftarrow B: E_{K_B}(E_{K_A}(X))\ \ \
+    $$
+    $$
     3.\ A \rightarrow B: E_{K_B}(X)
     $$
 
@@ -489,7 +703,12 @@ Autentizujeme během protokolu jednu stran, obě strany, popř. kontinuální au
   - Separátní šifrování a podpis (pouze když nejde z podpisu získat podepsaná data)
   - Podepsání zašifrovaných klíčů
   - X.509 obousměrná autentizace s přenosem klíče
-  - **Diffie-Hellman**: Společné (prvo)číslo m a základ z. A si zvolí tajné číslo a, pošle B $x = z^a\ mod\ m$, B si zvolí tajné číslo b a pošle A $y = z^b\ mod\ m$, každá strana vezme co jim přišlo a určí klíč jako $key = x^b\ mod\ m$ (pro B).
+  - **Diffie-Hellman**: Společné (prvo)číslo m a základ z.
+    - A si zvolí tajné číslo a, pošle B $x = z^a\ mod\ m$,
+    - B si zvolí tajné číslo b a pošle A $y = z^b\ mod\ m$,
+    - každá strana vezme co jim přišlo a určí klíč jako $key = x^b\ mod\ m$ (pro B).
+
+![](images/difhel.png)
 
 **Zero-knowledge protokoly** (protokoly s nulovým rozšířením znalosti)
 
@@ -500,34 +719,73 @@ Protokoly vyšší úrovně:
 
 - **TLS/SSL** (TLS = Transport Layer Security)
 
-  - Zajišťuje: **Autentizaci stran** (pomocí certifikátů a protokolů výzva-odpověď; může být buď oboustranná nebo jednostranná ze strany serveru, ale nikdy jen ze strany klienta!), **integritu dat** (autentizační kódu - message authentication code - MAC, neboli hash dat) a **důvěrnost dat** (po handshake je pomocí RSA nebo DiffieHelman ustaven symetrický klíč, kterým je šifrována všechna následující komunikace). Šifrovaná data obsahují **sekvenční číslo** (prevence proti útoku přehráním).
+  - Zajišťuje:
 
-    [NOTE: to že je to RSA nebo DH je opsáno z ISA, v Autentizaci tam je s klíči nějaký mess který jsem nepochopila]
+    - **Autentizaci stran** (pomocí certifikátů a protokolů výzva-odpověď; může být buď oboustranná nebo jednostranná ze strany serveru, ale nikdy jen ze strany klienta!),
+    - **integritu dat** (autentizační kódu - message authentication code - MAC, neboli hash dat) a
+    - **důvěrnost dat** (po handshake je pomocí RSA nebo DiffieHelman ustaven symetrický klíč, kterým je šifrována všechna následující komunikace).
+
+  Šifrovaná data obsahují **sekvenční číslo** (prevence proti útoku přehráním).
+
+  [NOTE: to že je to RSA nebo DH je opsáno z ISA, v Autentizaci tam je s klíči nějaký mess který jsem nepochopila]
 
   - Mezi aplikační vrstvou a protokolem TCP. (Nemá přístup k aplikačním datům, neprovádí elektronické podepisování dat.)
 
   - Komponenty TLS/SSL:
 
     - **Record Layer Protocol** - Základní vrstva, umožňuje kombinaci s různámi protokoly vyšší úrovně (HTTP, FTP…) které mohou běžet beze změny.
-      Posloupnost kroků: Rozdělení dat na bloky o max $2^{14}$B $\rightarrow$ komprimace dat $\rightarrow$ výpočet MAC $\rightarrow$ doplnění na délku bloku šifrovacího programu $\rightarrow$ šifrování.
-    - **Handshake Protocol** - Umožňuje autentizaci serveru (povinná) a klienta (volitelná). Probíhá posláním certifikátů veřejných klíčů (a znalostí odpovídajících soukromých klíčů). Jsou zde také vyměněna náhodná čísla a další data nutná pro výpočet bloku klíčů.
+      Posloupnost kroků:
+      - $\rightarrow$ Rozdělení dat na bloky o max $2^{14}$ B
+      - $\rightarrow$ komprimace dat
+      - $\rightarrow$ výpočet MAC
+      - $\rightarrow$ doplnění na délku bloku šifrovacího programu
+      - $\rightarrow$ šifrování.
+    - **Handshake Protocol** - Inicializační fáze
+      - Umožňuje autentizaci serveru (povinná) a klienta (volitelná).
+      - Probíhá posláním certifikátů veřejných klíčů (a znalostí odpovídajících soukromých klíčů).
+      - Jsou zde také vyměněna náhodná čísla a další data nutná pro výpočet bloku klíčů.
     - **Change Cipther Specification Protocol** - Změna parametrů šifrování.
     - **Alert Protocol** - Info o chybách a varování.
 
+![](images/TLSSSL.png)
+
 - **IPSec** (IP Security)
 
-  - Zajišťuje přenos po ipv4 i ipv6. Zajišťuje: **Autentizaci původu dat** (každý datagram je ověřován, zda byl odeslán uvedeným odesílatelem), **integrita dat** (zda nebyla při přenosu změněna), **důvěrnost dat** (šifrována), ochrana před útokem přehráním, automatická správa klíčů.
+  - Zajišťuje přenos po ipv4 i ipv6.
+  - Zajišťuje:
+    - **Autentizaci původu dat** (každý datagram je ověřován, zda byl odeslán uvedeným odesílatelem),
+    - **integrita dat** (zda nebyla při přenosu změněna),
+    - **důvěrnost dat** (šifrována),
+    - ochrana před útokem přehráním,
+    - automatická správa klíčů.
   - Správa klíčů: Oakley (založeno na Diffie Hellman), ISAKMP.
   - Využívá protokoly AH a ESP (jeden nebo je jde kombinovat)
-    - **AH** (Authentication Header) - Hlavička slouží k zajištění původu dat, integrity a chrání vůči útoku přehráním, používá MAC kombinovaný se sekvenčním číslem. Umisťuje vlastní hlavičku AH za IP hlavičku, do které dává hash vytvořený z původní IP hlavičky, ostatních hlaviček a dat, a tajného klíče. Nezajišťuje důvěryhodnost.
-    - **ESP** (Encapsulation Security Payload) - Zapouzdřuje a chrání data IP datagram (má Header, Trailer a Auth část, kterými “obalí” celoý datagram nebo celý krom hlavičky, podle režimu). Zajišťuje integritu, autenticitu, důvěrnost dat, brání útokům přehráním. POužívá symetrický šifrovací klíč sdílený oběma stranami.
+    - **AH** (Authentication Header) -
+      - Hlavička slouží k zajištění původu dat, integrity a chrání vůči útoku přehráním,
+      - používá MAC kombinovaný se sekvenčním číslem.
+      - Umisťuje vlastní hlavičku AH za IP hlavičku, do které dává hash vytvořený z původní IP hlavičky, ostatních hlaviček a dat, a tajného klíče.
+      - Nezajišťuje důvěryhodnost.
+        ![](images/ipsecah.png)
+    - **ESP** (Encapsulation Security Payload) -
+    - Zapouzdřuje a chrání data IP datagram (má Header, Trailer a Auth část, kterými “obalí” celoý datagram nebo celý krom hlavičky, podle režimu).
+    - Zajišťuje integritu, autenticitu, důvěrnost dat, brání útokům přehráním.
+    - Používá symetrický šifrovací klíč sdílený oběma stranami.
   - Dva režimy IPSec:
     - **Transportní režim** (end-to-end)
+      ![](images/ipsecesptrans.png)
     - **Tunelovací režim** (firewall-to-firewall)
+      ![](images/ipsecesptun.png)
 
-<div style="page-break-after: always; break-after: page;"></div>
+**Útoky**
 
-## Téma #7: Autentizace počítačů
+- Pasivní útočník – analyzuje odchycená šifrovaná data
+- Aktivní útočník – modifikuje data a/nebo vytváří nové zprávy
+- Zosobnění (impersonation) – jedna strana se vydává za stranu jinou
+- Přehrání (replay) – využití dříve poslané informace
+- Odraz (reflection) – využití odeslané zpráv k okamžitému poslání odesilateli
+- Volený text (chosen-text) – vhodná volba výzev (v protokolech výzva-odpověď) pro získání dlouhodobého klíče
+
+### Téma #7: Autentizace počítačů
 
 Počítače můžeme autentizovat na základě adresy počítače nebo na základě tajné informace.
 
@@ -564,10 +822,6 @@ Počítače můžeme autentizovat na základě adresy počítače nebo na zákla
 - Protokol komunikuje takto: klient pošle verze ssh $\rightarrow$ server pošle verzi ssh $\rightarrow$ server pošle RSA host key (popř. RSA server key), nabízené šifrování atd. $\rightarrow$ klient si ověří, že RSA klíč sedí, pošle zašifrovaný RSA klíč relace a vybraný šifrovací algoritmus $\rightarrow$ server potvrzdí (už šifrovaná komunikace) $\rightarrow$ klient se autentizuje
 
 - Často využíváme auntentizačního agenta - jen jednou zadáme heslo, on si uloží klíč do paměti a veškeré autentizační požadavky v ssh řeší za nás.
-
-  [O tom, proti čemu SSH brání vůbec nic neříkal ani ve slidech to není, aspoň ne přímo. I když na to tam otázka je, idk.]
-
-<div style="page-break-after: always; break-after: page;"></div>
 
 ## Téma #8: Řízení přístupu
 
