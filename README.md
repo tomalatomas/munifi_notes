@@ -6,7 +6,7 @@
 
 # Lecture #1: Introduction to Object-Oriented Design
 
-## Challenges of SW development:
+## Challenges of SW development
 
 - **Maintainability**
   - Ability to maintain/adapt the code due to bug fixes, new feature requirements
@@ -20,7 +20,7 @@
   - Possible solutions
     - System decomposition - Better localizing changes thanks to isolated parts with clear responsibilities
     - Process management - Management for every part of change (requirements management, development managent, test management) will improve maintainabilty
-    - Quality assurance - We are focusing on quality of changes with regular quality testing to improve overall software quality 
+    - Quality assurance - We are focusing on quality of changes with regular quality testing to improve overall software quality
 
 ### System decomposition
 
@@ -60,7 +60,8 @@ Consistency checking are again between and inside the model.
 ### Quality assurance
 
 Quality consists of many qualitative attributes from different points of view
-- User Experience (View of Customer) - Usability, Reliability, Performace, Security 
+
+- User Experience (View of Customer) - Usability, Reliability, Performace, Security
 - Code Quality (View of Developer) - Modularity, Complexity, Testability
 - Long Term View (View of manager) - Adaptability, Portability, Reusability
 
@@ -74,13 +75,12 @@ Quality can be improved by
 
 - Standardization of processes
 - Regular testing and code reviews
-- Using software patterns 
+- Using software patterns
   - Different paterns can be used to improve different (Functional or nonfuctional) quality attributes
 
 ### Process management
 
-Defining and managing development processes - How to do things, how to communicate... (Tactics, methodologies, guidelines) 
-
+Defining and managing development processes - How to do things, how to communicate... (Tactics, methodologies, guidelines)
 
 ## OO Fundamentals
 
@@ -91,8 +91,7 @@ Expectations from OO Paradigm are Decomposition into small maintainable parts (W
 - smallest unit combining (encapsulating) data and functions
 - stores data in field behind the “layer” of functions (operations)
 - instantiating classes
--  Methods define behaviour. Data in object defines object state. Object state can affect behaviour
-
+- Methods define behaviour. Data in object defines object state. Object state can affect behaviour
 
 Classes represent static view (design-time entities), while objects represent dynamic view (run-time entities)
 
@@ -100,7 +99,7 @@ Functions define **responsibility** - Object or class have defined data and meth
 
 ### OO decomposition principles
 
-#### Abstraction 
+#### Abstraction
 
 Abstraction in modeling is a problem of choosing what object and classes represent in the system. That affects distribution of responsibilities.
 
@@ -123,11 +122,12 @@ Inheritance can be always replaced by association
 Object consists of parts. Different parts distinguish object between themselves.
 
 Association is more flexible than inheritance because links are created (and can be changed)
-at run-time 
+at run-time
 
 Real OO decomposition usually mixes both inheritance and association together
 
 #### SOLID Principle
+
 - Single-responsibility principle
   - Every class, function or module should have responsibilty over single part of systems functionality
 - Open-closed principle
@@ -158,12 +158,13 @@ Real OO decomposition usually mixes both inheritance and association together
   
 - Interface segregation principle
   - Large interfaces are split into smaller ones so client can work only with methods that are of interest to them
-- Dependency inversion principle 
+- Dependency inversion principle
   - Instead of having direct dependencies it may be better to loosely couple software modules
     - High-level modules should not import anything from low-level modules. Both should depend on abstractions
     - Abstractions should not depend on details. Details (concrete implementations) should depend on abstractions.
 
 ## Classes vs. data entities (ERD vs. class diagram)
+
  (Only showcase of possible implementation solutions to given diagram)
 
 ![](images/lecture1/erdclass.png)
@@ -174,18 +175,20 @@ Real OO decomposition usually mixes both inheritance and association together
 ![](images/lecture1/erdclass2.png)
 
  Approach 1, model 1: We prefer one direction
+
 - Company stores persons (employees) in array
 - Person has no link to its companies
 - Problem
   - There are many companies registered in the system. Where
-they are stored? 
+they are stored?
   - How we get link to concrete address if we have no query mechanism
-- Solution 
+- Solution
   - Implement JobsMngr that stores all the companies and mediates access to companies and their employees ![](images/lecture1/erdclass3.png)
 
 Approach 2, model 1: Bidirectional association
 
 ![](images/lecture1/erdclass4.png)
+
 - Pros: Clear responsibilities. Responsibilities are uniformly distributed to all
 classes
 - Cons: Very complicated memory management and consistency checking,
@@ -195,6 +198,7 @@ especially without automatic “garbage collection”
 
 Approach 2, model 2: Preserved bidirectional association, responsibility
 located in a big “God” object.
+
 - Pros: Management of instances and then the consistency checking are
 localized in the JobsMngr => maintainability.
 - Pros: Efficiency
@@ -209,7 +213,7 @@ As shown, there are many solutions. Designer has to choose best solution for giv
 
 ## Motivation and history
 
-### Generic Properties of Patterns:
+### Generic Properties of Patterns
 
 Common goal - improve the quality of SW design, either specific (security, reliability, etc.) or maintainability.
 
@@ -220,6 +224,7 @@ When using patterns, designers have to make decisions, usage of pattern is not m
 - Consequences of pattern usage has to be considered
 
 ### History
+
 Christopher Alexander (an architect) defined the pattern term for designing homes, buildings, and towns.
 
 - Pattern: solution of the problem in given context
@@ -229,13 +234,15 @@ solution a million times over, without ever doing it in the same way twice.”
 
 In 1995 book by Gamma, Helm, Johnson, Vlissideas was issued "Design patterns: Elements of Reusable object oriented software". Book focuses on patterns for generic object oriented programming,
 
-In 1997 Martin Fowler: Analysis patterns book was published. 
-Fowler’s patterns are 
+In 1997 Martin Fowler: Analysis patterns book was published.
+Fowler’s patterns are
+
 - Intended to be used in the requirements analysis phase of the SW life cycle
 - Based on the „data modeling“ (ERD or class diagram)
 - Related to the decomposition of the problem domain model
 
 SW Development Life Cycle
+
 1) Requirement Analysis
    - Key UML models are **Use Case Diagram** and **Conceptual class diagram** (problem domain model)
 2) Design
@@ -253,15 +260,17 @@ SW Development Life Cycle
 - Clarifies terminology
 
 Problem Domain Model Example
+
 - As said, we focus on classes, associations with cardinality and this model is then used for further step by step decomposition
 ![](images/lecture2/pdmexample.png)
 
 ## Analysis Patterns
 
-### Analysis patterns of M. Fowler 
+### Analysis patterns of M. Fowler
 
 Defined 9 basic pattern collections covering various business domains
-- **Accountability** 
+
+- **Accountability**
   - organizational structure and responsibilities
   - defines and asociates data with actors
 - **Observations and Measurements**
@@ -290,6 +299,7 @@ The concept of accountability applies when a **person or organization is respons
 It captures **responsibilities** of **actors** (user roles) that often appear in the class diagram (problem domain model)
 
 List of patterns:
+
 - **Party**
 - **Organization Hierarchies**
 - **Multiple Organization Hierarchies**
@@ -342,18 +352,21 @@ Using pattern of Organization Hierarchies for multiple structures gets hard to u
 
 Pattern of Org. Hier. is extended with class insted of self reflection (recursion). Two relationships then describe parent and subsidiary organization structures (Described on university structure image as lines). After introducing extending analytical class, we can associate another data with it (e.g. OrganizationStructuryType for classifying the line, TimePeriod).
 
-Summary for university organization hierarchies image: 
+Summary for university organization hierarchies image:
+
 - OrganizationStructure represents lines
 - OrganizationStructureType represents color (type) of individual lines
 - Organization represents rectangles
 
-Example: 
+Example:
+
 - Two organizational structures of the company: sale vs. PR
 - From the sale point of view, there are two shops, in Brno and Prague. Brno sales office is subordinated to Moravia division, Prague sale office is subordinated to Bohemia division.
 - From the PR point of view, both sale offices are subordinated to the common central office
 ![Alt text](images/lecture2/orgstrexample.png)
 
 Suitable for **multiple** organizational hierarchies or hierarchies **changing in time** (and we want to capture these changes)
+
 - Overkill for single organizational hierarchy
 - Adding a new hierarchy = adding a new instance of OrganizationStructureType
   
@@ -365,6 +378,7 @@ OrganizationStructureType
 
 Constraints to organization structure are expressed by referring to
 properties of the organization structure
+
 - Disadvantage: Adding a new structure type can require changing the rules
 - Solution: Adding a Rule class
 
@@ -373,12 +387,13 @@ properties of the organization structure
 #### Accountability
 
 1:12:00
-#### Accountability Knowledge Level
 
+#### Accountability Knowledge Level
 
 ### Observations and Measurements
 
-List of patterns: 
+List of patterns:
+
 - **Quantity** – values and their units
 - **Conversion Ratio** – conversion ratios between units
 - **Compound Units** – compound units e.g. km/h
@@ -390,6 +405,7 @@ List of patterns:
 ### Observations for Corporate Finance
 
 Patterns:
+
 - **Enterprise Segment** – dividing enterprise due to dimensions, e.g. geographical
 location, product range, market, industry sector, etc.
 - Measurement Protocol – how measurements can be calculated from other
@@ -404,6 +420,7 @@ measurements using formulas that are instances of model types
 ### Inventory and Accounting
 
 Patterns:
+
 - **Account**
 - Transaction
 - Summary Account
@@ -414,7 +431,8 @@ Patterns:
 ### Referring to Objects
 
 Patterns:
+
 - **Name** – objects identification by names
 - **Identification Scheme** – brings context to objects identification
 - **Object Merge** –
-- **Object Equivalence **– 
+- **Object Equivalence**–
