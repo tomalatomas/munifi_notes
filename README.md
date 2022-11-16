@@ -307,9 +307,13 @@ List of patterns:
 - **Accountability**
 - **Accountability Knowledge Level**
 - Party Type Generalization
+  - Adding generalization to party types makes it easier to define the knowledge level
 - Hierarchic Accountability
+  - Improves handling of constrains in organization structures.
 - Operating Scopes
+  - Define the responsibilities that are taken on when an accountability is created.
 - Post
+  - Another party type. Posts are used when accountability and scopes are defined by the post and do not change when the holder of the post changes.
 
 #### Party
 
@@ -386,11 +390,49 @@ properties of the organization structure
 
 #### Accountability
 
-1:12:00
+Accountability helps to define responsibilities between two types of object (object in Party). This can be limited for given time period. The responsibilities are baseod on Commissioner-Responsible relationship (e.g. Employer-employee)
+
+![Alt text](images/lecture2/acc.png)
+
+- Idea is to generalize Organizational structure into more generic cases
+  - Organization Structure shows relationships between organization units
+  - In general people have often similar relationship to other people or organization structures
+- Accountability pattern combines a generalizes the principles of Organization Structure and Party
+
+-Each instance of Accountability represents a link between two parties, the AccountabilityType indicates the nature of the link. 
+
+This allows you to handle any number of organizational relationships
+
+"Accountability then allows division of work and responsibilities"?
+
+![Alt text](images/lecture2/accexample.png)
+
+In the example we have 3 parties, New England, Sales and BostonSales. Boston sales is in relationship with New England and Sales with relationship types as regional
+
+Difference to Organization Hierarchy is that instead of saying “who are the parents of Boston
+Sales” you can say “who are the regional parents of Boston Sales”.
 
 #### Accountability Knowledge Level
 
+If there are many more accountability types than there would be organization structure types => introducing knowledge level
+
+Allows us to better distribute constraints between parties.
+
+![Alt text](images/lecture2/accknow.png)
+
+Connection rules says what party types we can connect (if we can connect particular party types).
+
+Each accountability type has a set of connection rules.
+
+Knowledge level: Which accountability types, what party types and connection rules are possible in the system.
+
+Accountability is then relationship between two party types with accountability type.
+
+![Alt text](images/lecture2/accknowex.png)
+
 ### Observations and Measurements
+
+Storage and maintenance of quantitative and qualitative data
 
 List of patterns:
 
@@ -401,34 +443,183 @@ List of patterns:
 - **Observation** – general observations and their recording
 - **Protocol** – protocols of regular measurements
 - **Subtyping Observation Concepts**
+- Another patterns:
+  - Dual Time Record ()
+    - Different occurring and recording times/periods of events
+  - Reject Observation
+    - Observations cannot be deleted if a full audit trail is needed.
+  - Active Observation, Hypothesis, and Projection
+    - As observations are recorded, many levels of assurance are given.
+  - Associated Observation
+    - Ways to record the chain of evidence behind a diagnosis
+  - Process Observation
+    - Behavior models for observations
+
+#### Quantity
+
+Quantity pattern allows to store values with units attached to them.
+
+By combining numbers and their units modeled as objects, we can describe how to convert quantities with conversion ratio
+![Alt text](images/lecture2/quant.png)
+
+#### Conversion Ratio
+If we use more units with one value, we might want to convert between these units. This pattern defines exchange table with multiplication ratio for converting
+![Alt text](images/lecture2/conrat.png)
+
+- Problem: How to convert non-linear units, e.g. Celsius to Fahrenheit, days to months, etc.?
+- Solution: Employ the Individual Instance Method pattern, e.g. replace ConversionRatio with Strategy GoF pattern.
+
+![Alt text](images/lecture2/extable.png)
+
+- Problem: How to convert compound units, e.g. km/h to m/s?
+- Solution: Compound Units pattern.
+
+#### Compound Unit
+
+![Alt text](images/lecture2/compunit.png)
+
+Unit Reference has to have more then one Unit reference or one with exponential >1 or <0
+
+#### Measurement
+
+![Alt text](images/lecture2/measur.png)
+
+**PhenomenonType**: things to be measured, e.g. height, weight, blood glucose level, etc.
+in a hospital.
+
+**Measurement**: concrete measured value
+
+**Person**: example of data assigned to the measurement
+
+This pattern enables to record only quantitive values. To record non-quantitative values (like blood group - A+, A0, A-) we need to introduce **Observation pattern** 
+
+#### Observation
+
+![Alt text](images/lecture2/observ.png)
+
+**PhenomenonType**: the same as before, e.g. blood group
+
+**Phenomenon**: possible values, e.g. A+, A-, 0, …
+
+**CategoryObservation**: Concrete observed qualitative value. It is similar to the
+measurement but has a general phenomenon instead of quantity.
+
+Pattern is useful for generalizing measurement and clarifying what will be measured.
+
+**Task**: How to model a “low oil level in a car” observed in a car service?
+- PhenomenonType = „oil level“
+- Phenomenon = „over-full“, „OK“, „low
+- Observation = Instance that links the car to the low phenomenon.
+
+Example: We want to record many data about drivers so that we can check their reliability e.g.
+- Driving period
+- Driven vehicle (car, bus or tram)
+- Number of accidents per year 
+
+Solution:
+PhenonemonTypes - Driven vehicle, driving period, numberofaccident
+Phenomenon - car bus or tram
+Measurement - hours, kilometers
+Quantity - value of record
+
+#### Protocol
+
+the method by which the observation were made.
+- person's body temperature can be measured in the mouth, armpit, or rectum
+
+![](images/lecture3/proto.png)
+
+#### Subtyping Observation Concepts
+
+![](images/lecture3/subtyp.png)
+
+If an observation is made of the presence of the subtype, then all supertypes are also considered to be present.
+
+If an observation is made of the absence of a subtype, then that implies neither presence nor absence of the supertype.
+
+- Diabetes has two subtypes: type I and type II. An observation that type I diabetes is
+present for J. Smith implies that diabetes is also present for J. Smith. Absence of type I diabetes does not mean that J. Smith is not diabetic.
 
 ### Observations for Corporate Finance
 
+How to analyze, gather something from business domain (data).
+
+The goal of these patterns are not to record values of objects, but to record combinantions and groups of values by given criterias.
+
+Extension of the Observations and Measurements collection of
+pattern focused on (financial) balance of companies.
+
 Patterns:
 
-- **Enterprise Segment** – dividing enterprise due to dimensions, e.g. geographical
-location, product range, market, industry sector, etc.
+- **Enterprise Segment** 
 - Measurement Protocol – how measurements can be calculated from other
 measurements using formulas that are instances of model types
 - Range – range between two quantities + operations with ranges
 - Phenomenon with Range
+
+#### Enterprise Segment
+
+Allows to divide enterprise to parts we want to measure - these parts are created dynamically based on defined point of views - **dimensions**.
+Point of view can be foe example type of manufactured goods, geographical location, product range...
+
+![](images/lecture3/entseg.png)
+
+Dimension = hierarchy of dimension elements, i.e. the criteria for dividing enterprise
+DimensionElement: Node in the dimension hierarchy, e.g. West Coast area 
+GeographicDimensionElement, …: root nodes of dimension hierarchies.
+
+Task: We need analytical module in which we can investigate
+- significant delays on lines
+- Delays by vehicle type (buses, trams, trolleybus)
+- Delays by geographic location
+- Same for accidents
+
+Solution:
+![](images/lecture3/entsegex.png)
 
 ### Referring to Objects
 
 ### Planning
 
 ### Inventory and Accounting
+ 
+We want to track movement of some units (e.g. money) between places (e.g. accounts).
+Thanks to this collection of patterns we can declare which accounts to track for changes and causes for this changes.
+
+The entries record each change to the account.
+
+Modeling Principle: To record a history of changes to a value use an account for that value
 
 Patterns:
 
 - **Account**
-- Transaction
-- Summary Account
+- **Transaction**
+- **Summary Account**
 - Memo Account
 - Posting Rules
 - … and many more
 
+#### Account 
+
+This patterns serves as a container with common value change. Thanks to this pattern we have information about current value (account balance) and history of changes.
+![](images/lecture3/accnt.png)
+
+#### Transaction
+
+Account pattern allows tracking of changes only, not causes for the change. This pattern extension of Account allows connection of accounts and tracking movement of values (money). This is used for items that cannot be created or deleted on their own, only moved. 
+
+Task: We need to know how many vehicles are located in each depot after the day shift
+
+We can use this to track changes of vehicles located at this depot by tracking leaving and incoming vehicles. 
+
+![](images/lecture3/transac.png)
+
 ### Referring to Objects
+
+Conceptual thinking about object identity, i.e., references to objects that
+humans use.
+
+This collection of patterns addresses naming objects, comparing them based on name, grouping and dividing them.
 
 Patterns:
 
@@ -436,3 +627,13 @@ Patterns:
 - **Identification Scheme** – brings context to objects identification
 - **Object Merge** –
 - **Object Equivalence**–
+
+#### Name
+
+![](images/lecture3/nam.png)
+
+There are 3 ways to name a object. 
+- First possibility that object has one name. 
+- Second is that one object can have multiple names. 
+- Third is that object has one unique identification number.
+
