@@ -797,7 +797,7 @@ Patterns:
 - Memento
   - Stores and recovers object state
 
-![](2022-11-17-18-58-01.png)
+![](images/patterns/scopes.png)
 
 Scope is the domain over which a pattern applies
 
@@ -806,11 +806,10 @@ Scope is the domain over which a pattern applies
 
 ## Case study - Initial model
 
-![](2022-11-17-19-00-27.png)
+![](images/patterns/casestudy.png)
 
 - Every object in running OO system must be referenced
 - Every class must be associated with another class or have well-known access point
--
 - Problem
   - Atoms are referenced from Residue, Residues from Molecule and Molecules from ChemStructure. ChemStructure is not referenced from anywhere.
 - Solution:
@@ -822,13 +821,13 @@ Scope is the domain over which a pattern applies
 
 This creational pattern creates and mediates access to a single shared instance accessible from anywhere (via static variable)
 
-![](2022-11-17-20-45-21.png)
+![](images/patterns/singleton.png)
 
 #### Applicability
 
 Use the singleton pattern when there **must be only one instance** of class and this instance must be **accessible** from a well-known access point.
 
-![](2022-11-17-21-04-27.png)
+![](images/patterns/singCaseStudy.png)
 
 #### Consequences
 
