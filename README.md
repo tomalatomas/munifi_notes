@@ -128,12 +128,12 @@ Real OO decomposition usually mixes both inheritance and association together
 
 #### SOLID Principle
 
-- Single-responsibility principle
+- **Single-responsibility principle**
   - Every class, function or module should have responsibilty over single part of systems functionality
-- Open-closed principle
+- **Open-closed principle**
   - Class, function or module should be open for extension but closed for modification
   - Changes will be hangled as new methods or classes and will involve minimal changes to existing code
-- Liskov substitution principle
+- **Liskov substitution principle**
   - Introduces polymorphism
   - Whenever an instance of a class is expected, one can always substitute an instance of any of its sub-classes
     - If S is a subtype of T, then objects of type T in a program may be replaced with objects of type S without altering any of the desirable properties of that program
@@ -155,10 +155,9 @@ Real OO decomposition usually mixes both inheritance and association together
     - **Preconditions** cannot be strengthened in a sub-type
     - **Postconditions** cannot be weakened in a sub-type
     - **Invariants** of the supertype must be preserved in a sub-type
-  
-- Interface segregation principle
+- **Interface segregation principle**
   - Large interfaces are split into smaller ones so client can work only with methods that are of interest to them
-- Dependency inversion principle
+- **Dependency inversion principle**
   - Instead of having direct dependencies it may be better to loosely couple software modules
     - High-level modules should not import anything from low-level modules. Both should depend on abstractions
     - Abstractions should not depend on details. Details (concrete implementations) should depend on abstractions.
@@ -213,6 +212,17 @@ As shown, there are many solutions. Designer has to choose best solution for giv
 
 ## Motivation and history
 
+### Levels of software patterns
+
+- Small
+  - Coding patterns, e.g. SmallTalk Best Practice Patterns
+  - Code refactoring, e.g. Parameters reduction, ...
+- Middle
+  - Design patterns, e.g. Adapter, Facade, ...
+  - Analysis and business patterns, e.g. Accounting, Measurement, ...
+- Big
+  - Architectural patterns, e.g. SOA, peer-to-peer, layers, …
+
 ### Generic Properties of Patterns
 
 Common goal - improve the quality of SW design, either specific (security, reliability, etc.) or maintainability.
@@ -264,9 +274,7 @@ Problem Domain Model Example
 - As said, we focus on classes, associations with cardinality and this model is then used for further step by step decomposition
 ![](images/lecture2/pdmexample.png)
 
-## Analysis Patterns
-
-### Analysis patterns of M. Fowler
+## Analysis Patterns of M. Fowler
 
 Defined 9 basic pattern collections covering various business domains
 
@@ -290,9 +298,7 @@ Defined 9 basic pattern collections covering various business domains
 
 Every collection consists of evolutionary sequence of patterns, from very basic to complex solutions
 
-65 analysis patterns and 21 support patterns in total
-
-### Accountability
+## Accountability Analysis Patterns
 
 The concept of accountability applies when a **person or organization is responsible to another person/organization**.
 
@@ -315,9 +321,7 @@ List of patterns:
 - Post
   - Another party type. Posts are used when accountability and scopes are defined by the post and do not change when the holder of the post changes.
 
-#### Party
-
-It is part of other more advanced patterns.
+### Party
 
 This model creates super type (nadtyp) for two independent analytical classes (Person, Organization) that have some shared context. Supertype then handles this context they share as one.
 
@@ -328,19 +332,25 @@ Use this pattern when:
 
 ![](images/lecture2/party.png)
 
-#### Organization Hierarchies
+---
+
+### Organization Hierarchies
 
 Companies have usually hierarchical organization structure (Operation Unit has Regions, Region has Divisions, Division has Sales Offices)
 ![](images/lecture2/orghier0.png)
 
+Without pattern, when changing a single unit, changes in model are required.
+
 Pattern uses recursive relationships
 ![](images/lecture2/orghier.png)
-This allows very easy changes on organization structure. Without pattern, changes in model are required. With pattern, only new subclasses and rules are required
+This allows very easy changes on organization structure. With pattern, only new subclasses and rules are required
 ![](images/lecture2/orghier1.png)
 
 The danger with the recursive relationship is that it allows a division to be part of a sales office - we need to specify which type is above and below which => sub-classes and constraints are introduced (as shown in the image)
 
-#### Multiple Organization Hierarchies
+---
+
+### Multiple Organization Hierarchies
 
 ![Alt text](images/lecture2/unistructure.png)
 
@@ -350,23 +360,35 @@ Many types we have parallel organization structures (Academic structure vs Admin
 
 Using pattern of Organization Hierarchies for multiple structures gets hard to use with many associations. Organization Structure pattern is introduced
 
-#### Organization Structure
+---
+
+### Organization Structure
 
 ![](images/lecture2/orgstruct.png)
 
-Pattern of Org. Hier. is extended with class insted of self reflection (recursion). Two relationships then describe parent and subsidiary organization structures (Described on university structure image as lines). After introducing extending analytical class, we can associate another data with it (e.g. OrganizationStructuryType for classifying the line, TimePeriod).
+Pattern of Org. Hier. is extended with class insted of self reflection (recursion). 
+
+- Two relationships then describe parent and subsidiary organization structures (Described on university structure image as lines)
+- After introducing extending analytical class, we can associate another data with it (e.g. OrganizationStructuryType for classifying the line, TimePeriod).
 
 Summary for university organization hierarchies image:
 
-- OrganizationStructure represents lines
 - OrganizationStructureType represents color (type) of individual lines
-- Organization represents rectangles
+
+- **Organization** (OperatingUnit, Region, Division, SalesOffice) - individual subjects in organizations (rectangles)
+- **OrganizationStructure**- represents relationships (lines), which organization is superior to which organization
+  - This information can contain Timeperiod and reference to hierarchy for this relationship
+  - TimePeriod allows us to record changes in the organization structure over time.
+- **OrganizationStructureType**
+  - Represents different hierarchies
+  - Adding a new hierarchy is adding a new instance of OrganizationStructureType
 
 Example:
 
 - Two organizational structures of the company: sale vs. PR
 - From the sale point of view, there are two shops, in Brno and Prague. Brno sales office is subordinated to Moravia division, Prague sale office is subordinated to Bohemia division.
 - From the PR point of view, both sale offices are subordinated to the common central office
+
 ![Alt text](images/lecture2/orgstrexample.png)
 
 Suitable for **multiple** organizational hierarchies or hierarchies **changing in time** (and we want to capture these changes)
@@ -374,11 +396,7 @@ Suitable for **multiple** organizational hierarchies or hierarchies **changing i
 - Overkill for single organizational hierarchy
 - Adding a new hierarchy = adding a new instance of OrganizationStructureType
   
-TimePeriod allows us to record changes in the organization structure over
-time.
-
-Adding a new hierarchy is adding a new instance of
-OrganizationStructureType
+#### Rule
 
 Constraints to organization structure are expressed by referring to
 properties of the organization structure
@@ -388,18 +406,24 @@ properties of the organization structure
 
 ![Alt text](images/lecture2/OrgStructRule.png)
 
-#### Accountability
+---
 
-Accountability helps to define responsibilities between two types of object (object in Party). This can be limited for given time period. The responsibilities are baseod on Commissioner-Responsible relationship (e.g. Employer-employee)
+### Accountability
+
+- Accountability helps to define responsibilities between two types of object (object in Party). 
+- This can be limited for given time period. 
+- Idea is to generalize Organizational structure into more generic cases
+  - Organization Structure shows relationships between organization units
+
 
 ![Alt text](images/lecture2/acc.png)
 
-- Idea is to generalize Organizational structure into more generic cases
-  - Organization Structure shows relationships between organization units
-  - In general people have often similar relationship to other people or organization structures
-- Accountability pattern combines a generalizes the principles of Organization Structure and Party
+Mappings:
 
--Each instance of Accountability represents a link between two parties, the AccountabilityType indicates the nature of the link.
+- **AccountabilityType** - indicates the nature of the relationship, hierarchy between the subjects (Employer-employee)
+- **Accountability** - relationship between two members of the party, 
+- **TimePeriod** - Time Validity of the relationship
+- **Party** - Individual subjects, members of the party
 
 This allows you to handle any number of organizational relationships
 
@@ -412,7 +436,8 @@ In the example we have 3 parties, New England, Sales and BostonSales. Boston sal
 Difference to Organization Hierarchy is that instead of saying “who are the parents of Boston
 Sales” you can say “who are the regional parents of Boston Sales”.
 
-#### Accountability Knowledge Level
+---
+### Accountability Knowledge Level
 
 If there are many more accountability types than there would be organization structure types => introducing knowledge level
 
@@ -420,17 +445,22 @@ Allows us to better distribute constraints between parties.
 
 ![Alt text](images/lecture2/accknow.png)
 
-Connection rules says what party types we can connect (if we can connect particular party types).
+Mappings:
 
-Each accountability type has a set of connection rules.
+- **ConnectionRule** - says what party types we can connect (if we can connect particular party types).
+  - Each accountability type has a set of connection rules.
+- **Accountability** - relationship between two party types with accountability type.
+- **AccountabilityType** - indicates the nature of the relationship, hierarchy between the subjects (Employer-employee)
+- **Party** - Individual subjects, members of the party
+- **PartyType** - Group of members of the party (HR, IT, security, management)
 
 Knowledge level: Which accountability types, what party types and connection rules are possible in the system.
 
-Accountability is then relationship between two party types with accountability type.
+---
 
 ![Alt text](images/lecture2/accknowex.png)
 
-### Observations and Measurements
+## Observations and Measurements Analysis Patterns
 
 Storage and maintenance of quantitative and qualitative data
 
@@ -455,87 +485,133 @@ List of patterns:
   - Process Observation
     - Behavior models for observations
 
-#### Quantity
+### Quantity
 
 Quantity pattern allows to store values with units attached to them.
 
 By combining numbers and their units modeled as objects, we can describe how to convert quantities with conversion ratio
 ![Alt text](images/lecture2/quant.png)
 
-#### Conversion Ratio
+---
+
+### Conversion Ratio
 
 If we use more units with one value, we might want to convert between these units. This pattern defines exchange table with multiplication ratio for converting
 ![Alt text](images/lecture2/conrat.png)
 
-- Problem: How to convert non-linear units, e.g. Celsius to Fahrenheit, days to months, etc.?
-- Solution: Employ the Individual Instance Method pattern, e.g. replace ConversionRatio with Strategy GoF pattern.
+Mappings:
+
+- **Unit** - metres/litres/kgs...
+- **ConversionRation** - Value of conversion ratio between two units
+- **Number** - measured value, can be another object or attribute
+
+**Problem**: How to convert non-linear units, e.g. Celsius to Fahrenheit, days to months, etc.?
+
+**Solution**: Employ the Individual Instance Method pattern, e.g. replace ConversionRatio with Strategy GoF pattern.
 
 ![Alt text](images/lecture2/extable.png)
 
 - Problem: How to convert compound units, e.g. km/h to m/s?
 - Solution: Compound Units pattern.
 
-#### Compound Unit
+---
+
+### Compound Unit
 
 ![Alt text](images/lecture2/compunit.png)
 
-Unit Reference has to have more then one Unit reference or one with exponential >1 or <0
+Mappings:
 
-#### Measurement
+- **Unit** - Superclass for individual units
+- **AtomicUnit** - atomic units (km, h, s)
+- **CompoundUnit** - coumpound unit (km/h, n*m),
+  - Has to have more then one Unit reference or one with exponential >1 or <0
+- **Integer** - integer value of exponential that will be aplied to unit 
+  - (1 -> km, -1 -> h^-1)
+- **UnitReference** - Holds records of exponential value (integer) and references to AtomicUnit and Compound Unit.
+  - For km/h the UnitReference will hold reference to AtomicUnit (km) and AtomicUnit (h) that has exponential value of -1
+
+---
+
+### Measurement
 
 ![Alt text](images/lecture2/measur.png)
 
-**PhenomenonType**: things to be measured, e.g. height, weight, blood glucose level, etc.
-in a hospital.
-
-**Measurement**: concrete measured value
-
-**Person**: example of data assigned to the measurement
+- **PhenomenonType**: things to be measured, e.g. height, weight, blood glucose level, etc. in a hospital.
+- **Measurement**: concrete measured value
+- **Person**: example of data assigned to the measurement
 
 This pattern enables to record only quantitive values. To record non-quantitative values (like blood group - A+, A0, A-) we need to introduce **Observation pattern**
 
-#### Observation
+---
+
+### Observation
 
 ![Alt text](images/lecture2/observ.png)
 
-**PhenomenonType**: the same as before, e.g. blood group
+#### Mappings:
 
-**Phenomenon**: possible values, e.g. A+, A-, 0, …
-
-**CategoryObservation**: Concrete observed qualitative value. It is similar to the
-measurement but has a general phenomenon instead of quantity.
+- **Person**: example of data assigned to the measurement
+- **PhenomenonType**: things to be measured, e.g. height, weight, blood glucose level, etc. in a hospital.
+- **Phenomenon**: possible enumeration values, e.g. A+, A-, 0, …
+- **CategoryObservation**: Concrete observed qualitative value - recorded enum value
+  - e.g. A+
+  - It is similar to the measurement but has a general phenomenon instead of quantity.
+- **Measurement**: concrete measured value 
+  - holds records of quantitive values
+  - what are we measuring - blood level e.g.
+- **Quantity** - recorded value of measurement and unit
 
 Pattern is useful for generalizing measurement and clarifying what will be measured.
 
 **Task**: How to model a “low oil level in a car” observed in a car service?
 
+**Solution**:
+
 - PhenomenonType = „oil level“
 - Phenomenon = „over-full“, „OK“, „low
 - Observation = Instance that links the car to the low phenomenon.
 
-Example: We want to record many data about drivers so that we can check their reliability e.g.
+**Task**: We want to record many data about drivers so that we can check their reliability e.g.
 
 - Driving period
 - Driven vehicle (car, bus or tram)
 - Number of accidents per year
 
-Solution:
-PhenonemonTypes - Driven vehicle, driving period, numberofaccident
-Phenomenon - car bus or tram
-Measurement - hours, kilometers
-Quantity - value of record
+**Solution**:
 
-#### Protocol
+- PhenonemonTypes - Driven vehicle, driving period, numberofaccident
+- Phenomenon - car bus or tram
+- Measurement - hours, kilometers
+- Quantity - value of record
+
+---
+
+### Protocol
 
 the method by which the observation were made.
 
-- person's body temperature can be measured in the mouth, armpit, or rectum
+- e.g. person's body temperature can be measured in the mouth, armpit, or rectum
 
 ![](images/lecture3/proto.png)
 
-#### Subtyping Observation Concepts
+#### Mappings:
 
-![](images/lecture3/subtyp.png)
+- **Person**: example of data assigned to the measurement
+- **PhenomenonType**: things to be measured, e.g. height, weight, blood glucose level, etc. in a hospital.
+- **Phenomenon**: possible enumeration values, e.g. A+, A-, 0, …
+- **CategoryObservation**: Concrete observed qualitative value - recorded enum value
+  - e.g. A+
+  - It is similar to the measurement but has a general phenomenon instead of quantity.
+- **Measurement**: concrete measured value 
+  - holds records of quantitive values
+  - what are we measuring - blood level e.g.
+- **Quantity** - recorded value of measurement and unit
+- **Protocol** - methods of observations
+
+---
+
+### Subtyping Observation Concepts
 
 If an observation is made of the presence of the subtype, then all supertypes are also considered to be present.
 
@@ -544,7 +620,33 @@ If an observation is made of the absence of a subtype, then that implies neither
 - Diabetes has two subtypes: type I and type II. An observation that type I diabetes is
 present for J. Smith implies that diabetes is also present for J. Smith. Absence of type I diabetes does not mean that J. Smith is not diabetic.
 
-### Observations for Corporate Finance
+![](images/lecture3/subtyp.png)
+
+#### Mappings:
+
+- **Person**: example of data assigned to the measurement
+- **PhenomenonType**: things to be measured, e.g. height, weight, blood glucose level, etc. in a hospital.
+- **Phenomenon**: possible enumeration values, e.g. A+, A-, 0, …
+- **CategoryObservation**: Concrete observed qualitative value - recorded enum value
+  - e.g. A+
+  - It is similar to the measurement but has a general phenomenon instead of quantity.
+- **Measurement**: concrete measured value 
+  - holds records of quantitive values
+  - what are we measuring - blood level e.g.
+- **Quantity** - recorded value of measurement and unit
+- **Protocol** - methods of observations
+- **ObservationConcept**
+  - Superclass for creating hierarchy of Phenonemons
+  - e.g. Diabetes is superclass for Diabetes type 1 and type 2
+- **Absence** - subclass of CategoryObservation, holds records that proved to be absent
+  - e.g. Patient doesnt have diabetes type 2
+- **Presence**
+  - subclass of CategoryObservation, holds records that proved to be present
+  - e.g. Patient has AIDS
+
+---
+
+## Observations for Corporate Finance Analysis Patterns
 
 How to analyze, gather something from business domain (data).
 
@@ -561,18 +663,22 @@ measurements using formulas that are instances of model types
 - Range – range between two quantities + operations with ranges
 - Phenomenon with Range
 
-#### Enterprise Segment
+### Enterprise Segment
 
 Allows to divide enterprise to parts we want to measure - these parts are created dynamically based on defined point of views - **dimensions**.
-Point of view can be foe example type of manufactured goods, geographical location, product range...
+
+Point of view can be for example type of manufactured goods, geographical location, product range...
 
 ![](images/lecture3/entseg.png)
 
-Dimension = hierarchy of dimension elements, i.e. the criteria for dividing enterprise
-DimensionElement: Node in the dimension hierarchy, e.g. West Coast area
-GeographicDimensionElement, …: root nodes of dimension hierarchies.
+#### Mappings
 
-Task: We need analytical module in which we can investigate
+- **Dimension** = hierarchy of dimension elements, i.e. the criteria for dividing enterprise
+- **DimensionElement**: Node, member in the dimension hierarchy, e.g. West Coast area
+- **GeographicDimensionElement**, …: root nodes of dimension hierarchies.
+- **EnterpriseSegment** - combinations we want to investigate 
+
+**Task**: We need analytical module in which we can investigate
 
 - significant delays on lines
 - Delays by vehicle type (buses, trams, trolleybus)
@@ -580,9 +686,12 @@ Task: We need analytical module in which we can investigate
 - Same for accidents
 
 Solution:
+
 ![](images/lecture3/entsegex.png)
 
-### Inventory and Accounting
+---
+
+## Inventory and Accounting
 
 We want to track movement of some units (e.g. money) between places (e.g. accounts).
 Thanks to this collection of patterns we can declare which accounts to track for changes and causes for this changes.
@@ -600,12 +709,20 @@ Patterns:
 - Posting Rules
 - … and many more
 
-#### Account
+### Account
 
 This patterns serves as a container with common value change. Thanks to this pattern we have information about current value (account balance) and history of changes.
+
 ![](images/lecture3/accnt.png)
 
-#### Transaction
+#### Mappings:
+
+- **Account** - Tracked object 
+- **Entry** - changes on the tracked object
+
+---
+
+### Transaction
 
 Account pattern allows tracking of changes only, not causes for the change. This pattern extension of Account allows connection of accounts and tracking movement of values (money). This is used for items that cannot be created or deleted on their own, only moved.
 
@@ -615,7 +732,15 @@ We can use this to track changes of vehicles located at this depot by tracking l
 
 ![](images/lecture3/transac.png)
 
-### Referring to Objects
+#### Mappings
+
+- **Account** - Tracked object 
+- **Entry** - changes on the tracked object
+- **Transaction** - References to two entries, one outgoing transaction from account A and one incoming to account B
+
+---
+
+## Referring to Objects
 
 Conceptual thinking about object identity, i.e., references to objects that
 humans use.
@@ -629,17 +754,19 @@ Patterns:
 - **Object Merge** –
 - **Object Equivalence**–
 
-#### Name
+### Name
 
 ![](images/lecture3/nam.png)
 
 There are 3 ways to name a object.
 
-- First possibility that object has one name.
-- Second is that one object can have multiple names.
-- Third is that object has one unique identification number.
+1. object has one name that can be shared
+2. one object can have multiple names.
+3. object has unique identifier.
 
-#### Identification Scheme
+---
+
+### Identification Scheme
 
 Used when object can be referenced from multiple identification schemes. This can happen when integrating system with same type of object evidence and subsystem using their own type of identification.
 
@@ -650,7 +777,17 @@ Example:
   
 ![](images/lecture3/identscheme.png)
 
-#### Object Merge
+#### Mappings:
+
+- **Object** - Object to be named
+- **Identifier** - Mapping String object to the object for given IdentificationScheme
+  - e.g. Smith (String) for Last name (IdentificationScheme) to given Object
+- **String** - name value
+- **IdentificiationScheme** - type of naming (last name, first name, ...)
+
+---
+
+### Object Merge
 
 When (partially) duplicated objects come into existence in a system
 
@@ -658,15 +795,31 @@ When (partially) duplicated objects come into existence in a system
 
 If we copy all the properties of one object over to the another and delete the copied object, we introduce problem with references to the deleted copied object -> **Superseeding strategy** that preserves references.
 
+**Superseeding strategy**:  Active object replaces the superseded object. Superseeded object delegates all messages to the active object
+
 ![](images/lecture3/supersed.png)
 
-**Superseeding strategy**:  Active object replaces the superseded object. Superseded object delegates all messages to the active object
+#### Mapping
 
-#### Object Equivalence
+- **Object** - Superclass for objects
+- **ActiveObject** - 
+  - Object replacing existing object
+  - Delegates messages from and to superseeded object 
+- **SupersededObject** - Superseeded object, takes messages from ActiveObject, confirms messages and sends results to ActiveObject
+
+---
+
+### Object Equivalence
 
 When objects can be considered similar (more-or-less the same, sometimes the same, etc.)
 
 ![](images/lecture3/equiv.png)
+
+#### Mapping
+
+- **Object** - object to be compared
+- **Equivalence** - Record referencing object and second object that is equivalent for given Party
+- **Party** - Subject that confirms equivalency
 
 Example:
 
@@ -674,7 +827,9 @@ Example:
 same disease, but this is not universal.
 - If a doctor wants a list of patients suffering from hepatitis G and that doctor is a party on the equivalence, then those patients suffering from hepatitis GBC are also returned.
 
-Task:
+---
+
+**Task**:
 The ministry of transport prepares a new electronic toll system. The system will store a licence plate and weight of the car (under 3.5 tons, 3.5 - 12 tons, above 12 tons), coupon type (10 days, month, year) and vignette validity date (since).
 
 We will use observation pattern.
