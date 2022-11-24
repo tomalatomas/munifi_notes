@@ -262,7 +262,7 @@ SW Development Life Cycle
 
 ### Conceptual Class Diagram
 
-![](images/lecture/ccd.png)
+![](images/lecture2/ccd.png)
 
 - Provides basic terms and data that have to be stored in the system
   - Describes the problem domain by terms (**classes**), their basic properties (**attributes**) and contexts (**associations with cardinality**)
@@ -272,6 +272,7 @@ SW Development Life Cycle
 Problem Domain Model Example
 
 - As said, we focus on classes, associations with cardinality and this model is then used for further step by step decomposition
+
 ![](images/lecture2/pdmexample.png)
 
 ## Analysis Patterns of M. Fowler
@@ -836,12 +837,12 @@ We will use observation pattern.
 
 ![Alt text](images/lecture2/observ.png)
 
-PhenomenonType - Weight category, Coupon type
-Phenomenon - (under 3.5 tons, 3.5 - 12 tons, above 12 tons), (10 days, month, year)
-Observation -> VignetteData
-Measurement will contain Validity date of vignette and license plate
-Quantity - actual free values like validity date and license plate
-Person - not needed, might be useful for car data
+- PhenomenonType - Weight category, Coupon type
+- Phenomenon - (under 3.5 tons, 3.5 - 12 tons, above 12 tons), (10 days, month, year)
+- Observation -> VignetteData
+- Measurement will contain Validity date of vignette and license plate
+- Quantity - actual free values like validity date and license plate
+- Person - not needed, might be useful for car data
 
 # Lecture 4-8 Design Patterns
 
@@ -992,7 +993,6 @@ Use the singleton pattern when there **must be only one instance** of class and 
   - The Singleton class may be sub-classed, and it's easy to configure an application with an instance of this extended class
   - You can configure the application with an instance of the class you need at run-time
   - The singleton object is initialized only when it’s requested for the first time
-
 - Permits a variable number of instances.
 
 #### Criticism
