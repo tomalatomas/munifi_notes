@@ -6,7 +6,7 @@ _Based na [dokumentu](https://github.com/hojkas/MUNI_notes_and_stuff) by [hojkas
 
 ---
 
-## Přednáška #1: Úvod, pojmy
+## Téma #1: Úvod, pojmy
 
 3 základní pojmy:
 
@@ -199,7 +199,7 @@ Podle druhu a paremetrů klíčů dělíme na:
   - CorrOdp
   </details>
 
-## Přednáška #2: Autentizace uživatelů tajnými informacemi
+## Téma #2: Autentizace uživatelů tajnými informacemi
 
 3 úrovně tajných informací
 
@@ -330,7 +330,7 @@ Doručení PINu a karty by zákazníkovi mělo probíhat různými cestami nebo 
 - Při zjištění se snadno okopíruje a šíří.
 - Lze jej zjistit aniž by si toho uživatel všiml.
 
-## Přednáška #3: Autentizace uživatelů tokeny
+## Téma #3: Autentizace uživatelů tokeny
 
 **Token** - předmět, něco, co uživatel má. Jako u tajných informací chceme, aby autentizace byla co nejsnazší pro autorizovanou osobu a co nejkomplikovanější pro podvodníka.
 
@@ -443,7 +443,7 @@ Nejčastěji používané tokeny:
 - Může se rozbít, přestat fungovat nebo fungovat částečně a jde to těžko detekovat.
 - Token musí být dost složitý aby ho nešlo snadno okopírovat.
 
-## Přednáška #4: Biometrické autentizační metody
+## Téma #4: Biometrické autentizační metody
 
 **Biometriky** = “automatizované metody identifikace nebo ověření identity na základě měřitelných fyziologických nebo behaviorálních vlastností člověka”
 
@@ -579,9 +579,7 @@ Tu se bavíme o biometrikách jako autentizace do systémů. Biometriky mají je
     - Uživatel provede podpis na cizím tabletu a neví co se děje s jeho biometrickými daty, ani s jakým klíčem se vytvořil dig. podpis (pokud se nějaký vůbec vytvořil) a kdo/co k němu má dále přístup,
     - Vlastník cizího zařízení může zneužít charakteristiku podpisu
 
-## Přednáška #5:
-
-### Autentizace uživatelů - lokační a kontextové přístupy
+## Téma #5: Autentizace uživatelů - lokační a kontextové přístupy
 
 Multifaktorová autentizace za posledních pár dekád nabírá na popularitě.
 
@@ -596,7 +594,7 @@ Další možnost autentizace - **kde** jsme.
 - relativní síťové - síťové prvky a identifikátory
 - volná vazba logická - různé povahy (např. google autentikátor na jiných zařízeních)
 
-### Autentizační protokoly
+## Téma #6: Autentizační protokoly
 
 **Protokol**: Několikastranný algoritmus definovaný posloupností kroků, které specifikují akce prováděné dvěma a více stranami, pro dosažení určitého cíle.
 
@@ -880,7 +878,7 @@ Protokoly vyšší úrovně:
 - Odraz (reflection) – využití odeslané zpráv k okamžitému poslání odesilateli
 - Volený text (chosen-text) – vhodná volba výzev (v protokolech výzva-odpověď) pro získání dlouhodobého klíče
 
-### Téma #7: Autentizace počítačů
+## Téma #7: Autentizace počítačů
 
 Počítače můžeme autentizovat na základě adresy počítače nebo na základě tajné informace.
 
@@ -920,33 +918,69 @@ Počítače můžeme autentizovat na základě adresy počítače nebo na zákla
 
 ## Téma #8: Řízení přístupu
 
-Řízení přístupu určuje, který subjekt (uživatel, proces…) má jaký přístup k určitému objektu (soubor, db, printer…). **Vlastník dat** (owner) je subjekt zodpovědný za konkrétní datový objekt, **správce** (custodian) je subjekt pověřený odpovědností za bezpečnost konkrétního datového objektu, **uživatel** (user) je subjekt, který má právo přístupu ke konkrétnímu datovému objektu.
+Řízení přístupu určuje, který **subjekt** (uživatel, proces…) má jaký přístup k určitému **objektu** (soubor, db, printer…).
 
-**Centralizovaná správa řízení přístupu** (jeden správce, mnoho vlastníků i uživatelů, + přísné řízení, + konzistentnost, - vysoká režie) vs **decentralizovaná** (objekt spravuje jeho vlastník = správce, mnoho vlastníků = správců i uživatelů, + snadno vysoká odpovědnost, - nekonzistentní, - bez celkového přehledu, - špatně se prosazuje bezpečnostní politika).
+- **Vlastník dat** (owner) je subjekt zodpovědný za konkrétní datový objekt,
+- **správce** (custodian) je subjekt pověřený odpovědností za bezpečnost konkrétního datového objektu,
+- **uživatel** (user) je subjekt, který má právo přístupu ke konkrétnímu datovému objektu.
+
+**Centralizovaná správa řízení přístupu**
+
+- jeden správce
+- mnoho vlastníků i uživatelů
+- přísné řízení
+- konzistentnost
+- vysoká režie
+
+**Decentralizovaná správa řízení přístupu**
+
+- objekt spravuje jeho vlastník = správce
+- mnoho vlastníků = správců i uživatelů
+- snadno vysoká odpovědnost
+- nekonzistentní, bez celkového přehledu,
+- špatně se prosazuje bezpečnostní politika.
 
 Konkrétní metody řízení přístupu:
 
-- **Heslo** jako řízení přístupu: Každý objekt má přiděleno heslo/hesla svým vlastníkem, právo přístupu má subjekt co zná heslo. Nevýhody: nelze zjistit kdo má přístup, heslo musí být dostupné v systému pro ověření.
-
-- **Matice přístupových práv**: 2 rozměry (sloupec subjekty, řádek objekty), každé pole určuje právo subjektu na daný objekt. Popř. může být 3d kde další rozměr je program. V praxi problém obrovské matice, problém ukládat i vyhledávat.
-
-- **Seznam přístupových práv (ACL - Access Control List)**: Jako matici přístupových práv, ale uložená pro každý objekt zvlášť a ukládá jen neprázdné prvky. Element přístupových práv (ACE) přiděluje práva na daný objekt subjektu, skupině subjektů… Výhoda že určitá práva lze omezit na jednotlivce ve skupině, nevýhodou je obtížná správa, neefektivní kontrola práv a složitost zjištění kam všude má subjekt přístup. V Linuxu i WIndows [v přednáškách podrobně popsáno].
-
-- **SUID/SGID programy**: Matice práv jen dvourozměrná. To, na co má program právo, se ručuje tak, že po spuštění běží s právy uživatele/skupiny vlastníka. Není to intuitivní, easy way out je psát všechno jako SUID root, ale ty pak musí být napsány bezpečně.
-- **Řízení přístupu na čipovch kartách** tvořeno řízením přístupu k souborům, každý má hlavičku určující přístupová práva. PINy uložený v samostatných souborech, přístupová práva k nim určují možnost změny PINů.
-
-- **Seznam přístupových oprávnění** ukládá matici přístupových práv po **subjektech**.
-
-- **Skupinové politiky**: Windows implementuje nejen ACL, ale i přístupová oprávnění která převažují nebo doplňují ACL. Např. skupinová politika zakazující Internet Explorer převáží přístupové právo pro program na disku, který je povolen spustit.
-
-- **SAML** = Security Assertion Markup Language. Založený na XML, především na webu používaný, umožňuje oddělit poskytovatele identit a služeb, řeší problematiku Single Sign-On.
+- **Heslo** jako řízení přístupu
+  - Každý objekt má přiděleno heslo/hesla svým vlastníkem
+  - právo přístupu má subjekt co zná heslo
+  - Nevýhody: nelze zjistit kdo má přístup, heslo musí být dostupné v systému pro ověření.
+- **Matice přístupových práv**:
+  - 2 rozměry (sloupec subjekty, řádek objekty)
+  - každé pole určuje právo subjektu na daný objekt.
+  - Popř. může být 3d kde další rozměr je program.
+  - V praxi problém obrovské matice, problém ukládat i vyhledávat.
+- **Seznam přístupových práv (ACL - Access Control List)**:
+  - Jako matice přístupových práv, ale uložená pro každý objekt zvlášť a ukládá jen neprázdné prvky.
+  - Element přístupových práv (ACE) přiděluje práva na daný objekt subjektu, skupině subjektů…
+  - Výhoda že určitá práva lze omezit na jednotlivce ve skupině,
+  - nevýhodou je obtížná správa, neefektivní kontrola práv a složitost zjištění kam všude má subjekt přístup.
+  - V Linuxu i WIndows [v přednáškách podrobně popsáno].
+- **SUID/SGID programy**:
+  - Matice práv jen dvourozměrná.
+  - To, na co má program právo, se určuje tak, že po spuštění běží s právy uživatele/skupiny vlastníka.
+  - Není to intuitivní, easy way out je psát všechno jako SUID root, ale ty pak musí být napsány bezpečně.
+- **Řízení přístupu na čipových kartách**
+  - tvořeno řízením přístupu k souborům, každý má hlavičku určující přístupová práva.
+  - PINy uložený v samostatných souborech, přístupová práva k nim určují možnost změny PINů.
+- **Seznam přístupových oprávnění**
+  - ukládá matici přístupových práv po **subjektech**
+- **Skupinové politiky**:
+  - Windows implementuje nejen ACL, ale i přístupová oprávnění která převažují nebo doplňují ACL
+  - Např. skupinová politika zakazující Internet Explorer převáží přístupové právo pro program na disku, který je povolen spustit.
+- **SAML**
+  - Security Assertion Markup Language.
+  - Založený na XML, především na webu používaný
+  - umožňuje oddělit poskytovatele identit a služeb
+  - řeší problematiku Single Sign-On.
 
 **Podpora řízení přístupu v HW**: Úkolem zamezit komunikaci procesů jinak než explicitně povoleným způsobem.
 
-- Např. “fence address” - limit paměti, do nižších má přístup jen OS;
-  “segmentové adresování” - adresování segment+offset, segment může měnit jen OS;
-  dva režimy procesoru (autorizovaný a neautorizovaný, který měnit segmentové registry nemůže);
-  “Rings of protection” - několik režimů činnosti s různými právy, měnit ring může jen v ringu 0 (OS).
+- “**fence address**” - limit paměti, do nižších má přístup jen OS;
+- “**segmentové adresování**” - adresování segment+offset, segment může měnit jen OS;
+  - dva režimy procesoru autorizovaný a neautorizovaný, který měnit segmentové registry nemůže
+- “**Rings of protection**” - několik režimů činnosti s různými právy, měnit ring může jen v ringu 0 (OS).
 
 **Separace oprávnění**: Pro vykonání určité akce je třeba souhlas několika osob (OS to nepodporuje, nutné to řešit přímo v SW).
 
@@ -956,29 +990,65 @@ Konkrétní metody řízení přístupu:
 
 **Politiky řízení přístupu**: (nejsou exkluzivní, jde oboje naráz)
 
-- **Volitelný přístup** (discretionary). Subjekt (vlastník) rozhoduje kdo má přístup, typicky politika podporovaná v OS.
-  _Výhody_: Jednoduché = malá režie, flexibilní, lze vázat udělení práv na splnění dodatečných podmínek (např. místo).
-  _Nevýhody_: Nedostatečná bezpečnost, není odelné vůči Trojským koním, systém se nestará o využití jednou získaných dat (např. pokud člen zkopíruje soubor a špatně nastaví přístupová práva, systém to neřeší).
-- **Povinný přístup** (mandatory). Systémová politika nezávislá na vůli subjektů. Zavede se kategorie subjektů (důvěryhodnost) a objektů (důvěrnost), definuje uspořádání klasifikací objektů a množiny kategorií subjektů. _Referenční monitor_ (monitor odkazů) implementuje funkce prosazující bezpečnost řízení přístupu, při každém přístupu subjektu k objektu kontroluje, zda to odpovídá bezpečnostní politice.
+- **Volitelný přístup** (discretionary).
+  - Subjekt (vlastník) rozhoduje kdo má přístup, typicky politika podporovaná v OS.
+  - _Výhody_: Jednoduché = malá režie, flexibilní, lze vázat udělení práv na splnění dodatečných podmínek (např. místo).
+  - _Nevýhody_: Nedostatečná bezpečnost, není odelné vůči Trojským koním, systém se nestará o využití jednou získaných dat (např. pokud člen zkopíruje soubor a špatně nastaví přístupová práva, systém to neřeší).
+- **Povinný přístup** (mandatory).
+  - Systémová politika nezávislá na vůli subjektů.
+  - Zavede se kategorie subjektů (důvěryhodnost) a objektů (důvěrnost), definuje uspořádání klasifikací objektů a množiny kategorií subjektů.
+  - _Referenční monitor_ (monitor odkazů) implementuje funkce prosazující bezpečnost řízení přístupu, při každém přístupu subjektu k objektu kontroluje, zda to odpovídá bezpečnostní politice.
+- Při povinném přístupu (prosazovaném systémem) lze (a často je to žádoucí) obvykle podporovat i volitelný přístup!!!
 
 **Víceúrovňové systémy**: MLS (Multi level systems)
 
-- **Bell-LaPadula**. Uživatel má počáteční bezpečnostní úroveň (clearance). Subjekt je aktivní element (proces činný na pokyn uživatele), bezpečnostní úroveň procesu je daná bezpečností úrovní uživatele co ho spustil. Objekt je pasivní chráněný element, má klasifikaci (bezpečnostní úroveň) kterou definiuje vlastník objektu.
-  - Bezpečnostní úroveň: $L = (C, S)$ kde C je klasifikace objektů (TS - top secret, S - secret, C - classsified, U - unclassified) a S je podmnožina množiny kategorií subjektů (např. {ekolomický odbor}).
-  - Stav systému: $S = (b, M, f)$, b - množina (právě) aktivních přístupů (trojice subjekt, objekt, právo), M - matice přístupových práv, f - úrovňová funkce $O \cup S \rightarrow L$ kde O je množina objektů, S m. subjektů, L m. bezpečnostních úrovní. Udává bezpečnostní úroveň každého objektu a subjektu. Subjekt má každý dvě - clearance (maximální) a aktuální. Objekt má jednu.
+- **Bell-LaPadula**.
+  - Uživatel má počáteční bezpečnostní úroveň (clearance).
+  - **Subjekt** je aktivní element (proces činný na pokyn uživatele), bezpečnostní úroveň procesu je daná bezpečností úrovní uživatele co ho spustil.
+  - **Objekt** je pasivní chráněný element, má klasifikaci (bezpečnostní úroveň) kterou defininuje vlastník objektu.
+  - **Bezpečnostní úroveň**: $L = (C, S)$ kde C je klasifikace objektů (TS - top secret, S - secret, C - classsified, U - unclassified) a S je podmnožina množiny kategorií subjektů (např. {ekolomický odbor}).
+  - **Stav systému**: $S = (b, M, f)$, b - množina (právě) aktivních přístupů (trojice subjekt, objekt, právo), M - matice přístupových práv, f - úrovňová funkce $O \cup S \rightarrow L$ kde O je množina objektů, S m. subjektů, L m. bezpečnostních úrovní. Udává bezpečnostní úroveň každého objektu a subjektu. Subjekt má každý dvě - clearance (maximální) a aktuální. Objekt má jednu.
   - Stav systému je bezpečný pouze tehdy, jsou–li splněny všechny bezpečnostní vlastnosti (omezení daná vztahy bezpečnostní úrovně subjektů a objektů). Operace změny stavu systému se povolí jen pokud výsledný stav bude bezpečný (kontroluje referenční monitor).
   - _Důvěryhodný_ subjekt smí porušovat bezpečnostní politiku povinnou pro _nedůvěryhodné_ subjekty (ví co smí a nesmí).
-  - _Operace změny stavu_: získat/vrátit právo přístupu, zahájit/ukončit operaci s objektem, dát/odebrat právo přístupu subjektu k objektu, změnit aktuální bezpečnostní úroveň subjektu, změnit bezpečnostní úroveň objektu (pro neaktivní pouze).
-  - **Axiomy** modelu: Procesy nesmějí číst data na vyšší úrovni (tzv. základní bezpečnostní vlastnost - _ss proprety_ nebo _NRU - no read up_). Procesy nesmějí zapisovat data do nižší úrovně (tzv. _\*-vlastnost_ nebo _NWD - no write down_).
+    - nedůvěryhodný subjekt – jeho chování je třeba hlídat doplňkovými omezeními podle zavedené bezpečnostní politiky
+  - _Operace změny stavu_:
+    - získat/vrátit právo přístupu,
+    - zahájit/ukončit operaci s objektem,
+    - dát/odebrat právo přístupu subjektu k objektu (modifikace M),
+    - změnit aktuální bezpečnostní úroveň subjektu,
+    - změnit bezpečnostní úroveň objektu (pro neaktivní pouze).
+  - **Axiomy** modelu:
+    - Procesy nesmějí číst data na vyšší úrovni (vyšší klasifikace)
+      - tzv. základní bezpečnostní vlastnost - _ss property_ nebo _NRU - no read up_
+      - nelze číst/tvořit tajnější data, než která je proces počátečně oprávněn
+    - Procesy nesmějí zapisovat data do nižší úrovně
+      - tzv. _\*-vlastnost_ nebo _NWD - no write down_
+      - pouze pro nedůvěryhodné subjekty
+      - číst lze jen méně tajná data
+      - tvořit lze jen stejně tajná data
+      - doplňovat lze stejně tajná data nebo tajnější data
   - Umožňuje i volitelný přístup.
 - Problémy víceúrovroňových systémů: Klasifikace dat, často příliš striktní, drahý vývoj systému, náročná administrace, problém propojení dvou MLS s neekvivalentní klasifikací.
-- **Skrytý kanál** (covert channel) - mechanismu, který není primárně určen pro komunikaci, ale může být využit (zneužit) pro komunikaci mezi úrovněmi). Takové info je například: zaplnění disku, aktuální zátěž procesory, pozice hlavičky na disku… (Útočník z nižší vrstvy by podle takové informace mohl zjistit, že třeba vyšší vrstva provádí náročné operace na tomto místě na disku.) Obrana je například diskové kvóty (každá vrstva vlastní kvóta a vidí zaplnění jen ve své vlastní), zavedení šumu.
-- **Polyinstance** chrání existenci informaci na vyšší úrovni. Řeší co dělat, když například uživatel na nižší úrovni vytvoří soubor, co už na vyšší existuje (error by dal info že existuje). Noninterference = vlastnost, kdy akce uživatele na vyšší vrstvě neovlivní co vidí uživatel na nižší. Souborový systém například může zavést konvenci pojmenování, v databázi je to těžší, může třeba duplikovat řádky, dávat info “klasifikováno” místo skutečného údaje, …
-- **Model Biba** - “převrácený” Bell-LaPaluda, řeší integritu. Číst data lze jen z vyšší úrovně (přesnější, spolehlivější), zapisovat lze jen dolů (méně spolehlivé).
+- **Skrytý kanál** (covert channel) -
+  - mechanismus využit (zneužit) pro komunikaci mezi úrovněmi.
+  - Takové info je například: zaplnění disku, aktuální zátěž procesory, pozice hlavičky na disku… (Útočník z nižší vrstvy by podle takové informace mohl zjistit, že třeba vyšší vrstva provádí náročné operace na tomto místě na disku.)
+  - Obrana je například diskové kvóty (každá vrstva vlastní kvóta a vidí zaplnění jen ve své vlastní), zavedení šumu.
+- **Polyinstance**
+  - chrání existenci informaci na vyšší úrovni.
+  - Řeší co dělat, když například uživatel na nižší úrovni vytvoří soubor, co už na vyšší existuje (error by dal info že existuje).
+  - **Noninterference** = vlastnost, kdy akce uživatele na vyšší vrstvě neovlivní co vidí uživatel na nižší.
+  - Souborový systém například může zavést konvenci pojmenování, v databázi je to těžší, může třeba duplikovat řádky, dávat info “klasifikováno” místo skutečného údaje, …
+- **Model Biba** -
+  - “převrácený” Bell-LaPaluda,
+  - řeší integritu.
+  - Číst data lze jen z vyšší úrovně (přesnější, spolehlivější),
+  - zapisovat lze jen dolů (méně spolehlivé).
 
-**Role based access control (RBAC)** není ani volitelné ani povinné řízení přístupu, ale samostatná kategorie. Uživatelům přiřazeny role, ty znamenají práva k provedení určitých akcí (jemnější než ACL).
+**Role based access control (RBAC)**
 
-<div style="page-break-after: always; break-after: page;"></div>
+- není ani volitelné ani povinné řízení přístupu, ale samostatná kategorie.
+- Uživatelům přiřazeny role, ty znamenají práva k provedení určitých akcí (jemnější než ACL).
+- Role jsou specifické pro každý IS
 
 ## Téma #9: Autentizace dat a zpráv
 
@@ -987,88 +1057,274 @@ Konkrétní metody řízení přístupu:
 - S přílohou (DSA, ElGamal, Schnorr) - jen podpis, pro ověření je třeba mít i data co podepsal
 - S obnovou zprávy (čisté RSA, Rabin, Nyberg-Rueppel) - pro ověření podpisu nejsou třeba další data
 
-**Certifikát** - veřejný klíč uživatele podepsaný soukromým klíčem důvěryhodné třetí strany, zaručuje že identita vlastníka daného veřejného klíče není podvržená.
+S využitím hashovací funkce lze schémata s o.z. převést na schémata s přílohou (zpráva a hash zprávy zapouzdřený v podpisu pomocí např. RSA)
 
-**PKI** - pomocná infrastuktura pro správu veřejných klíčů, má bezpečnostní politiky, procedury, produkty, autority. Komponenty: _certifikační autorita (CA)_ - poskytovatel certifikační služby, vydavatel certifikátu, _registrační autorita (RA)_ - registruje žadatele o certifikát, ověřuje jeho identitu, _adresářová služba_ - prostředek pro uchovávání a distribuci platných klíčů a seznam zneplatněných certifikátů.
+### Certifikát
 
-- Proces vystavení certifikátu: generování klíčových dat $\rightarrow$ doložení dokladů $\rightarrow$ předání klíčových dat a identifikačních údají PCS/RA $\rightarrow$ ověření informací $\rightarrow$ tvorba certifikátu $\rightarrow$ předání certifikátu (a zveřejnění)
+- veřejný klíč uživatele podepsaný soukromým klíčem důvěryhodné třetí strany, zaručuje že identita vlastníka daného veřejného klíče není podvržená.
+
+#### Obsah certifikátu
+
+- označení typu (běžný, kvalifikovaný…)
+  - Kvalifikovaný certifikát: certifikát, který má zákonem definované procedury. Je vytvořen státem akreditovanou certifikační autoritou
+- identifikace vydavatele a podepisující osoby (pseudonym)
+- unikátní číslo v rámci vydavatele
+- počátek a konec platnosti
+- volitelně: doplňkové atributy (lze i definovat vlastní pole)
+- volitelně: omezení použití
+- podpis vydavatele
+
+#### PKI - Private Key Infrastructure
+
+- pomocná infrastuktura pro správu veřejných klíčů
+- má bezpečnostní politiky, procedury, produkty, autority
+- Komponenty:
+  - _certifikační autorita (CA)_
+    - poskytovatel certifikační služby
+    - vydavatel certifikátu
+    - registrace uživatelů certifikátů
+  - _registrační autorita (RA)_ (nepovinná složka)
+    - přijímá žádosti o certifikace
+    - ověřuje pravdivost uvedených údajů
+    - předává certifikát CA k podpisu a vrací klientovi
+  - _adresářová služba_ -
+    - prostředek pro uchovávání a distribuci platných klíčů a seznam zneplatněných certifikátů.
+    - obvykle minimálně 2 adresáře
+      - privátní - zálohování platných klíčů a pro archivování klíčů, kterým uplynula doba platnosti
+      - veřejný - uchovávání a distribuce certifikátů a CRL, sklad certifikačních informací;
+
+**Proces vystavení certifikátu:**
+
+- generování klíčových dat $\rightarrow$ doložení dokladů $\rightarrow$ předání klíčových dat a identifikačních údají PCS/RA $\rightarrow$ ověření informací $\rightarrow$ tvorba certifikátu $\rightarrow$ předání certifikátu (a zveřejnění)
 - CA tvoří hierarchické struktury, kořenové CA na vrchu a pod nimi síť.
 
-**Integrita dat** - data nebyla neautorizovaně změněna. **Autentizace původu dat** - potvrzujeme, že data pocházejí od určitého subjektu.
+**Integrita dat** - data nebyla neautorizovaně změněna.
 
-Autentizaci může zajistit tajný symetrický klíč, hash přes autentizovaný kanál, hash s tajným klíčem/MAC (dříve označováno jako digiální pečeť), digitální podpis.
+**Autentizace původu dat** - potvrzujeme, že data pocházejí od určitého subjektu.
 
-**Elektronický podpis**
+### Metody autentizace dat a zpráv
 
-- “Elektronický podpis” může být i pouhé jméno na klávesnici, pro účely autentizace dat řešíme **zaručený elektronický podpis**: ten je jednoznačně spojený s podepisující osobou, umožňuje její identifikaci, je vytvořen pomocí dat pro vytváření el. podpisů, které má osoba pod svou výhradní kontrolou, a je k datům připojen tak, že je možné zjistit jakoukoliv následnou změnu dat.
-  [Aka se tu vlastně vždy bavíme o zaručeném elektronickém podpisu I guess.]
-- **Soukromý klíč** pro vytváření podpisu má jenom autor, **veřejný klíč** pro ověření podpisu je k dispozici veřejně pro ověření. V praxi nepodepisujeme dokument, ale pouze jeho hash. Pokud šifrujeme, chce to nejprve podepsat až pak zašifrovat. Integrita veřejného klíče je zajištěna certifikátem.
+- Bez použití kryptografie (pouze integrita)
+  - CRC (Cyclic Redundancy Check)
+- S použitím kryptografie
+  - Autentizaci může zajistit tajný symetrický klíč, hash přes autentizovaný kanál, hash s tajným klíčem/MAC (dříve označováno jako digiální pečeť), digitální podpis.
+- Využití jiného komunikačního kanálu
+  1) Data pošleme standardním nezabezpečeným kanálem (např. elektronickou poštou).
+  2) Spočítáme haš dat a tento haš sdělíme příjemci jiným kanálem (např. telefonicky, na vizitce předané při osobním setkání)
+  3) Příjemce spočítá haš získaných dat a porovná haše
+
+### Elektronický podpis
+
+- “Elektronický podpis” může být i pouhé jméno na klávesnici
+- pro účely autentizace dat řešíme **zaručený elektronický podpis**:
+  - ten je jednoznačně spojený s podepisující osobou,
+  - umožňuje její identifikaci,
+  - je vytvořen pomocí dat pro vytváření el. podpisů, které má osoba pod svou výhradní kontrolou
+  - je k datům připojen tak, že je možné zjistit jakoukoliv následnou změnu dat.
+  - zaručený elektronický podpis == digitální podpis
+- **Soukromý klíč** pro vytváření podpisu má jenom autor,
+- **Veřejný klíč** pro ověření podpisu je k dispozici veřejně pro ověření.
+- V praxi nepodepisujeme dokument, ale pouze jeho hash.
+- Pokud šifrujeme, chce to nejprve podepsat až pak zašifrovat.
+- Integrita veřejného klíče je zajištěna certifikátem - Certifikát váže veřejný klíč k subjektu
 - Algoritmy digitálního podpisu: RSA, DSA, ECDSA.
-  - **RSA** založen na prvočíslech - je snadné je vynásobit, ale faktorizace je už výpočetně náročná. Dnes se používá modulo o délkách 2048 až 4096b.
+  - **RSA** založen na prvočíslech - je snadné je vynásobit, ale faktorizace je už výpočetně náročná. Dnes se používá modulo o délkách 3072 až 4096b.
 
-**Hashovací funkce** (kryptografická hashovací funkce)
+### Hashovací funkce (kryptografická hashovací funkce)
 
-- Vstup libovolné délky, výstup pevné délky. Funkce není prostá (vznikají kolize, několik vstupů se promítne na ten samý výstup). **Jednosměrnost** - máme hash y. Nejsme schopni v rozumném čase najít x takové, že hash x = y. (Aka nejsme schopni z hasha získat jedno z možných původních hesel.) **Bezkoliznost slabá** - pro dané y nejsme schopni najít takový x, aby měly stejný hash (h(x) = h(y)). **Bezkoliznost silná** - nejsme schopni najít jakékoliv dva vstupy x, y tak, aby měly stejný hash (h(x) = h(y)).
+- Vstup libovolné délky, výstup pevné délky.
+- Funkce není prostá (vznikají kolize, několik vstupů se promítne na ten samý výstup).
+- Haš (otisk) slouží jako kompaktní reprezentace vstupu
+- Změna jednoho bitu vstupu → velká změna výstupu
+- **Jednosměrnost** - V rozumném čase nejsme schopni pro pevně dané y najít takové x, že h(x) = y
+- **Bezkoliznost slabá** - pro dané y nejsme schopni najít takový x, aby měly stejný hash (h(x) = h(y)).
+- **Bezkoliznost silná** - nejsme schopni najít jakékoliv dva vstupy x, y tak, aby měly stejný hash (h(x) = h(y)).
 - Např. (dnes už slabá MD4, MD5, SHA-1), SHA-2 (rodina, v ní např. SHA-512), SHA-3 (Keccak).
 
-- **Narozeninový paradox** - pravděpodobnost, že 2 lidé v sále s 23 mají narozeniny ve stejný den, je větší než 50% (a roste, při 30 lidech je to 70%+). Toho využívají některé útoky na hashe, pokud potřebují najít _libovolnou kolizi_ hashe (toto jde proti silné bezkoliznosti), mají o dost větší šanci než najít specifický hash.
+**Narozeninový paradox** - pravděpodobnost, že 2 lidé v sále s 23 mají narozeniny ve stejný den, je větší než 50% (a roste, při 30 lidech je to 70%+). Toho využívají některé útoky na hashe, pokud potřebují najít _libovolnou kolizi_ hashe (toto jde proti silné bezkoliznosti), mají o dost větší šanci než najít specifický hash.
 
-Pouze integritu (ne autentizaci) zajišťuje **CRC** (Cyclic Redundancy Check) nebo MAC (z libovolné symetrické šifry v cipher block chaining režimu).
+Pouze integritu (ne autentizaci) zajišťuje **CRC** (Cyclic Redundancy Check) nebo **MAC** (z libovolné symetrické šifry v cipher block chaining režimu).
 
-Důvěrnost jde s MAC zajistit pomocí **“chaffing and winnowing”** (“oddělení zrna od plev”). Zprávu rozdělíme na jednotlivé bity a pro každý bit vytvoříme 2 zprávy (obsahující 0 a 1), jednu se správným MC a jednu z nesprávným MAC. Tyto zprávy v náhodném pořadí odešleme příjemci, ten dostane 2 a jednu si ponechá druhou zahodí. Nikdo bez tajného sdíleného klíče není schopen odlišit zprávu se správným a špatným MAC. (Ale existují i efektivnější metody než posílání po 1 bitu.)
+HMAC(x) = h(k||p1||h(k||p2||x))
+k klíč, p padding (doplnění dat)
 
-<div style="page-break-after: always; break-after: page;"></div>
+Důvěrnost jde s MAC zajistit pomocí **“chaffing and winnowing”** (“oddělení zrna od plev”). Zprávu rozdělíme na jednotlivé bity a pro každý bit vytvoříme 2 zprávy (obsahující 0 a 1), jednu se správným MAC a jednu z nesprávným MAC. Tyto zprávy v náhodném pořadí odešleme příjemci, ten dostane 2 a jednu si ponechá druhou zahodí. Nikdo bez tajného sdíleného klíče není schopen odlišit zprávu se správným a špatným MAC. (Ale existují i efektivnější metody než posílání po 1 bitu.)
 
 ## Téma #10: Autentizace v příkladech I
 
-**HW tokeny** využíváme na _uchování citlivých dat_ (kryptografické klíče, údaje pro využívání předplacených služeb jako např. pro dekódování satelitního signálu), _autentizaci uživatelů_ (vstup do zabezpečené místnosti, přihlášení do OS, GSM/LTE/GMR/UMTS sítí, e-bankovnictví, potvrzení finančí transakce) a _identifikaci uživatelů_ (elektronické dokumenty jako pas, řidičský průkaz).
+**HW tokeny** využíváme na
+
+- uchování citlivých dat
+  - (kryptografické klíče, údaje pro využívání předplacených služeb jako např. pro dekódování satelitního signálu),
+- autentizaci uživatelů
+  - (vstup do zabezpečené místnosti, přihlášení do OS, GSM/LTE/GMR/UMTS sítí, e-bankovnictví, potvrzení finančí transakce)
+- identifikaci uživatelů
+  - (elektronické dokumenty jako pas, řidičský průkaz).
 
 **Autentizace do GSM/GMR sítě**: _dvoufaktorová autentizace_ (použití tokenu - SIM a znalosti - PIN), využívá sdílené tajemství (na SIM uložen tajný symetrický klíč, uložen i u operátora v autentizačním centru, autentizační protokol [asi] výzva-odpověď).
 
-**Autentizace/autorizace v e-bankovnictví**: Mnohdy pouze _jednofaktorová_ na tajné heslo, s mechanismy proti útokům jako testy délky a kvality hesla, virtuální klávesnice, SSL certifikáty a personalizovaný login (umožňující detekovat falešnou adresu s podvrženou přihlašovací stránkou). Pokud využívá _dvoufaktorovou autentizaci_, jde buď o token (čipová karta) a znalosti (PIN) přímo nebo tokenu (kalkulátor/telefon) a znalosti (PIN) pro vygenerování jednorázového hesla.
+**Autentizace/autorizace v e-bankovnictví**:
+
+- Mnohdy pouze _jednofaktorová_ na tajné heslo, s mechanismy proti útokům jako testy délky a kvality hesla, virtuální klávesnice, SSL certifikáty a personalizovaný login (umožňující detekovat falešnou adresu s podvrženou přihlašovací stránkou).
+- Pokud využívá _dvoufaktorovou autentizaci_, jde buď o token (čipová karta) a znalosti (PIN) přímo nebo tokenu (kalkulátor/telefon) a znalosti (PIN) pro vygenerování jednorázového hesla.
 
 **Autorizace finančních transakcí**: Typicky dvoufaktorová, token (karta, telefon) + biometrika nebo znalost (PIN, CVV2/CVC, aplikace vyžaduje biometriku…).
 
-**Online verifikace PINu** probíhá vzdáleně ve vydávající bance, potřeba zajisti bezpčný přenos PINu od poskytující k vydávající bance (jiný PIN než u běžné čipové karty). Bankomat či platební terminál typicky PIN formátuje do PIN bloku (struktura s PINem a dalšími daty pro zvýšení entropie), ten je zašifrován a odeslán vydávající bance, po cestě může dojít k přeformátovávání PIN-bloku (do nativního formátu dané sítě). Originální PIN není v bance uložen, po přijetí PINu od bankomatu je PIN zákazníka znovu vygenerován (z čísla účtu a tajného PINu generujícího klíče) a porovnán s ním. Množství formátů PIN-bloků a různé metody generování PINů komplikují možnost vytvořit bezpečný návrh HW a API pro práci s nimi.
+### Online verifikace PINu
+
+- probíhá vzdáleně ve vydávající bance
+- potřeba zajistit bezpečný přenos PINu od poskytující k vydávající bance (jiný PIN než u běžné čipové karty).
+- Bankomat či platební terminál typicky PIN formátuje do PIN bloku (struktura s PINem a dalšími daty pro zvýšení entropie), ten je zašifrován a odeslán vydávající bance, po cestě může dojít k přeformátovávání PIN-bloku (do nativního formátu dané sítě).
+- Originální PIN není v bance uložen, po přijetí PINu od bankomatu je PIN zákazníka znovu vygenerován (z čísla účtu a tajného PINu generujícího klíče) a porovnán s ním.
+- Množství formátů PIN-bloků a různé metody generování PINů komplikují možnost vytvořit bezpečný návrh HW a API pro práci s nimi.
 
 Specifikace **EMV** (Europay, MasterCard, VISA) jsou požadavky na čipové karty a platební terminály, bezpečnostní požadavky.
 
-- **Offline autentizace dat** - cílem detekovat falešné karty. Založeno na RSA a veřejných klíčích, potřebuje certifikační autoritu, každý terminál musí mít veřejný klíč CA. Tři mechanismy:
+### Offline autentizace dat
 
-  - **SDA - statická autentizace dat.** Potvrzuje pravost statických dat uloženýchna čipové kartě (detekuje neautorizovanou změnu dat), provádí ji terminál (čip jen zašle data). Padělání karet se tímto neřeší. Statická data jsou podepsána soukromým klíčem vydávající banky, veřejný klíč banky je v čipu taky, veřejný klíč CA co ověřila veřejný klíč banky je v každém terminálu.
-  - **DDA - dynamická autentizace dat.** Kryptografické operace provádí terminál i karta (čip s koprocesorem a zajištěním bezpečnosti uloženého RSA klíče). Potvrzuje pravost statických dat uložených a generovaných v čipové kartě a dat obdržených z terminálu (už detekuje padělané karty). Veřejný klíč CA v terminálu, veřejný klíč banky v čipu. Navíc v čipu nový unikátní pár RSA - soukromý bezpečně uložený v čipu (nikdy jej neopustí), veřejný klíč podepsán a uložen u statických aplikačních dat (SAD). Podepsaná SAD a certifikát veřejného klíče karty a banky jsou zaslány terminálu k ověření, ten inciuje protokol výzva odpověď.
-  - **CDA - Kombinovaná DDA a generování aplikačního kryptogramu.** Prováděno terminálem i kartou společně s analýzou akcí karty (to by se normálně provádělo až později). Náhodná výzva je narozdíl od DDA součástí podepsaného aplikačního kryptogramu, ten je zabezpečen (výhoda pokud nelze garantovat bezpečnou komunikaci mezi čipem a terminálem).
+- cílem detekovat falešné karty. Založeno na RSA a veřejných klíčích, potřebuje certifikační autoritu, každý terminál musí mít veřejný klíč CA. Tři mechanismy:
 
-- Každá čipová karta obsahuje **CVM** = prioritně uspořádaný seznam podporovaných autentizačních metod, terminál zvolí první metodu ze seznamu co podporuje. Základní podporované metody jsou podpis (ručně), PIN.
+- **SDA - statická autentizace dat.**
+  - Potvrzuje pravost statických dat uložených na čipové kartě (detekuje neautorizovanou změnu dat)
+  - Provádí ji terminál (čip jen zašle data).
+  - Padělání karet se tímto neřeší.
+  - Statická data jsou podepsána soukromým klíčem vydávající banky,
+  - veřejný klíč banky je v čipu taky, veřejný klíč CA co ověřila veřejný klíč banky je v každém terminálu.
+  - podepsaná statická aplikační data a certifikát veřejného klíče vydavatele jsou zaslány platebnímu terminálu k ověření
+- **DDA - dynamická autentizace dat.**
+  - Kryptografické operace provádí terminál i karta (čip s koprocesorem a zajištěním bezpečnosti uloženého RSA klíče).
+  - Potvrzuje pravost statických dat uložených a generovaných v čipové kartě a dat obdržených z terminálu (už detekuje padělané karty).
+  - Veřejný klíč CA v terminálu, veřejný klíč banky v čipu
+  - Navíc v čipu nový unikátní pár RSA - soukromý bezpečně uložený v čipu (nikdy jej neopustí), veřejný klíč podepsán a uložen u statických aplikačních dat (SAD).
+  - Podepsaná SAD (statická aplikační data) a certifikát veřejného klíče karty a banky jsou zaslány terminálu k ověření, ten iniciuje protokol výzva odpověď (terminál pošle náhodnou výzvu, čipová karta vezme soukromý klíč RSA kterým podepíše náhodnou výzvu a tu zašle zpět terminálu, která ji ověří).
+- **CDA - Kombinovaná DDA a generování aplikačního kryptogramu.**
+  - Prováděno terminálem i kartou společně s analýzou akcí karty (to by se normálně provádělo až později).
+  - Náhodná výzva je narozdíl od DDA součástí podepsaného aplikačního kryptogramu, ten je zabezpečen (výhoda pokud nelze garantovat bezpečnou komunikaci mezi čipem a terminálem).
 
-- **Autorizace platby**: Autentizace založená na podpise či na online verifikaci PINu (jako u karet s magnetickým proužkem, PIN formátován do PIN-bloku, zašifrován atd.), autentizace založená na offline verifikaci se šifrováním PINu (vyžaduje nový RSA pár klíčů, jako pár klíčů pro DDA, originální PIN bezpečně uložen v čipu, terminál musí být dobře zabezpečen).
+### Dohoda autentizační metody
 
-- **Automatická správa rizik** přichází na řadu po úspěšné autentizaci. Ochrana proti hrozbám nedetekovatelným v offline prostředí (zda může být transakce vůbec přijata offline, zamítnuta offline, …), správa rizik v terminálu (kontrola horního limitu, náhodně vyžadovaná online autorizace), analýza akcí terminálu a karty.
+- Přichází na řadu ihned po offline autentizaci
+- Každá čipová karta obsahuje **CVM** = prioritně uspořádaný seznam podporovaných autentizačních metod, terminál zvolí první metodu ze seznamu co podporuje.
+- Základní podporované metody jsou podpis (ručně), PIN.
 
-**Smartphone** v autentizaci v praxi: Bezkontaktní platby skrz NFC enbo magnetické pole, bankovní aplikace s funkcemi (virtuální kopie karet, okamžité odemčení/zamčení karty, geolokace, autentizační kalkulátory/aplikace). Nevýhody: nízká kvalita biometrických senzorů, možnost vést cílený útok (malware…).
+### Autorizace platby
 
-<div style="page-break-after: always; break-after: page;"></div>
+- Autentizace založená na podpise či na online verifikaci PINu
+  - jako u karet s magnetickým proužkem,
+  - PIN formátován do PIN-bloku, zašifrován
+- Autentizace založená na offline verifikaci se šifrováním PINu
+  - vyžaduje nový RSA pár klíčů, jako pár klíčů pro DDA,
+  - originální PIN bezpečně uložen v čipu,
+  - terminál musí být dobře zabezpečen).
+
+### Automatická správa rizik
+
+- přichází na řadu po úspěšné autentizaci uživatele.
+- Ochrana proti hrozbám nedetekovatelným v offline prostředí (zda může být transakce vůbec přijata offline, zamítnuta offline, …),
+- správa rizik v terminálu (kontrola horního limitu, náhodně vyžadovaná online autorizace),
+- analýza akcí terminálu a karty.
+
+### Dodatek EMV
+
+#### Důsledky specifikace EMV
+
+- Zajištění interoperability platebních systémů založených na použití
+kontaktních čipových karet
+- Zavedením autorizace PINem je zodpovědnost za transakce převedena na
+zákazníka
+- Tvrzení o EMV a technologii Chip&PIN
+  - EMV karty poskytují bezpečnější úložiště pro citlivá data, pokud se nepoužívá SDA
+  - autentizace uživatelů pomocí PINu je bezpečnější, pokud je vyjednána bezp. autentizační metoda
+  - protokol lze snadno přesměrovat (relay attack)
+
+#### Man-in-the-middle útok na EMV
+
+- útok na verifikaci PINu funguje pro offline i online transakce při offline verifikaci PINu
+- Nefunguje pro výběry z bankomatu a transakce prováděné přes Internet/telefon
+
+**Smartphone** v autentizaci v praxi:
+
+- Bezkontaktní platby skrz NFC enbo magnetické pole,
+- bankovní aplikace s funkcemi (virtuální kopie karet, okamžité odemčení/zamčení karty, geolokace, autentizační kalkulátory/aplikace).
+- Nevýhody: nízká kvalita biometrických senzorů,
+- možnost vést cílený útok (malware…).
 
 ## Téma #11: Autentizace v příkladech II - Elektronické pasy
 
-Používá **RFID** (Radio Frequency Identification), které umožňuje automatickou identifikaci objektů pomocí dat přenesených přes elektromagnetické pole.
+Používá **RFID** (Radio Frequency Identification), které umožňuje automatickou identifikaci objektů pomocí dat přenesených přes elektromagnetické pole. V blízkosti čtečky vysílá jedinečný identifikátor (číselný kód).
 
-- Tagy: **Pasivní** bez vlastního zdroje energie (malé, tenké, levné, vydrží, dosah max pár metrů), **aktivní** s vlastním zdrojem (větší paměť + výkon, dražší, dosah desítky metrů, vydrží až 5 let), **semiaktivní** s vlastním zdrojem pouze pro napájení čipu (rychlejší odezva než pasivní tagy).
-- **Bezpečnost** RFID: (Řešíme hlavně problém soukromí a autentizace. Btw to jestli RFID tag vyžaduje přimou viditelnost nebo ne záleží na použitém frekvenčním pásmu/vlnové délce.)
-  - _Deaktivace tagu_ (typicky čtečkou na místě, například když zákazník přebírá zboží, nelze použít vždy, např. knihovna).
-  - _Pasivní či aktivní rušení_ (pasivní - Faradayova klec bránící vysílání signálu ven, aktivní - aktivní rušička signálu).
-  - _Měření vzdálenosti_ (přilišný šum $\rightarrow$ odvysílá nesprávná data).
-  - _Změna jedinečného identifikátoru_ (nepravidelná - jednorázové přeznačení či smazání, pravidelná - z malé množiny které rozpozná jen čtečka, či přešifrováním).
-  - _Selektivní blokování_ (identifikátory podle 1. bitu soukromé nebo veřejné, blokující RFID tag ruší čtení těch soukromých, ne vždy funguje spolehlivě a lze zneužít k úplnému blokování).
+- Tagy **Pasivní**
+  - bez vlastního zdroje energie (malé, tenké, levné, téměř neomezená životnost, dosah max pár metrů),
+- Tagy **aktivní**
+  - s vlastním zdrojem (větší paměť + výkon, dražší, dosah desítky metrů, vydrží až 5 let),
+- **semiaktivní**
+  - s vlastním zdrojem pouze pro napájení čipu (rychlejší odezva než pasivní tagy).
 
-**Cestovní pas** je identifikační průkaz, na kterém se kontroluje: zda je originál vydaný patřičnou autoritou (digitální podpis dat, aktivní autentizace, tisk, vodoznak, prvky pod UV atd.), zda se jím autorizuje osoba uvedená v pasu (fotka, biometriky) a zda je pas platný (policejní databáze, automatizované čtení dat o vypršení platnosti).
+**Bezpečnost** RFID: Řešíme hlavně problém soukromí a autentizace. To jestli RFID tag vyžaduje přimou viditelnost nebo ne záleží na použitém frekvenčním pásmu/vlnové délce. 
+
+Techniky zajištění soukromí:
+
+- _Deaktivace tagu_ (typicky čtečkou na místě, například když zákazník přebírá zboží, nelze použít vždy, např. knihovna).
+- _Pasivní či aktivní rušení_ (pasivní - Faradayova klec bránící vysílání signálu ven, aktivní - aktivní rušička signálu).
+- _Měření vzdálenosti_ (přilišný šum = pokus o vzdálené čtení $\rightarrow$ odvysílá nesprávná data).
+- _Změna jedinečného identifikátoru_ (nepravidelná - jednorázové přeznačení či smazání, pravidelná - z malé množiny které rozpozná jen čtečka, či přešifrováním).
+- _Selektivní blokování_ (identifikátory podle 1. bitu soukromé nebo veřejné, blokující RFID tag ruší čtení těch soukromých, ne vždy funguje spolehlivě a lze zneužít k úplnému blokování).
+
+**Cestovní pas** je identifikační průkaz, na kterém se kontroluje:
+
+- zda je originál vydaný patřičnou autoritou (digitální podpis dat, aktivní autentizace, tisk, vodoznak, prvky pod UV atd.),
+- zda se jím autorizuje osoba uvedená v pasu (fotka, biometriky)
+- zda je pas platný (policejní databáze, automatizované čtení dat o vypršení platnosti).
 
 **ePas**: elektronický pas s vloženým RFID čipem, čtecí rozsah 0-10cm, data v souborech DG1-DG16, metadata v EF.COM (verze + které z DG tam jsou), bezpečnostní soubor $EF.SO_D$ a další.
 
-- **Pasivní autentizace**. (Plus mínus jako SDA a DDA u tématu #10.) Všechna data (DG1-16) digitálně podepsána vydávající autoritou ($EF.SO_D$ obsahuje hashe uložených DG). Pro ověření třeba cerifikát vydavatele. Certifikační řetěz (bez kořene) obvykle uložen v pase a daný kořenový certifikát je nutné získat bezpečnou cestou (diplomatická výměna).
-- **Aktivní autentizace**. Digitálně podepsané data (pasy) lze kopírovat, aktivní autentizace tomu brání díky: _asymetrickému páru klíčů_ (soukromý uložen na čipu bez možnosti jeho získání, veřejný uložen v DG15 a dig. podepsán) a _protokolu výzva-odpověď pro ověření existence soukromého klíče_ (přečte se DG15 a ověří se ten podpis pomocí veřejného klíče autority, pošle pasu random číslo, pas doplní svou náhodou částí a podepíše, dojde k ověření digitálního podpisu podle veřejného klíče).
+- **Pasivní autentizace**
+  - Podobná jako SDA a DDA specifikace EMV u tématu #10
+  - Všechna data (DG1-16) digitálně podepsána vydávající autoritou ($EF.SO_D$ obsahuje hashe uložených DG)
+  - Pro ověření třeba certifikát vydavatele
+  - Certifikační řetěz (bez kořene) obvykle uložen v pase a daný kořenový certifikát je nutné získat bezpečnou cestou (diplomatická výměna).
+- **Aktivní autentizace**: Digitálně podepsané data (pasy) lze kopírovat, aktivní autentizace tomu brání díky: 
+  - _asymetrickému páru klíčů_ (soukromý uložen na čipu bez možnosti jeho získání, veřejný uložen v DG15 = dig. podepsán) 
+  - _protokolu výzva-odpověď pro ověření existence soukromého klíče_ (přečte se DG15 a ověří se ten podpis pomocí veřejného klíče autority, pošle pasu random číslo, pas doplní svou náhodou částí a podepíše, dojde k ověření digitálního podpisu podle veřejného klíče).
 
-- **Biometriky** v pasu pro automatizovanou verifikaci, uloženo v DG2-4 (obličej JPEG, otisk prstu obrázek nebo zpracovaná data např. markantů, duhovka obrázek) a v DG5-7 uložena digitální verze vytištěných dat (fotografie, podpis).
-- **Bezpečnost** u ePasu pasivní rušení/stínění když je pas zavřený. Řízení přístupu k datům - _základní řízení přístupu BAC_ (pomocí SHA-1, odvozených 3DES-2 klíčů, ustanovaní sdíleného šifrovacího klíče a přenesení dat, při odposlechnuté konverzaci se dá hrubou silou dešifrovat), dodatečné SAC, _rozšíření řízení přístupu_ EAC pro explicitní autorizaci pro citlivá data. (Např. ochrana biometrik, založeno na opravdu tajných klíčích, lze nastavit které země mají přístup a které ne. Země zřídí Country Verifying CA a vydá certifkát pro zemi s přístupem, CV CA uložen v pase, další země zřídí Document Verifying CA a vydá koncové certifikáty inspekčním zařízením. Pas při komunikaci ověřuje inspekční zařízení protokolem výzva odpověď než mu poskytne citlivá data. Diffie-Helman.)
-  - Plus bezpečnost dokumentů samotných jako speciální papír, vodoznak, UV prvky, soutisková značka, barvy, hologramy, bezpečnostní pásek atd.
-- **Autentizace čipu** a **Autentizace terminálu** (že čtečka má právo na citlivá data). Čip nemá vlastní hodiny a ověření že certifkáty nevypršely provádí tak, že za “aktuální” datum bere datum nejnovějšího korektně ověřeného certifikátu (“better than nothing”)
+**Biometriky** 
+
+- v pasu pro automatizovanou verifikaci, uloženo v DG2-4 (obličej JPEG, otisk prstu obrázek nebo zpracovaná data např. markantů, duhovka obrázek) 
+- v DG5-7 uložena digitální verze vytištěných dat (fotografie, podpis).
+
+- **Bezpečnost** 
+  - u ePasu pasivní rušení/stínění když je pas zavřený
+  - zavést logické omezení přístupu k datum
+
+**Řízení přístupu k datům** 
+
+- _základní řízení přístupu BAC_ 
+  - čtení dat lze až po autentizaci
+  1. Z karty se vezmou 3 údaje - číslo pasu, datum narození, datum vypršení platnosti jako plaintext a to se zahašuje pomocí SHA-1
+  2. Z toho se odvodí 3DES-2 klíčů
+  3. autentizace, ustanovaní sdíleného šifrovacího klíče a přenesení dat
+  - malá entropie kvůli použitým datům -> při odposlechnuté konverzaci se dá hrubou silou dešifrovat
+  - dodatečné SAC
+- _rozšíření řízení přístupu EAC_ pro explicitní autorizaci pro citlivá data. 
+  - ochrana biometrik
+  - založeno na opravdu tajných klíčích
+  - lze nastavit které země mají přístup a které ne. 
+  1. Země zřídí CV (Country Verifying) CA a vydá certifikát pro zemi s přístupem, CV CA uložen v pase, 
+  2. další země zřídí DV (Document Verifying) CA a vydá koncové certifikáty inspekčním zařízením. 
+  3. Pas při komunikaci ověřuje inspekční zařízení protokolem výzva odpověď než mu poskytne citlivá data. Diffie-Helman.)
+  - Autentizace čipu i terminálu pomocí Diffie-Helman
+- **Autentizace čipu** 
+  1. Terminál získá z pasu jeho veřejný DHP
+  2. Terminál vygeneruje čerstvý dočasný DHS pár, pasu zašle veřejnou část
+  3. Odvození sdíleného klíče z DHS (obě strany)
+  4. Ustavení nového šifrovaného kanálu namísto BAC
+     1. oproti BAC nyní již opravdu bezpečný (šifrování i MAC)
+     2. funkčně nahrazuje aktivní autentizaci
+- **Autentizace terminálu** 
+  - Cílem je přesvědčit pas, že čtečka může přistupovat k citlivým datům
+  - po úspěšném ověření pas získá z certifikátů přístupová práva terminálu
+  - pas testuje, zda terminál zná privátní klíč pomocí protokolu typu
+výzva-odpověď
+  - Čip nemá vlastní hodiny a ověření že certifikáty nevypršely provádí tak, že za “aktuální” datum bere datum nejnovějšího korektně ověřeného certifikátu (“better than nothing”)
+
+- Plus bezpečnost dokumentů samotných jako speciální papír, vodoznak, UV prvky, soutisková značka, barvy, hologramy, bezpečnostní pásek atd.
