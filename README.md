@@ -13,64 +13,79 @@
 
 ### Safety, bezpečí
 
-- Stav bytí, ve kterém platí, že za definovaných podmínek někdo či
-  něco nezpůsobí škodu.
-- Bezpečí se mnohdy chápe jako chránění proti nahodilým událostem.
+- Stav bytí, kde za definovaných podmínek někdo či něco nezpůsobí škodu.
+- Bezpečí se mnohdy chápe jako chránění proti **nahodilým** událostem.
 
 ### Security, bezpečnost
 
 - Ochránění proti úmyslným škodám na aktivech.
-- Bezpečnost = zajištění, jak něco NEDĚLAT.
-- Abychom bezpečnost zajistili efektivně, musíme znát co se nesmí dělat.
+
+**Bezpečnost** = zajištění, jak něco NEDĚLAT.
+
+- Abychom bezpečnost zajistili efektivně, **musíme znát co se nesmí dělat**.
 - Nelze se bránit proti účinkům škodících akcí realizovaných na bázi dosud
-  neexistujících/neznámých technologií.
+  neexistujících/neznámých technologií - **musíme znát, jak opatření zajišťující bezpečnost dělat**
 
 ## Informační bezpečnost
 
 - Ochrana proti úmyslným škodám, nežádoucím akcím na informačních aktivech.
-- ISO/IEC 27002
-  - Dokument, obsahující výčet technologií, standardů, politik a manažerských praktik vhodných pro zajištění informační bezpečnosti
-  - Dle standardu je informace je bezpečná, když je **Přístupná, Modifikovatelná a Dostupná** (do stanovené doby) pouze oprávněným subjektem
-- Informace je bezpečná, když je zajištěná její:
-  - **Důvěrnost** (confidentiality, C),
-    - zpřístupnění přístupu k informacím pouze oprávněným uživatelům
-  - **Integrita** (integrity, I),
-    - Integrita zdroje - změny zdroje smí provádět pouze autorizované subjekty a autorizované mechanismy
-    - Integrita dat - data nesmí být nevhodně, náhodně a/nebo záměrně nějakou škodlivou činností změněna
-    - Integrita původu - data skutečně pochází od osoby/subjektu, který je validně poskytuje, nikoli od podvodníka
-  - **Dostupnost** (availability, A).
-    - Informační zdroje musí být dostupné autorizovaným subjektům
-  - Další vlastnosti
-    - Autenticita - Subjekt provádějící operace s daty se prokázal - prošel autentizací
-    - Zodpovědnost - Každý subjekt, který pracuje s informacemi, má za ně specifickou odpovědnost
-    - Nepopiratelnost - Nepopiratelně lze určit subjekt nebo mechanismus, který akci provedl
-    - Spolehlivost - Bezporuchovost
+
+ISO standardy na kterých tu stavíme:
+$-$ `ISO/IEC 27001`: 2014 – IT – Bezpečnostní techniky – Systémy řízení bezpečností informací – Požadavky
+$-$ `ISO/IEC 27002`: 2014 – IT – Bezpečnostní techniky – Soubor postupů pro opatření bezpečnosti informací
+$-$ `ISO/IEC 27003`: 2018 – IT – Bezpečnostní techniky – Systémy řízení bezpečnosti informací – Pokyny
+$-$ `ISO/IEC 27004`: 2018 – IT – Bezpečnostní techniky – Řízení bezpečnosti informací – Monitorování, měření, analýza a hodnocení
+$-$ `ISO/IEC 27005`: 2019 – IT – Bezpečnostní techniky – Řízení rizik bezpečnosti informací
+$-$ `ISO/IEC 27014`: 2021 – Bezpečnost informací, kybernetická bezpečnost a ochrana soukromí – Správa a řízení bezpečnosti informací
+$-$ `ISO/IEC 15408`
+
+ISO/IEC 27002
+
+- Dle standardu je informace je bezpečná, když je **Přístupná, Modifikovatelná a Dostupná** (do stanovené doby) pouze oprávněným subjektem
+
+Informace je bezpečná, když je zajištěná její:
+
+- **Důvěrnost** (confidentiality, C),
+  - zpřístupnění přístupu k informacím pouze oprávněným uživatelům
+- **Integrita** (integrity, I),
+  - Integrita zdroje - změny zdroje smí provádět pouze autorizované subjekty a autorizované mechanismy
+  - Integrita dat - data nesmí být nevhodně, náhodně a/nebo záměrně nějakou škodlivou činností změněna
+  - Integrita původu - data skutečně pochází od osoby/subjektu, který je validně poskytuje, nikoli od podvodníka
+- **Dostupnost** (availability, A).
+  - Informační zdroje musí být dostupné autorizovaným subjektům
+
+Další možné požadované vlastnosti
+
+- Autenticita - Subjekt provádějící operace s daty se prokázal - prošel autentizací
+- Zodpovědnost - Každý subjekt, který pracuje s informacemi, má za ně specifickou odpovědnost
+- Nepopiratelnost - Nepopiratelně lze určit subjekt nebo mechanismus, který akci provedl
+- Spolehlivost - Bezporuchovost
 
 ### Pojmy informační bezpečnosti
 
 - **Aktivum** (Assets)
-  - Data, systémy obsahující data, lidské zdroje k provozu
-  - Účastník (informačního) prostředí vlastní/používá něco, co pro něj má nepominutelnou hodnotu, toto je jeho aktivem
+  - Cokoliv hodnotného, užitečného, co účastník prostředí vlastní/využívá
+  - Hlavní tři kategorie aktiv: data, lidské zdroje, systémy a komunikační infrastruktra.
   - Hmotná, nehmotná
-  - Informační aktivum
+  - <u>Informační aktivum</u>
     - Informace nebo služba, kterou zpracovává nebo poskytuje informační nebo komunikační systém
     - Technické vybavení, komunikační prostředky
   - Aktivum nelze nahradit bez vynaložení nákladů, času, úsilí
   - Aktiva musí být individuálně identifikovatelná
 - **Zranitelnost** (Vulnerability)
   - Slabina využitelná ke způsobení škod
+  - *Zranitelné místo*: Slabina v návrhu, implementaci, provozu…
+  - *Zranitelnost*: Existence zranitelného místa + potenciálních útočníků
 - **Hrozba** (Threat)
   - Potenciální možnost využití zranitelného místa k útoku útočníkem
   - Hrozby je nutné identifikovat, pokud je cílem jejich eliminace
-- **Útok** (Attack)
+- **Útok (Bezpečnostní incident)** (Attack)
   - Útok provádí útočník využitím zranitelnosti informačního aktiva (realizovaná hrozba)
   - Přírodní katastrofy/Externí útoky/Interní útoky/Lidské chyby
-- **Škoda**
-  - důsledek útoku na (hodnotu) aktiva
-- **Bezpečnostní incident** (Security incident)
 - **Riziko** (Risk)
-  - Velikost rizika je daná pravděpodobností provedení útoku a výší škody vzniklé útokem
-  - Známe hrozby jimž jsou vystavena aktiva a odpovídající rizika – analýza rizik
+  - pravděpodobnost, že se v daném zranitelném místě uplatní hrozba.
+  - **Velikost rizika** je daná pravděpodobností provedení útoku * výší škody vzniklé útokem
+  - Známe hrozby jimž jsou vystavena aktiva a odpovídající rizika – **analýza rizik**
 - **Opatření** (Control)
   - Nástroj, služba pro snížení/eliminaci rizika
   - Typicky kombinace technologie, chování a procedury
@@ -82,6 +97,9 @@
   - Útočník bude úspěšný, když pro útok využije jedinou nedokonalost v bezpečnostních ochranách
   - Skutečně dosahovaná úroveň informační bezpečnosti se odvozuje od chápání informační bezpečnosti legislativou uživateli a provozovateli bezpečnostních, operačních, komunikačních a dalších typů systémů
   - Splnění nutné podmínky dosažení bezpečnosti informací je nekonečný proces
+- **Účastník** prostředí: Vlastník aktiva
+- **Škoda**: Důsledek (dopad) útoku na aktivum/hodnotu aktiva
+- **Mechanismus**: (Obecná) metoda/technologie zajištění ochrany (např. šifrování, zákon, ochrana přístupu, …)
 
 <img src="images/modelzabezpeceni.png" height="400"/>
 
@@ -144,42 +162,49 @@
       - Vydává Certifikát -> Dokument držící veřejný klíč a informace o certifikátu, vlastníkovi a certifikačí autoritě
       - Je vytvořena hierarchie certifikačních autorit
 
+## Politika
+
+> Pravidla řídicí dosažení cílů určenými způsoby
+
+- Obvykle dokument implementovaný jako procedura.
+
+### Bezpečnostní procedury
+
+- Dokumenty popisující
+  - akce, které se mají provést při útoku
+  - role osob vystupujících v bezpečnostních procedurách
+
 ### Politika informační bezpečnosti (IT Security Policy)
 
-- Politika
-  - pravidla řídicí dosažení cílů určenými způsoby
 - Definuje
   - bezpečné používání IT v rámci organizace
   - třídu (sílu) útočníků, vůči kterým se informace organizace zabezpečují
 - Stanovuje
   - co jsou citlivá informační aktiva, jejich klasifikaci a odpovědnosti za jejich stav
   - bezpečnostní infrastrukturu organizace z pohledu informační bezpečnosti
-
-### Bezpečnostní procedury
-
-- Dokumenty popisující akce, které se mají provést při útoku, a role osob vystupujících v bezpečnostních procedurách
+  - koncept inf. bezp. org. v horizontu 5-10 let 
+- nezávislá na konkrétně použitých IT prostředcích.
 
 ### Bezpečnostní politika
 
-- Soubor pravidel specifikující uplatňování opatření potřebných pro
-  dosažení akceptovatelné úrovně rizik
+- Pravidla uplatňování opatření v daném prostředí
 - BP říká
   - co proti čemu/komu se chrání
-  - stanovuje bezpečnostní cíle
+  - stanovuje bezpečnostní cíle a jak jich dosáhnout pomocí opatření
   - jak se tato ochrana prosazuje
-  - určuje způsob dosažení bezpečnostních cílů pomocí implementových opatření
-- Pro ověřitelně validní prosazování informační bezpečnosti IS je bezpodmínečně nutné definovat bezpečnostní politiku IS odpovídající hrozbám a rizikům, kterým je IS vystavený
-- Detailnost bezpečnostní politiky závisí na účelu a na chráněné oblasti, ve
-  které je politika uplatňovaná
+- Pro validní prosazování informační bezpečnosti IS je nutné definovat BP odpovídající hrozbám a rizikům pro daný IS
 - Nižší BP
   - Plán zvládání rizik IS
+  - Dokument stanovující konkrétní opatření
   - Horizont 1 až 2 let
-  - Dokument specifikující opatření chránící konkrétní IS
 - Vyšší BP
+  - Konceptuální zavádění informační bezpečnosti
   - Dokument vymezující chráněnou oblast a základní bezpečnostní cíle
   - Horizont 5 až 10 let
-- Bezpečnostní politika je **důvěryhodná** (Trustworthy) jestliže se jejím uplatňováním prokazatelně dosahuje požadované úrovně ochrany aktiv
-  - Trusted - Má nezasloženou důvěru / Trustworthy - Má zaslouženou důvěru (Spolehlivě splní požadavky)
+
+Chceme, aby byly BP důvěryhodné (**trustworthy**; tj. aby prokazatelně jejím uplatňováním docházelo k dosažení požadované úrovně ochrany), a ne jen **trusted** (něco co dostává důvěru ať už zaslouženě nebo ne).
+
+**Politiky organizace** jsou prohlášení o celkovém záměru a směru podnikání vyjádřené vedením organizace
 
 ## Anatomie informační bezpečnosti
 
@@ -233,19 +258,20 @@
 
 #### Typy
 
-- **Odhalení**
-  - Slídění, špehování
-  - Analýza komunikačního provozu
+- **Uchvácení**
+  - Zpožďování provedení služby, odmítnutí poskytnutí služby, Denial of Service (DoS)
 - **Podvod**
   - Modifikace dat, falšování identity, popírání autorství
   - Maškaráda - Útočník vystupuje jako legitimní uživate
   - Diseminace zlomyslného software (Planting) - Trojský kůň, vir
   - Modifikace systému, příprava pro příští útoky
+- **Odhalení**
+  - Slídění, špehování
+  - Analýza komunikačního provozu
 - **Narušení**
   - Modifikace (dat, programu, chování technického prostředku, …)
     - Neautorizovaná osoba získá přístup do systému a modifikuje v něm uložená data, neoprávněně používá zdroje,
-- **Uchvácení**
-  - Zpožďování provedení služby, odmítnutí poskytnutí služby, Denial of Service (DoS)
+
 
 #### Klasifikace hrozeb pro organizaci
 
@@ -266,14 +292,21 @@
   - Informační bezpečnost řeší narozdíl od kyberbezpečnosti i data na papíře.
   - Kyberbezpečnost řeší i věci nad rámec informační bezpečnosti, neřeší pouze data samotná, ale i lidi
 
+### Útočník
+
 #### Klasifikace útočníka
 
-- slabý (stačí jen slabá opatření)
+- slabý (stačí jen slabá opatření) 
   - amatér, náhodný útočník
+  - bez znalosti systému, využívají pouze existující nástroje, pokus/omyl
 - středně silní (středně silná opatření)
-  - hacker, vandal, hračička: často má znalosti, ale ne zázemí
+  - hacker, vandal, hračička
+  - často má znalosti, ale ne zázemí
 - silní (nutná silná opatření)
   - profesionál-kriminálník: často se zázemím, motivovaný
+- dobře financované organizace
+  - schopné utvořit týmy specialistů s top financováním a top nástroji
+  - schopné detailních analýz systému a vytváření nových typů útoku
 - Dle firmy IBM:
   - cript kiddies, chytří nezasvěcení útočníci, dobře vybavení lidé z venku, zasvěcení insideři, dobře finančně podporované organizace
 
@@ -293,11 +326,16 @@
 ### Opatření
 
 - nástroj pro snižování rizik
-- Provedená akce relevantní jisté hrozbě
+- Typicky kombinace technologie, chování a procedury
+- Podmínka efektivnosti opatření: cena opatření <= výše škody
+- **Detekční opatření**
+  - cílem odhalit a napravit selhání (kterému nešlo zabránit preventivně)
+- **Reakční opatření**
+  - cílem zajistit správné chování během incidentu a po něm (ohodnocení rozsahu, akce k minimalizaci dopadu, reportování o incidentu)
 
 #### Klasifikace
 
-- Podle technologie implementace
+- **Podle technologie implementace**
   - administrativní
     - standardy pro návrh, kódování, testování a údržbu SW, směrnice pro tvorbu hesel, licenc. podmínky
   - logická (software)
@@ -306,12 +344,17 @@
     - tokeny, ID karty, šifrovače, archiv. pamě
   - fyzická
     - trezory, zamčené. dveř
-- Konceptuální klasifikace
-  - preventivní: hlavně velká rizika, opatř. jsou drahá
+- **Podle koncepce**
+  - preventivní: 
+    - hlavně velká rizika, opatř. jsou drahá
+    - autentizace, autorizace, šifrování, řízení přístupu
   - heuristické: pro střední rizika
-  - detekční a opravné: povoluje riziko a pak ho řeší
+  - detekční a opravné: 
+    - povoluje riziko a pak ho řeší
+    - detekce útoků, virů, detekce ohně
   - podpůrná
-- Podle oblasti jejich nasazení
+    - identifikace, správa krypto-klíčů
+- **Podle oblasti jejich nasazení**
   - Technická opatření
     - arch. systémů, mix HW, SW a firmware
     - Preventivní technická opatření
@@ -341,8 +384,7 @@
 
 ### Bezpečnostní mechanismy
 
-- Opatření musíme účinnou formou implementovat
-  vhodnými (bezpečnostními) mechanismy
+- Opatření musíme účinnou formou implementovat vhodnými (bezpečnostními) mechanismy
   - Mechanismy administrativního, technického, logického, … charakteru
   - Opatření řešící problém nepopiratelnosti - digitální podpis
     - mechanismus = asymetrická kryptografie
@@ -365,13 +407,11 @@
 - Minimalizovat prostor využitelný pro útok
 - Jako implicitní řešení používat bezpečná řešení
 - Princip nejmenších práv
-- Důkladný a komplexní princip ochran
 - Každý externí systém vůči bezpečné aplikaci musí být implicitně považovaný za nedůvěryhodný
 - Chybný je koncept „Security through Obscurity“
   - Spoléhá na utajení vnitřních mechanismů před útočníkem – např. ukrytí klíče pod rohožkou
 - Separace rolí
-- V jednoduchosti je síla
-- Správně opravovat chyby
+- V jednoduchosti je síla, Správně opravovat chyby
 
 # [Přednáška #2](https://is.muni.cz/auth/el/fi/podzim2022/PV017/um/PV017_02.pdf)
 
@@ -380,23 +420,23 @@
 - Co se rozumí řízením rizik
 - Kdo má v instituci na starosti dosažení informační bezpečnosti
 
-## Standardy (normy) informační bezpečnosti
-
 - Cíl přednášky
   - Co to jsou standardy, normy, doporučení?
   - Jak vznikají standardy a doporučení?
   - Kdo je kdo ve světě standardů a doporučení ?
   - Které standardy informační bezpečnosti jsou reprezentativní ?
-- Standard
-  - Úmluva o technické specifikaci nebo jiném stanoveném kritériu
-  - Umožňují dosáhnout základní "kvalitativní" úrovně podobné nebo dokonce kompatibilních systémů a podpořit jejich interoperabilitu
-  - Standardy lze použít jako měřítko pro porovnávání
-  - Standard je jen dokument
-    - interpretace se mohou lišit, zvláště při překladu do různých jazyků
-  - Pokud produkt vyhoví jen podstatné části standardu, pak v podstatě vyhovuje standardu, ale není vyhovující standardu
+
+## Standardy (normy) informační bezpečnosti
+
+> Dokument - Dohoda o technické specifikaci nebo jiném stanoveném kritériu
+
+- Používají se abychom mohli dosáhnout určité kvalitativní úrovně systémů a podpořit jejich interoperabilitu
+- Standardy lze použít jako měřítko pro porovnávání
 - Standard x Norma x Doporučení
   - V Česku se tradičně používá pojem „norma“, celosvětově standard
   - Doporučení - termín používaný některými organizacemi
+
+Produkt, služba, proces, … může **vyhovovat standardu** (prohlášení, že splňuje podmínky standardu) nebo může být **certifikovaný** (existuje certifikát vydaný neutrální třetí stranou, který potvrzuje, že to vyhovuje standardu).
 
 ### De facto standard
 
@@ -417,17 +457,9 @@
 
 ### Závaznost standardů
 
-- Žádný standard sám o sobě nemá charakter právního předpisu
+- Žádný standard **není** sám o sobě **právně závazný**.
 - Právní předpis může stanovit povinné vyhovění standardu
   - V tom případě se obvykle dává přednost de iure standardům
-
-### Certifikát
-
-- Produkt, služba, proces, … může být prohlášena za vyhovující standardu
-  - Požadavek vyhovění může být předepsaný zákonem, smlouvou
-- Produkt, služba, proces, … může být certifikovaný
-  - existuje certifikát potvrzující, že je vyhovující standardu
-  - Certifikace - neutrální důvěryhodná třetí strana prověří validitu prohlášení o vyhovění standard a vydá o tom relevantní certifikát
 
 ### ISO Standardy
 
@@ -438,23 +470,25 @@
 #### Životní cyklus ISO standardu
 
 - Odpovědnost za tvorbu norem v dílčích oblastech mají technické výbory, Technical Committees, TC
-- Návrh nové pracovní položky -> úrovně návrh standardu (Committee Draft – 3 měsíce, Draft International Standard – 6 měsíců, Final DIS – 2 měsíce)
+- Návrh nové pracovní položky $\rightarrow$ Committee Draft (2 měsíce) $\rightarrow$ Draft International Standard (6 měsíců) $\rightarrow$ Final Draft International Standard (2 měsíce)
 - Obvykle pětiletá perioda hodnocení mezinárodního standardu
   - Když se odhalí vada standardu , jsou přijímána opatření, aby standardy byly revidovány i dříve
 
-#### ISO/IEC 27001
+#### ISO/IEC 27001 - Systémy řízení bezpečností informací – Požadavky
 
-- Definuje požadavky na funkcionalitu a vlastnosti systému správy (řízení)
-  informační bezpečnosti
+Definuje požadavky na funkcionalitu a vlastnosti systému správy (řízení) informační bezpečnosti
+
 - Standard je detailním popisem požadavků, které musí/má ISMS splnit, pokud ISMS chce standardu vyhovět
 - Je nezávislý na technologii, určený pro organizace všech typů, velikostí a podstat, působících v jakémkoli sektoru, kdekoli ve světě
 - 27001 nařizuje použít 27002 jak zdroj návodů pro volbu a implementaci opatření, nezakazuje použití i dalších zdrojů
 
-#### ISO/IEC 27002
+#### ISO/IEC 27002 - Soubor postupů pro opatření bezpečnosti informací
 
-- V dodatku standard 27001 uvádí seznam cílů opatření definovaných v ISO/IEC 27002
-  - ISO/IEC 27002 obsahuje návody, jak je implementovat
-- Doporučení jak navrhovat, implementovat, udržovat a vylepšovat opatření prosazující informační bezpečnost, používá slova may , should(může, měl by)
+Doporučení jak navrhovat, implementovat, udržovat a vylepšovat opatření prosazující informační bezpečnost.
+
+#### ISO/IEC 27003 Systémy řízení bezpečnosti informací – Pokyny
+
+Ozkoušené rady pro implementování ISO rodiny 27000, detailnější vysvětlení částí 27001.
 
 ## Legislativa informační bezpečnosti
 
