@@ -27,7 +27,7 @@
 We use modeling to control complexity of system by organizing and decomposing system into smaller parts that then have relationships between each other.
 
 We use divide and manage (divide at impera) principle when modeling.
-![](images/lecture1/system.png)
+![Alt text](images/lecture1/system.png)
 
 #### Structured modeling
 
@@ -43,7 +43,7 @@ Continuous elaboration of models (e.g. constistency checking) can be **within** 
 
 Relationships between functional and data models can still be too complex
 
-![](images/lecture1/strucdecomp.png)
+![Alt text](images/lecture1/strucdecomp.png)
 
 #### Object Oriented modeling
 
@@ -55,7 +55,7 @@ Two key models that are core of object oriented development are **Class Diagram*
 
 Consistency checking are again between and inside the model.
 
-![](images/lecture1/oodecomp.png)
+![Alt text](images/lecture1/oodecomp.png)
 
 ### Quality assurance
 
@@ -67,7 +67,7 @@ Quality consists of many qualitative attributes from different points of view
 
 These quality attributes can conflict themselves and there is no way to optimaze all at once.
 
-- ![](images/lecture1/qaconflicts.png)
+- ![Alt text](images/lecture1/qaconflicts.png)
   - Purple relationship - Improving one decreases second
   - Blue relationship - Improving one improves second
 
@@ -143,14 +143,14 @@ Real OO decomposition usually mixes both inheritance and association together
     - behavioral conditions of sub-types.
   - **Method signatures**
     - **Arguments** of derived classes must be equally or more generic - less derived than arguments of base class
-      - ![](images/lecture1/methodsignatures.png)
+      - ![Alt text](images/lecture1/methodsignatures.png)
     - **Return type** should be equally or less generic - more derived - than those required by the base class
-      - ![](images/lecture1/methodsignatures2.png)
+      - ![Alt text](images/lecture1/methodsignatures2.png)
     - No new **exceptions** should be thrown by methods of the sub-type, only existing one or their subtypes
   - **Behavioral conditions of sub-types**
     - **History constraint**: New or modified method or properties should not modify the state of an object in a manner that would not be permitted by the base class.
       - Violation
-        - ![](images/lecture1/historyconstraint.png)
+        - ![Alt text](images/lecture1/historyconstraint.png)
         - Mechanical Duck for example
     - **Preconditions** cannot be strengthened in a sub-type
     - **Postconditions** cannot be weakened in a sub-type
@@ -166,12 +166,12 @@ Real OO decomposition usually mixes both inheritance and association together
 
  (Only showcase of possible implementation solutions to given diagram)
 
-![](images/lecture1/erdclass.png)
+![Alt text](images/lecture1/erdclass.png)
 
 - Identity in ERD = primary key; Identity in OO = address in the memory!
 - This model is directly implementable. As opposed to ER model, M:N relationships pose no problem.
 
-![](images/lecture1/erdclass2.png)
+![Alt text](images/lecture1/erdclass2.png)
 
  Approach 1, model 1: We prefer one direction
 
@@ -182,18 +182,19 @@ Real OO decomposition usually mixes both inheritance and association together
 they are stored?
   - How we get link to concrete address if we have no query mechanism
 - Solution
-  - Implement JobsMngr that stores all the companies and mediates access to companies and their employees ![](images/lecture1/erdclass3.png)
+  - Implement JobsMngr that stores all the companies and mediates access to companies and their employees
+  - ![Alt text](images/lecture1/erdclass3.png)
 
 Approach 2, model 1: Bidirectional association
 
-![](images/lecture1/erdclass4.png)
+![Alt text](images/lecture1/erdclass4.png)
 
 - Pros: Clear responsibilities. Responsibilities are uniformly distributed to all
 classes
 - Cons: Very complicated memory management and consistency checking,
 especially without automatic “garbage collection”
 
-![](images/lecture1/erdclass5.png)
+![Alt text](images/lecture1/erdclass5.png)
 
 Approach 2, model 2: Preserved bidirectional association, responsibility
 located in a big “God” object.
@@ -203,7 +204,7 @@ localized in the JobsMngr => maintainability.
 - Pros: Efficiency
 - Problem: Where to put salaries
 - Solution
-  - ![](images/lecture1/erdclass6.png)
+  - ![Alt text](images/lecture1/erdclass6.png)
   - Helper class
 
 As shown, there are many solutions. Designer has to choose best solution for given context. Patterns can help designers to make right decisions.
@@ -262,7 +263,7 @@ SW Development Life Cycle
 
 ### Conceptual Class Diagram
 
-![](images/lecture2/ccd.png)
+![Alt text](images/lecture2/ccd.png)
 
 - Provides basic terms and data that have to be stored in the system
   - Describes the problem domain by terms (**classes**), their basic properties (**attributes**) and contexts (**associations with cardinality**)
@@ -273,7 +274,7 @@ Problem Domain Model Example
 
 - As said, we focus on classes, associations with cardinality and this model is then used for further step by step decomposition
 
-![](images/lecture2/pdmexample.png)
+![Alt text](images/lecture2/pdmexample.png)
 
 ## Analysis Patterns of M. Fowler
 
@@ -331,21 +332,21 @@ Use this pattern when:
 - There is common behavior between two roles
 - There is no need to distinguish between two roles
 
-![](images/lecture2/party.png)
+![Alt text](images/lecture2/party.png)
 
 ---
 
 ### Organization Hierarchies
 
 Companies have usually hierarchical organization structure (Operation Unit has Regions, Region has Divisions, Division has Sales Offices)
-![](images/lecture2/orghier0.png)
+![Alt text](images/lecture2/orghier0.png)
 
 Without pattern, when changing a single unit, changes in model are required.
 
 Pattern uses recursive relationships
-![](images/lecture2/orghier.png)
+![Alt text](images/lecture2/orghier.png)
 This allows very easy changes on organization structure. With pattern, only new subclasses and rules are required
-![](images/lecture2/orghier1.png)
+![Alt text](images/lecture2/orghier1.png)
 
 The danger with the recursive relationship is that it allows a division to be part of a sales office - we need to specify which type is above and below which => sub-classes and constraints are introduced (as shown in the image)
 
@@ -365,9 +366,9 @@ Using pattern of Organization Hierarchies for multiple structures gets hard to u
 
 ### Organization Structure
 
-![](images/lecture2/orgstruct.png)
+![Alt text](images/lecture2/orgstruct.png)
 
-Pattern of Org. Hier. is extended with class insted of self reflection (recursion). 
+Pattern of Org. Hier. is extended with class insted of self reflection (recursion).
 
 - Two relationships then describe parent and subsidiary organization structures (Described on university structure image as lines)
 - After introducing extending analytical class, we can associate another data with it (e.g. OrganizationStructuryType for classifying the line, TimePeriod).
@@ -411,18 +412,17 @@ properties of the organization structure
 
 ### Accountability
 
-- Accountability helps to define responsibilities between two types of object (object in Party). 
-- This can be limited for given time period. 
+- Accountability helps to define responsibilities between two types of object (object in Party).
+- This can be limited for given time period.
 - Idea is to generalize Organizational structure into more generic cases
   - Organization Structure shows relationships between organization units
-
 
 ![Alt text](images/lecture2/acc.png)
 
 Mappings:
 
 - **AccountabilityType** - indicates the nature of the relationship, hierarchy between the subjects (Employer-employee)
-- **Accountability** - relationship between two members of the party, 
+- **Accountability** - relationship between two members of the party,
 - **TimePeriod** - Time Validity of the relationship
 - **Party** - Individual subjects, members of the party
 
@@ -438,6 +438,7 @@ Difference to Organization Hierarchy is that instead of saying “who are the pa
 Sales” you can say “who are the regional parents of Boston Sales”.
 
 ---
+
 ### Accountability Knowledge Level
 
 If there are many more accountability types than there would be organization structure types => introducing knowledge level
@@ -527,7 +528,7 @@ Mappings:
 - **AtomicUnit** - atomic units (km, h, s)
 - **CompoundUnit** - coumpound unit (km/h, n*m),
   - Has to have more then one Unit reference or one with exponential >1 or <0
-- **Integer** - integer value of exponential that will be aplied to unit 
+- **Integer** - integer value of exponential that will be aplied to unit
   - (1 -> km, -1 -> h^-1)
 - **UnitReference** - Holds records of exponential value (integer) and references to AtomicUnit and Compound Unit.
   - For km/h the UnitReference will hold reference to AtomicUnit (km) and AtomicUnit (h) that has exponential value of -1
@@ -550,7 +551,7 @@ This pattern enables to record only quantitive values. To record non-quantitativ
 
 ![Alt text](images/lecture2/observ.png)
 
-#### Mappings:
+#### Mappings
 
 - **Person**: example of data assigned to the measurement
 - **PhenomenonType**: things to be measured, e.g. height, weight, blood glucose level, etc. in a hospital.
@@ -558,7 +559,7 @@ This pattern enables to record only quantitive values. To record non-quantitativ
 - **CategoryObservation**: Concrete observed qualitative value - recorded enum value
   - e.g. A+
   - It is similar to the measurement but has a general phenomenon instead of quantity.
-- **Measurement**: concrete measured value 
+- **Measurement**: concrete measured value
   - holds records of quantitive values
   - what are we measuring - blood level e.g.
 - **Quantity** - recorded value of measurement and unit
@@ -594,9 +595,9 @@ the method by which the observation were made.
 
 - e.g. person's body temperature can be measured in the mouth, armpit, or rectum
 
-![](images/lecture3/proto.png)
+![Alt text](images/lecture3/proto.png)
 
-#### Mappings:
+#### Mappings
 
 - **Person**: example of data assigned to the measurement
 - **PhenomenonType**: things to be measured, e.g. height, weight, blood glucose level, etc. in a hospital.
@@ -604,7 +605,7 @@ the method by which the observation were made.
 - **CategoryObservation**: Concrete observed qualitative value - recorded enum value
   - e.g. A+
   - It is similar to the measurement but has a general phenomenon instead of quantity.
-- **Measurement**: concrete measured value 
+- **Measurement**: concrete measured value
   - holds records of quantitive values
   - what are we measuring - blood level e.g.
 - **Quantity** - recorded value of measurement and unit
@@ -621,9 +622,9 @@ If an observation is made of the absence of a subtype, then that implies neither
 - Diabetes has two subtypes: type I and type II. An observation that type I diabetes is
 present for J. Smith implies that diabetes is also present for J. Smith. Absence of type I diabetes does not mean that J. Smith is not diabetic.
 
-![](images/lecture3/subtyp.png)
+![Alt text](images/lecture3/subtyp.png)
 
-#### Mappings:
+#### Mappings
 
 - **Person**: example of data assigned to the measurement
 - **PhenomenonType**: things to be measured, e.g. height, weight, blood glucose level, etc. in a hospital.
@@ -631,7 +632,7 @@ present for J. Smith implies that diabetes is also present for J. Smith. Absence
 - **CategoryObservation**: Concrete observed qualitative value - recorded enum value
   - e.g. A+
   - It is similar to the measurement but has a general phenomenon instead of quantity.
-- **Measurement**: concrete measured value 
+- **Measurement**: concrete measured value
   - holds records of quantitive values
   - what are we measuring - blood level e.g.
 - **Quantity** - recorded value of measurement and unit
@@ -670,14 +671,14 @@ Allows to divide enterprise to parts we want to measure - these parts are create
 
 Point of view can be for example type of manufactured goods, geographical location, product range...
 
-![](images/lecture3/entseg.png)
+![Alt text](images/lecture3/entseg.png)
 
 #### Mappings
 
 - **Dimension** = hierarchy of dimension elements, i.e. the criteria for dividing enterprise
 - **DimensionElement**: Node, member in the dimension hierarchy, e.g. West Coast area
 - **GeographicDimensionElement**, …: root nodes of dimension hierarchies.
-- **EnterpriseSegment** - combinations we want to investigate 
+- **EnterpriseSegment** - combinations we want to investigate
 
 **Task**: We need analytical module in which we can investigate
 
@@ -688,7 +689,7 @@ Point of view can be for example type of manufactured goods, geographical locati
 
 Solution:
 
-![](images/lecture3/entsegex.png)
+![Alt text](images/lecture3/entsegex.png)
 
 ---
 
@@ -714,11 +715,11 @@ Patterns:
 
 This patterns serves as a container with common value change. Thanks to this pattern we have information about current value (account balance) and history of changes.
 
-![](images/lecture3/accnt.png)
+![Alt text](images/lecture3/accnt.png)
 
-#### Mappings:
+#### Mappings
 
-- **Account** - Tracked object 
+- **Account** - Tracked object
 - **Entry** - changes on the tracked object
 
 ---
@@ -731,11 +732,11 @@ Task: We need to know how many vehicles are located in each depot after the day 
 
 We can use this to track changes of vehicles located at this depot by tracking leaving and incoming vehicles.
 
-![](images/lecture3/transac.png)
+![Alt text](images/lecture3/transac.png)
 
 #### Mappings
 
-- **Account** - Tracked object 
+- **Account** - Tracked object
 - **Entry** - changes on the tracked object
 - **Transaction** - References to two entries, one outgoing transaction from account A and one incoming to account B
 
@@ -757,7 +758,7 @@ Patterns:
 
 ### Name
 
-![](images/lecture3/nam.png)
+![Alt text](images/lecture3/nam.png)
 
 There are 3 ways to name a object.
 
@@ -776,9 +777,9 @@ Example:
 - Each hospital assigns a case number to a patient, departments have individual numbers
 - Identification schemes for banks: SWIFT, sort codes, CHAPS, etc.
   
-![](images/lecture3/identscheme.png)
+![Alt text](images/lecture3/identscheme.png)
 
-#### Mappings:
+#### Mappings
 
 - **Object** - Object to be named
 - **Identifier** - Mapping String object to the object for given IdentificationScheme
@@ -798,14 +799,14 @@ If we copy all the properties of one object over to the another and delete the c
 
 **Superseeding strategy**:  Active object replaces the superseded object. Superseeded object delegates all messages to the active object
 
-![](images/lecture3/supersed.png)
+![Alt text](images/lecture3/supersed.png)
 
 #### Mapping
 
 - **Object** - Superclass for objects
-- **ActiveObject** - 
+- **ActiveObject** -
   - Object replacing existing object
-  - Delegates messages from and to superseeded object 
+  - Delegates messages from and to superseeded object
 - **SupersededObject** - Superseeded object, takes messages from ActiveObject, confirms messages and sends results to ActiveObject
 
 ---
@@ -814,7 +815,7 @@ If we copy all the properties of one object over to the another and delete the c
 
 When objects can be considered similar (more-or-less the same, sometimes the same, etc.)
 
-![](images/lecture3/equiv.png)
+![Alt text](images/lecture3/equiv.png)
 
 #### Mapping
 
@@ -953,7 +954,7 @@ Patterns:
 - Memento
   - Stores and recovers object state
 
-![](images/patterns/scopes.png)
+![Alt text](images/patterns/scopes.png)
 
 Scope is the domain over which a pattern applies
 
@@ -962,7 +963,7 @@ Scope is the domain over which a pattern applies
 
 ## Case study - Initial model
 
-![](images/patterns/casestudy.png)
+![Alt text](images/patterns/casestudy.png)
 
 - Every object in running OO system must be referenced
 - Every class must be associated with another class or have well-known access point
@@ -977,13 +978,13 @@ Scope is the domain over which a pattern applies
 
 This creational pattern creates and mediates access to a single shared instance accessible from anywhere (via static variable)
 
-![](images/patterns/singleton.png)
+![Alt text](images/patterns/singleton.png)
 
 #### Applicability
 
 Use the singleton pattern when there **must be only one instance** of class and this instance must be **accessible** from a well-known access point.
 
-![](images/patterns/singCaseStudy.png)
+![Alt text](images/patterns/singCaseStudy.png)
 
 #### Consequences
 
@@ -1009,7 +1010,7 @@ Use the singleton pattern when there **must be only one instance** of class and 
 
 Creational design pattern that provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created (Delegates the creation of products or helper objects to sub-classes)
 
-![](images/patterns/factMet.png)
+![Alt text](images/patterns/factMet.png)
 
 **The Product** declares the interface, which is common to all objects that can be produced by the creator and its subclasses
 
@@ -1021,7 +1022,7 @@ Creational design pattern that provides an interface for creating objects in a s
 
 E.g.
 
-![](images/patterns/factMet2.png)
+![Alt text](images/patterns/factMet2.png)
 
 #### Applicability
 
@@ -1045,9 +1046,9 @@ Enables to create complex object gradually step by step.
 
 - E.g. creating a tree - create root, create node, create node ....
 
-![](images/patterns/builder1.png)
+![Alt text](images/patterns/builder1.png)
 
-![](images/patterns/builder2.png)
+![Alt text](images/patterns/builder2.png)
 
 The **Builder** pattern suggests that you extract the object construction code out of its own class and move it to separate objects called builders.
 
@@ -1082,7 +1083,7 @@ constructed.
 
 Creational design pattern that ensures the creation of compatible products (lets you produce families of related objects without specifying their concrete classes).
 
-![](images/patterns/abstFact.png)
+![Alt text](images/patterns/abstFact.png)
 
 **Abstract Products** declare interfaces for a set of distinct but related products which make up a product family.
 
@@ -1101,7 +1102,7 @@ Creational design pattern that ensures the creation of compatible products (lets
 
 e.g.
 
-![](images/patterns/abstFact2.png)
+![Alt text](images/patterns/abstFact2.png)
 
 #### Applicability
 
@@ -1137,7 +1138,7 @@ Prototype is a creational design pattern that lets you copy existing objects wit
 - The method creates an object of the current class and carries over all of the field values of the old object into the new one.
 - You can even copy private fields because most programming languages let objects access private fields of other objects that belong to the same class.
 
-![](images/patterns/prototype.png)
+![Alt text](images/patterns/prototype.png)
 
 **The Prototype** interface declares the cloning methods.
 In most cases, it’s a single clone method.
@@ -1178,7 +1179,7 @@ Pattern lets you compose objects into tree structures and then work with these s
   - Leafs do not implement add, remove and get, only their uniform generic operation().
 We can then work with both types of nodes throug a common interface. We dont need to know if it is a node or a leaf.
 
-![](images/patterns/composite.png)
+![Alt text](images/patterns/composite.png)
 
 #### Applicability
 
@@ -1196,13 +1197,13 @@ When we want to represent part-whole hierarchies of objects or when we want the 
 - Harded to restrict possible subtypes in supertype. (what child in parent, components of a composite)
 - It might be difficult to provide a common interface for classes whose functionality differs too much
 
-![](images/patterns/compositeCaseStudy.png)
+![Alt text](images/patterns/compositeCaseStudy.png)
 
 Problem: A mail server enables also sending roup mail besides a single mail delivery Therefore recipient of an email can be either a particular email address or a group alias. A group alias consits of email addresses or other group aliases. The sendmail(recipient, message) service of the mail server takes a message and a recipient and ensures the delivery
 
 Goal: Draw a class diagram using a suitable design pattern. Use stereotypes to show the mapping of pattern clases on this application domain
 
-![](images/patterns/compTask.png)
+![Alt text](images/patterns/compTask.png)
 
 ### Adapter Pattern
 
@@ -1220,7 +1221,7 @@ Adapter has two variants - Class and Object.
 - The adapter implements the interface of one object and wraps the other one.
   - It can be implemented in all popular programming languages.
 
-![](images/patterns/adapter1.png)
+![Alt text](images/patterns/adapter1.png)
 
 - The **Client** is a class that contains the existing business logic of the program.
 - The **Target** describes a protocol that other classes must follow to be able to collaborate with the client code
@@ -1236,7 +1237,7 @@ Two object are called, Adapter by client and Adaptee in the background
 
 #### Class Adapter
 
-![](images/patterns/adapter2.png)
+![Alt text](images/patterns/adapter2.png)
 
 - request() methods adapted by multiple inheritance
 - The adapter inherits interfaces from both objects at the same time.  
@@ -1255,7 +1256,7 @@ Use the Adapter class when:
 - (object adapter only) you need to use several existing subclasses, but
 it's impractical to adapt their interface by subclassing every one. An object adapter can adapt the interface of its parent class
 
-![](images/patterns/shape.png)
+![Alt text](images/patterns/shape.png)
 
 #### Consequences (class adapter)
 
@@ -1282,7 +1283,7 @@ Problem: e.g. We have shapes that are colored. When introducing more colors and 
 
 Solution: We separate the dimensions into a separate class hierarchy.
 
-![](images/patterns/abstraction.png)
+![Alt text](images/patterns/abstraction.png)
 
 **Implementor** typically provides multiple subclasses. **The Implementor** declares the interface that’s common for all concrete implementations. An abstraction can only communicate with an Implementor object via methods that are declared here.
 
@@ -1320,7 +1321,7 @@ Use the Bridge pattern when:
 
  E.g. we have pizza. If we want pizza with sausage, we wont have dedicated class of SausagePizza but rather sausage object that we connect (aggregation) to pizza object. -> Avoids explosion of ”combinatory” sub-classes in the level of objects
 
-![](images/patterns/decorator.png)
+![Alt text](images/patterns/decorator.png)
 
 **The Component** declares the common interface for both wrappers and wrapped objects.
 
@@ -1349,7 +1350,7 @@ The Client can wrap components in multiple layers of decorators, as long as it w
 
 #### Case Study
 
-![](images/patterns/decorator2.png)
+![Alt text](images/patterns/decorator2.png)
 
 #### Decorator – Related Patterns and Applications
 
@@ -1366,7 +1367,7 @@ lets you change the guts. These are two alternative ways of changing
 an object. Moreover, strategies rather changes behavior while
 decorators rather extends behavior of the original object.
 
-![](images/patterns/decoratorvsstrategy.png)
+![Alt text](images/patterns/decoratorvsstrategy.png)
 
 - It’s hard to remove a specific wrapper from the wrappers stack.
 - It’s hard to implement a decorator in such a way that its behavior doesn’t depend on the order in the decorators stack.
@@ -1379,7 +1380,7 @@ A proxy controls access to the original object, allowing you to perform somethin
 
 Analogy: A credit card is a proxy for a bank account, which is a proxy for a bundle of cash.
 
-![](images/patterns/proxy1.png)
+![Alt text](images/patterns/proxy1.png)
 
 **The Subject** declares the interface of the Service. The proxy must follow this interface to be able to disguise itself as a service object.
 
@@ -1418,7 +1419,7 @@ Proxy is applicable whenever there is a need for a more versatile or sophisticat
 
  A facade might provide limited functionality in comparison to working with the subsystem directly. However, it includes only those features that clients really care about.
 
- ![](images/patterns/facade.png)
+ ![Alt text](images/patterns/facade.png)
 
 1. **The Facade** provides convenient access to a particular part of the subsystem’s functionality.
    1. It knows where to direct the client’s request and how to operate all the moving parts.
@@ -1449,7 +1450,7 @@ can choose between ease of use and generality.
 
 Structural design pattern that lets you fit more objects into the available amount of RAM by sharing common parts of state between multiple objects instead of keeping all of the data in each object.
 
-![](images/patterns/flyweight.png)
+![Alt text](images/patterns/flyweight.png)
 
 **The Flyweight** class contains the portion of the original object’s state that can be shared between multiple objects. The state stored inside a flyweight is called **intrinsic**. The state passed to the flyweight’s methods is called **extrinsic**.
 
@@ -1498,9 +1499,9 @@ Iterator is a behavioral design pattern that lets you traverse elements of a col
 
 We have a agregated object (container, Component in composite pattern), that contains more objects. Instead of the container returning each object one by one we introduce iterator that cycles through each object inside the container. We can then call the iterator to get to the items without knowing the internat implementation of the aggregate object
 
-![](images/patterns/iterator1.png)
+![Alt text](images/patterns/iterator1.png)
 
-![](images/patterns/iteratorseq.png)
+![Alt text](images/patterns/iteratorseq.png)
 
 #### Applicability
 
@@ -1519,7 +1520,7 @@ We have a agregated object (container, Component in composite pattern), that con
 
 #### Case study
 
-![](images/patterns/iteratorCS.png)
+![Alt text](images/patterns/iteratorCS.png)
 
 - The subElements attribute has been moved from GroupElement to individual subclasses
 - It is not necessary to have a special iterator for each composite class. On the contrary, one iterator can be shared by multiple composites
@@ -1531,7 +1532,7 @@ We have a agregated object (container, Component in composite pattern), that con
 - The Strategy pattern suggests that you take a class that does something specific in a lot of different ways and extract all of these algorithms into separate classes called strategies
   - define a family of algorithms, put each of them into a separate class, and make their objects interchangeable.
 
-![](images/patterns/strategy.png)
+![Alt text](images/patterns/strategy.png)
 
 **The Context** maintains a reference to one of the concrete strategies and communicates with this object only via the strategy interface.
 
@@ -1565,7 +1566,7 @@ Use the Strategy pattern when:
 
 We have two types of atoms that have common interface but different behavior. This model focuses only on getting atom’s position.
 
-![](images/patterns/strategyCS.png)
+![Alt text](images/patterns/strategyCS.png)
 
 The client of atoms context is the residue, that stores the atom, and any other object/class that traversed the tree.
 
@@ -1573,7 +1574,7 @@ If we want to change atoms strategy we have to replace the instance of atom with
 
 We lose the reference to original atom.
 
-![](images/patterns/strategyCS2.png)
+![Alt text](images/patterns/strategyCS2.png)
 
 getPosition implementation logic is hidden in the AtomPositionStrategy -> Clients are not affected by changing the strategy.
 
@@ -1585,7 +1586,7 @@ Similar to the strategy pattern, but the behaviour depends on a state.
 
 The State pattern suggests that you create new classes for all possible states of an object and extract all state-specific behaviors into these classes.
 
-![](images/patterns/state.png)
+![Alt text](images/patterns/state.png)
 
 - Context delegates state-specific requests to the current ConcreteState object.
 - A Context may pass itself as an argument to the State object handling the request.
@@ -1625,7 +1626,7 @@ implementation for everything (or most everything) the context object does.
 Behavioral design pattern that lets you save and restore the previous state of an object without revealing the details of its implementation.
 
 Memento is small object that stores saved state
-![](images/patterns/memento.png)
+![Alt text](images/patterns/memento.png)
 
 **The Originator** class can produce snapshots of its own state, as well as restore its state from snapshots when needed.
 
@@ -1640,7 +1641,7 @@ Memento is small object that stores saved state
   - the caretaker fetches the topmost memento from the stack and passes it to the originator’s restoration method.
 - can keep track of the originator’s history by storing a stack of mementos.  
 
-![](images/patterns/mementoseq.png)
+![Alt text](images/patterns/mementoseq.png)
 
 #### Applicability
 
@@ -1673,7 +1674,7 @@ All other objects that want to track changes to the **Publisher/Subject**’s st
 
 Whenever an important event happens to the publisher, it goes over its subscribers and calls the specific notification method on their objects
 
-![](images/patterns/observer.png)
+![Alt text](images/patterns/observer.png)
 
 **The Subject** issues events of interest to other objects.
 
@@ -1690,7 +1691,7 @@ Whenever an important event happens to the publisher, it goes over its subscribe
 
 - All of these classes must implement the same interface so the publisher isn’t coupled to concrete classes.
 
-![](images/patterns/observer2.png)
+![Alt text](images/patterns/observer2.png)
 
 #### Applicability
 
@@ -1716,7 +1717,7 @@ The Visitor pattern suggests that you place the new behavior into a separate cla
 
 The original object that had to perform the behavior is now passed to one of the visitor’s methods as an argument, providing the method access to all necessary data contained within the object.
 
-![](images/patterns/visitor3.png)
+![Alt text](images/patterns/visitor3.png)
 
 **The Visitor** interface declares a set of visiting methods that can take concrete elements of an object structure as arguments.
 
@@ -1730,7 +1731,7 @@ Each **Concrete Element** must implement the acceptance method.
 
 **The Client** usually represents a collection or some other complex object
 
-![](images/patterns/visitseq.png)
+![Alt text](images/patterns/visitseq.png)
 
 #### Process
 
@@ -1756,3 +1757,806 @@ Use the Visitor pattern when
   - You can add any type of object to a Visitor interface
 - Accumulating state
 - Breaking encapsulation
+
+# Lecture 8: Interface as Contract, Object Constrained Language
+
+We are focusing on interfaces as Interface of Components and Low-level interface of objects/classes.
+
+**Properties** of interface:
+
+- Provides contact with outside world
+- Consists of operations and input/output parameters ("signature")
+- Must be well-documented (Can specify contracts)
+- Must be on display and easily accessible
+- Can specify contracts
+- In UML they often prescribe only partial behavior
+
+In UML there are two ways to show interface:
+
+![Alt text](images/lecture8/interfaceUML1.png)
+![Alt text](images/lecture8/interfaceUML.png)
+
+- Styles:
+  - Class-like style - dashed arrow similar to inheritance
+  - Lollipop style with hidden implementation
+
+Content of interfaces
+
+- **Operations** - functionality
+- **Input parameters** - Data elements, which the operation needs to be able to perform the specified functionality
+- **Output parameters** - Data elements that the operation returns after performing the specified functionality
+- **Additional constraints**
+
+## Contract
+
+Documentation of operations + parameters + constraints = **contract**
+
+Exact structured **specification of the interface** - describes services that are provided if certain conditions are fulfilled.
+
+Contracts enable the caller and the provider to share the same assumptions about the class, component, or subsystem.
+
+### Structure of constract
+
+- conditions / constraints under which the service will be provided
+- result of the servic
+- Example:
+  - A **letter posted before 18:00** will be **delivered on the next working day** to any address in Czech Republic.
+
+### Types of conditions
+
+- Invariants
+  - A predicate that is always true for all instances of a class/component
+  - A property that never changes during the execution of services
+- Preconditions
+  - Must be true before a particular operation/service is invoked
+  - => Preconditions represent „rights“ of contracts – if conditions are fulfilled then the client can use the service.
+- Postconditions
+  - Must be true after an operation/service is invoked
+  - => Postconditions represent „obligations“ of contracts
+
+### Types of modeling contracts
+
+- Natural language, e.g., Comparable class in Java API
+- Mathematical notation
+- OCL (Object Constraint Language) = language for the formulation of constraints with the formal strength of the mathematical notation and the easiness of natural language
+
+UML models + OCL constraints or text notes
+
+![Alt text](images/lecture8/ocluml.png)
+
+## OCL
+
+OCL is strongly typed language
+
+- OCL expressions have to satisfy type rules
+- Every classifier from UML model becomes OCL type
+- OCL predefines several basic types and collections
+  - Boolean, Integer, Real, String
+  - Classifiers and Associations from UML models
+
+OCL Constraints
+
+- constraint is a restriction on one or more values
+- Constraint may be denoted within the UML model or in a separate
+document.
+- Context links OCL constraint to specific element (class, association
+class, interface, etc.) in the UML model.
+
+### Invariant constraint type
+
+An **invariant** is a constraint that should be true for an object during its complete lifetime
+
+**Syntax**:
+
+``context <classifier>`` ``inv [<constraint name>]:`` ``<Boolean OCL expression>``
+
+**Examples**:
+
+- ``context Flight inv: self.duration < 4``
+- ``context Flight inv: duration < 4``
+- ``context Flight inv: departTime.difference(self.arrivalTime).equals(self.duration)``
+
+![Alt text](images/lecture8/invariantexample.png)
+
+An invariant is always inherited by sub-classes - Sub-classes may **strengthen** the invariant but **cannot weaken** it.
+
+``context Flight inv: duration < 4`` ->``context JetFlight inv: duration < 2``
+
+### Pre-conditions and post-conditions constraint type
+
+- Constraints applied to operations
+- Pre-condition has to be true just prior to the execution of an operation
+- Post-condition has to be true just after the execution of an operation
+
+**Syntax**:
+
+``<classifier>::<operation> (<parameters>)`` ``pre|post [<constraint name>]:`` ``<Boolean OCL expression>``
+
+**Examples**:
+
+``context Flight::shiftDeparture (t:Integer) pre: t>0``
+
+- sooner departure is not permitted (delayed flights only)
+
+``context Flight::shiftDeparture (t:Integer):Time post: result = departTime@pre + t``
+
+- keyword result refers to the result of the operation
+- @pre is usable **only for post-conditions**, refers to the original state, otherwise departTime would use final state departtime
+
+A pre-condition may be **weakened** (contravariance) in sub-class
+
+- ``context SuperClass::foo(i : Integer) pre: i > 1000`` -> ``context SubClass::foo(i : Integer) pre: i > 0``
+
+A post-condition may be **strengthened** (covariance) in sub-class
+
+- ``context SuperClass::foo() : Integer post: result > 0`` -> ``context SubClass::foo() : Integer post: result > 1000``
+
+### Navigation over Association Ends
+
+Navigation over associations is used to refer to associated objects, starting from the context object:
+
+![Alt text](images/lecture8/navig.png)
+
+The most of navigation expressions return **collections** rather than single elements
+
+![Alt text](images/lecture8/collections.png)
+
+### The collect Operation
+
+The _collect_ operation returns a bag containing the value of the expression _expr_ for each of the items in the collection.
+
+- it is used to get all values for certain attribute of all
+objects in a collection
+- Similar to projection in relational algebra
+
+``collection->collect(elem : T | expr)``
+
+``context Airport inv: self.arrivingFlights -> collect(airline) -> notEmpty``
+
+### The select and reject operations
+
+``collection->select(elem : T | expr)``
+
+The **select** operation results in the subset of elements for which expr is true.
+
+- Similar to selection in relational algebra (SQL).
+
+**reject** is the complementary operation to select.
+
+``context Airport inv: self.departingFlights->select(duration<4)->notEmpty``
+
+### The forAll operation
+
+``collection->forAll(elem : T | expr)``
+
+The forAll operation results in true if expr is true for all elements of the
+collection
+
+``context Airport inv: self.departingFlights->forAll(departTime.hour>6)``
+
+### Other operations
+
+- **exists** Operation
+- **iterate** Operation
+
+# Lecture 9: Software Architectures
+
+## Fundamental aspects of all SW architectures
+
+### Modules
+
+Pieces of software implementing some functionality of a system
+
+![Alt text](images/lecture9/module.png)
+
+### Connectors
+
+Communication links and channels; interfaces of modules
+
+Procedure and method calls often with its own inner logic
+
+![Alt text](images/lecture9/connector.png)
+
+### Deployment
+
+Mapping of modules and connectors to hardware (or software) sources (Operating systems, application servers, clouds
+
+![Alt text](images/lecture9/deployment.png)
+
+## Architectural patterns and styles
+
+**Architectural styles**
+
+- Summarizing architectural principles affecting the code
+
+**Architectural patterns**
+
+- Generic solutions of architecture design
+- Advantages:
+  - Improves communication inside the development team
+  - Evaluation of SW architectures
+  - Re-usability
+  - Project planning
+  - Maintainability
+
+## Architecture Patterns and Styles
+
+### Client-Server Architecture Pattern
+
+- Distribution of data and processing across stand-alone service-providing servers and clients calling the services.
+- **Server**: Reactive entity (can’t initiate communication, only answers to incoming requests)
+- **Client**: Active entity (triggers the communication process, forward requests to the server, then waits for response)
+
+### Peer-to-Peer Architecture
+
+- Distributed application architecture that partitions tasks or work loads between peers.
+- Peers are equally privileged, equipotent participants in the application.
+
+### Layered Architecture Pattern
+
+- Helps to structure applications that can be decomposed into groups of sub-tasks in which each group of sub-task is at a particular level of abstraction.
+- Example: ISO/OSI Layers
+- **Generic Rules**
+  - Higher layers are on a higher level of abstraction (i.e., more general, higher level services).
+  - Layer N provides services used **ONLY** by layer N+1
+  - Layer N delegates sub-tasks to layer N-1
+  - Layers are complex entities consisting of different **components**
+- **Dynamics**
+  - Top-down communication - A client issues a request to layer N
+  - Bottom-up communication - A chain of actions starts at the lower layer 1
+  - Communication through a subset of the layers
+- **Benefits**
+  - Reuse of layers due to well-defined abstraction
+  - Support for standardization due to clearly-defined and commonly-accepted levels of abstraction.
+  - Dependencies are kept local, which supports testability, for instance.
+  - Exchangeability of layers
+- **Drawbacks**
+  - Cascades of changing behavior of (lower) layers
+  - Unnecessary work, e.g., duplicate work (error detection even if lower services are reliable)
+  - Lower efficiency due to the communication overhead
+  - Difficulty of establishing the correct granularity of layers
+- **Variants**
+  - Relaxed Layered System variant
+    - Each layer may use the services of all layers bellow it, not only of the next lower layer
+    - Often used in practice
+    - Higher flexibility and performance
+    - Possible loss of maintainability
+  - Layering Through Inheritance variant
+    - Layers implemented as base classes
+    - Higher layer can modify lower-layer services
+- **Known Uses**
+  - Usage in virtual machines
+  - APIs’ design
+
+**iDesign Method**
+
+- More specific layer pattern
+- Presentation layer:
+  - Handles communication with client, no business logic
+  - Who is making the request
+- Service layer:
+  - define the workflow
+  - What needs to be done
+- Domain model:
+  - Executes business logic
+  - How to implement an activity
+  - Engines represent low level functionality - they execute business logic
+- Resource access layer
+  - Encapsulates accessing resources
+  - Where do I get data from
+
+![Alt text](images/lecture9/iDesign.png)
+
+### Repository Architecture Pattern
+
+- Focuses on Resource access layer of Layered Architecture pattern
+- Interaction with data through a central repository
+- The repository mediates access between the data source layer and the business layers of the application.
+- **Structure**
+  - Business logic
+  - Data source: database, Web service..
+  - Repository: The repository forms the query on the client's behalf. The repository returns a matching set of entities that satisfy the query.
+
+![Alt text](images/lecture9/repository.png)
+
+### Model-View-Controller Architecture Pattern
+
+Controller takes input from user, receives and updates state in model and informs view about the change. View then updates for the user.
+
+![Alt text](images/lecture9/mvc.png)
+
+- Model
+  - Provides functional core of the application.
+  - Notifies dependent components about data change.
+  - Registers dependent view and controllers
+- View
+  - Presents information to the user.
+  - Each view creates a suitable controller (1:1 relationship)
+- Controller
+  - Accepts user input as events. Events are translated into requests for model or the associated view
+
+![Alt text](images/lecture9/mvcstruc.png)
+
+![Alt text](images/lecture9/mvcdynamics.png)
+![Alt text](images/lecture9/mvcevent.png)
+
+- **Benefits**
+  - Multiple view of the same model
+  - Pluggable' views and controllers
+  - Exchangeability of 'look and feel'.
+- **Drawbacks**
+  - Increased complexity.
+  - Potential for excessive number of updates.
+  - Intimate connection between view and controller.
+  - Close coupling of views and controllers to a model (changes to the model's interface are likely to break the code of both view and controller).
+
+### Model-View-Presenter
+
+MVP is a variation of MVC suitable for „widget“ applications or for modern web applications which have the ability to process GUI events on client side.
+
+Presenter manipulates the model and also updates the view
+
+### Model-View-ViewModel
+
+View does not access model directly
+
+ViewModel It is responsible for
+exposing methods, commands, and other properties that help to maintain the state of the view, manipulate the model as the result of actions on the view, and trigger events in the view itself
+
+![Alt text](images/lecture9/mvvm.png)
+
+### Broker Architecture Pattern
+
+Used to structure distributed software systems with decoupled
+components that interact by remote service invocation.
+
+A broker component is responsible for coordinating communication.
+
+- Clients
+  - Implement user functionality.
+  - Send requests to servers.
+  - To call the remote service, clients forward requests to the broker.
+- Brokers
+  - Messengers responsible for the transmission from clients to servers.
+- Servers
+  - Implement services. Server may act as client
+- Client-side proxies
+  - Layer between clients and the broker providing transparency
+- Server-side proxies
+  - Responsible for receiving requests
+- Bridges
+  - Optional components used for hiding implementation details on how two broker cooperate
+
+![Alt text](images/lecture9/broker.png)
+
+Request to local server
+![Alt text](images/lecture9/brokerrequest.png)
+
+- **Benefits**
+  - Location transparency - Broker finds the server on its own
+  - Interoperability between different Broker systems
+  - Reusability
+  - Changeability and extensibility of components
+- **Drawbacks**
+  - Restricted efficiency.
+  - Testing and debugging.
+  - Lower fault tolerance
+
+### Microkernel Architecture
+
+- Plug in components connect to Core system
+  - plug-in modules are stand-alone, independent components that contain specialized processing, additional features
+- Contains only the minimal functionality required to make the system operational
+- Applies to software systems that must be able to adapt to changing system requirements
+- **Benefits**
+  - Good portability, since only microkernel need to be modified when porting the system to a new environment.
+  - High flexibility and extensibility
+  - Separation of low-level mechanisms
+- **Drawbacks**
+  - More inter-process communication inside one application
+
+### Pipes and Filters Architecture Pattern
+
+- Provides a structure for systems that process a stream of data.
+- Data are passed through pipes between adjacent filters.
+- **Structure**
+  - **Pipe**:
+    - Denotes the connection between filters.
+  - **Filter**
+    - _Active filter_
+      - Runs as a separate process or thread
+      - Actively pulls data from the input data stream and pushes the transformed data onto the output data stream via **passive pipe** which provides read/write mechanism for pulling and pushing
+    - _Passive filter_
+      - Lets connected active pipes to push data in and pull data out
+      - The filter has to provide read/write mechanism
+  - **Data source**: input
+  - **Data sink**: output
+- Data Flow Types
+  - Push (write) only pipeline:
+  - Pull (read) only pipeline
+- **Benefits**
+  - Flexibility by filter exchange and recombination
+  - Reuse of filter components
+  - Efficiency by parallel processing
+  - No intermediate files necessary, but possible
+- **Drawbacks**
+  - Sharing state information is expensive or inflexible
+  - Error handling, failure recovery
+- Known Uses
+  - UNIX, Graphics pipeline
+
+![Alt text](images/lecture9/pipefilterdynamics.png)
+
+### Blackboard
+
+- Is useful for problems for which no deterministic strategies are known.
+- Several specialized subsystems assemble their knowledge to build a possibly partial approximate solution.
+- **Structure**
+  - **Blackboard**
+    - Stores solutions and provides inspect and update methods for data manipulations
+    - Provides an interface that enables all knowledge sources to read from and write to it.
+  - **Knowledge sources**
+    - Separate independent subsystems that solve specific aspects of the overall problem.
+  - **Control**
+    - Schedules knowledge source actions.
+- Benefits
+  - Reusable knowledge sources
+  - Experimentation
+- Drawbacks
+  - Difficulty of testing
+  - good solution is not guaranteed.
+  - Low efficiency
+  - Difficulty to establish a good control strategy
+
+# Lecture 10: Component Systems
+
+- Objects and Classes
+  - Design units
+  - Directly accessible
+  - May implement several different interfaces
+  - With visible source code
+  - Simple life cycle
+  - Developing based on context
+
+## Components
+
+- An “executable” unit running in a runtime environment
+- Typically composed of many objects/classes
+- Indirect communication via interfaces
+- Well-defined complex interfaces/contracts
+- Without visible source code
+- Complex life cycle
+- Compontents are developed independently
+
+### Why Components?
+
+- Reusability
+- Replaceability (primary objective)
+
+**Life cycle**:
+
+- Components are carefully selected and connected at design time and then deployed in the form of binary replaceable artifacts
+- To create a component we need to create specification first. We need to pay attention to accurate specification of Component Interface. After that there may be multiple realizations (different languages, level...). After realization there need to be strategy for installation. After installation there needs to be an object for the component management.
+
+![Alt text](images/lecture10/lifecyclecomponent.png)
+
+- Component **Models** (Concepts, Standards) define a specific representation, interaction, composition, and other standards for software components
+  - CCM/CORBA, EJB/J2EE, Microsoft’s COM+/.NET
+  - Fractal, Koala, SOFA
+- Component **Frameworks**
+  - establishes environmental conditions for the component instances and regulates the interaction between component instances.
+  - Particular middleware, runtime environment.
+
+### Differences in Components understanding
+
+- Run-time vs. design-time units
+  - Run-Time
+    - a piece of code realizing a particular functionality
+    - COM/.NET, Fractal
+  - design-time
+    - element of software design used to the evaluation of software quality
+    - KobrA, SOFA
+- Dynamic vs. static units
+  - Dynamic
+    - It is possible to instantiate components objects at runtime
+  - Static
+    - components are fixed in the component system
+- Stateful vs. stateless units
+  - Stateful: A component has its internal state (memory) affecting behavior
+  - Stateless: A component without an internal memory.
+
+## UML Component Diagrams
+
+- **Components**:
+  - A replaceable part of a system that conforms to and provides the realization of a set of operations
+  - Presented by a box
+- **Interfaces**:
+  - A collection of operations that specify a service that is provided byor required from a component.
+  - Declarion overall behaviour, but they have no individual identity
+
+![Alt text](images/lecture10/interfaceUML.png)
+
+- **Ports**
+  - Port has identity - If a port has a name then it can be uniquely identified via the component and the port name
+  - There can be multiple instances of particular port
+
+![Alt text](images/lecture10/portsExample.png)
+
+### Component’s Internal Structure
+
+- A part is a unit of the implementation of a component.
+- A part has a name and a type
+- In an instance of the component, there is one or more instances corresponding to each part having the type specified by the part.
+- Example: A compiler component built from four kinds of parts. There is a lexical analyzer, a parser, a code generator, and one to three optimizers. The appropriate optimizer can be selected at run time.
+-
+
+![Alt text](images/lecture10/componentstructure.png)
+
+Components are connected via
+
+- interfaces
+- directly connected (directly or through ports)
+- delegation Connectors
+  - Connection of internal ports to external ports.
+
+## Contracts
+
+When defining component specifications and interfaces we distinguish two different types of contracts
+
+- **Usage**:
+  - the contract between a component object’s interface and its clients
+  - what functionality
+- **Realization**:
+  - the contract between a component specification and its implementation
+  - details about how the component will be realized
+
+The more formally defined, the better => OCL
+
+### Component Interface
+
+![Alt text](images/lecture10/compinter.png)
+
+- A runtime contract
+- Forms the contract with the component client
+- Operations are often further specified with preand post-conditions
+
+### Multiple Interfaces
+
+- Multiple interfaces reduce the impact of change -> supports replaceability
+- Clients depend only on restricted functionality of a consumed component. Changes in other parts of the component should not affect existing clients.
+
+# Lecture 11 (included in 10): Quality Assurance
+
+Our goal is to guarantee SW and service quality because of SLA and clouds (Software as a service)
+
+![Alt text](images/lecture10/buhn.png)
+
+## Requirements specification
+
+- **Functional requirements**
+  - Define the function of a system.
+  - Related to requirements analysis and use case modeling
+  - In component systems, it also concerns internal functionality of components and the inter-component collaboration
+- **Non-functional requirements**
+  - Define restrictions on used technologies (HW/SW compatibility..)
+- **Extra-functional requirements**
+  - For quality assessment, we define also qualitative restrictions put on the implementation
+    - response time in X % of calls
+    - availability X % every month
+
+## Measuring and guaranteeing quality
+
+- **Monitoring and testing** = verification of the quality of existing system
+  - Cheap and popular method
+  - Imprecise
+- **Prediction from model** = quality estimation of the system under development
+  - Requires (simplified) model of the system, which is created and elaborated during the design time.
+  - Usable during the whole process of the architectural design
+  - Component systems suite this goal very well because they provide
+    - clear internal contracts
+    - models of different levels
+    - clear high-level decomposition based on SW architectures
+- **Formal verification** = verification of assumptions formulated about the system
+  - The most expensive but most accurate method
+  - Evaluation is performed on the model which is well-elaborated for the verification purposes
+
+## Component Development Process
+
+- Tasks
+  - Development of individual components
+  - System assembly
+  - Deployment
+  - [Quality assessment]
+- Outcomes are validated through models.
+-
+
+![Alt text](images/lecture10/develmodels.png)
+
+### Component Developer
+
+- Implementation and documentation of individual components.
+- Frequently used UML diagrams
+  - Class or object diagrams to capture the internal structure of a simple components
+  - Component diagrams for compound components
+  - Interaction diagrams for the interaction between classes or components.
+  - Activity diagrams for the description of a behaviour of provided services
+  - State diagrams to capture internal states of components
+-
+
+### Software Architect
+
+- Assembling components into a functional system in accordance with the
+description of their interfaces
+- Documentation of connectors.
+- Initial software architecture.
+- Requires the knowledge of current frameworks.
+- Frequently used UML diagrams:
+  - Component diagrams
+  - Sequence diagrams for the interaction between components.
+
+### Deployer
+
+- Design of a physical architecture
+- Mapping of software components to selected resources.
+- Requires the knowledge of current HW and frameworks.
+- Frequently used UML diagrams:
+  - Deployment diagrams.
+
+### Domain Expert
+
+- Requirements analysis
+- Frequently used UML diagrams
+  - Use case diagrams
+  - Sequence diagrams
+
+## Prediction from Models of Component Systems
+
+### Component Specification
+
+- Component developer: Annotated activity diagram used for quality assurance
+-
+
+![Alt text](images/lecture10/compdev.png)
+
+### Assembly Model
+
+- Software architect: Also checks qualitative compatibility (see later) in addition to functional compatibility.
+
+### Deployment Model
+
+- Deployer: Annotated deployment diagram used for quality assurance
+
+![Alt text](images/lecture10/depl.png)
+
+### Usage Model
+
+Annotated usage model based on the already annotated service (from component specification)
+
+![Alt text](images/lecture10/usagemod.png)
+
+## Quality of Service
+
+Guaranteed quality of component services
+
+- Annotated interfaces with the information about the quality of individual services
+- It is difficult to guarantee concrete numbers
+  - if the quality of external services is not clear in advance
+  - quality of HW or SW environment is not known.
+
+Guaranteed quality of services depends on
+
+- The service implementation
+- The quality of required (external) services
+- Resources that the component use
+- The way how the service is used
+
+### QoS Evaluation Model
+
+- Goals
+  - Selection of qualitative attributes that are to be evaluated
+  - Conducting the analysis
+  - Interpretation of results
+- Model
+  - Formal model incorporating qualitative characteristics from previous models
+  - Finite automata, Markov chains, layered queuing networks
+
+### Quality Attributes
+
+- Quality Attributes/Reliability/Security/Scalability/Maintainability
+
+### Types of quality specification
+
+- If the whole context is known -> Guaranteeing exact number would be OK.
+- If only part of the context is known
+  - **Assume-Guarantee** specification is used
+    - “if context then we guarantee something"
+    - We make couple of assumptions and based on them we guarantee something..
+    - If reliability of A is x and speed is y then reliability of B is z
+    - Problems
+      - It is not realistic to expect the knowledge of all assumptions
+      - Strong dependency on the assumptions precision
+  - **Parametric** specification
+    - unknown pieces of information are replaced by free parameters
+    - Results produce a complete set of parameterized models for the system
+    - Sensitivity analysis is used to reveal dependencies of results on particular assumptions
+
+## Tuning Tactics of SW Architectures
+
+- Optimization of selected qualitative attribute by adjusting the architecture
+- **Advantages**
+  - Practice-proven techniques
+- **Attention**
+  - Optimization is not guaranteed. Often only a minor optimization is achieved.
+  - There is the danger of making another attributes worse
+- It is necessary to apply tuning tactics in common sense and to understand mutual connections between attributes as well as the impact of tactics to them
+
+![Alt text](images/lecture10/qualattrib.png)
+
+### Performance
+
+Ability of a software system to fulfill the requirements for fast response and high throughput of the system together with the minimization of computational resources.
+
+1. Minimize number of adapters and wrappers by adjusting interfaces
+    - Cleaning up interfaces -> The reduction of resources that handle a single service call
+2. Simplify communication handled by interface
+    - Offer more interfaces for the same functionality -> In their specific context they could operate more efficiently
+3. Separate data from the computation
+    - Data can be better optimized without the need to make changes in software
+4. Revise the utilization of broadcast connectors
+5. Replace synchronous communication with asynchronous whenever possible
+6. Often mutually communicating parts should be allocated close to each other
+   - To minimize network communication which is slower that in-memory communication
+
+### Reliability
+
+Probability that the system will provide expected functionality
+
+1. Carefully check external dependencies of modules
+    - ensure that wrong behavior of a single module has only minimal impact on the faultlessness of other modules
+2. Allow selected modules to expose their state, and define state variants
+    - If it is not possible to guarantee the reliability of a module, then access to its internal state enables its clients to check and evaluate the “state of health”
+3. Employ suitable error reporting mechanisms
+    - If a module fails, it should be able to inform the rest of the system about the reason
+4. Check reliability of modules in their connectors
+    - Reduces the probability of the failure propagation beyond the module border
+5. Avoid the existence of critical parts (single points of failure)
+    - Failure occurred in such a critical part will highly probable paralyze the whole system
+    - decomposition of a module into multiple parts according to their responsibilities
+6. Integrate auto-backup and recovery mechanisms of critical functionality and data into the system
+7. Integrate “health state” monitoring to the system
+    - The possibility of fast reaction
+
+### Scalability
+
+Ability of software system to adapt itself to new requirements related to the system size and scope
+
+1. Make modules sufficiently integral, with clear purpose and easy-to-understand interface
+    - Adding new modules or their replication will have minimal impact on the other parts of the system
+2. Distribute data sources
+3. Identify data suitable for replication
+    - possibility to serve more clients accessing the data concurrently.
+4. Consider replacing direct dependencies with indirect
+    - direct dep. require multiplication of the relationships
+    - use component systems
+5. Use parallel processing on suitable parts of the system
+    - Acceleration of expensive calculations required by increasing number of clients
+6. Eliminate bottlenecks of the system
+    - To avoid slowing down the systemwhen number of clients is increased
+
+### Maintainability
+
+Difficulty to change a software system in response to new requirements, changes in environment or debugging
+
+1. Split different responsibilities to different modules / merge the same responsibilities to the same modules
+    - Faster localization of parts requiring some changes.
+2. Keep modules small and compact
+    - You can easily modify small functionality of the system by replacing selected modules
+3. Isolate data from computation
+4. Remove operations related to interaction from modules, Keep only operations related to functionality
+    - Interaction logic should be located in connectors
+5. Separate different communication principles from different connectors
+6. Remove operations related to functionality from connectors, keep only operations related to interaction
+    - Functionality should be located in modules
+7. Eliminate unnecessary dependence
+    - Plenty of dependencies decreases understandability of the system
+8. Make the architecture hierarchical
