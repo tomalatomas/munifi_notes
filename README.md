@@ -984,7 +984,7 @@ This creational pattern creates and mediates access to a single shared instance 
 
 Use the singleton pattern when there **must be only one instance** of class and this instance must be **accessible** from a well-known access point.
 
-![Alt text](images/patterns/singCaseStudy.png)
+![Alt text](images/patterns/singcaseStudy.png)
 
 #### Consequences
 
