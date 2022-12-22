@@ -1037,13 +1037,13 @@ Sektorová regulace (např. energetika, bankovní a finanční služby), obecná
 
 **Graf účastníků a akcí v ZKB (zákonu o kybernetické bezpečnosti):**
 
-![image-20221201200846147](PV017_vypisky.assets/image-20221201200846147.png)
+![zkb](images/zkb.png)
 
 [NÚKIB = Národní úřad pro kybernetickou a informační bezpečnost]
 
  ### Druhy systémů které mají speciální povinnosti dle zákona o kyberbezpečnosti
 
-![image-20221201202431590](PV017_vypisky.assets/image-20221201202431590.png)
+![image-20221201202431590](images/prostor.png)
 
 - **Služby a sítě elektronických komunikací**
   - Určování neprobíhá, osoby jsou definovány zákonem o elektronických komunikacích
@@ -1440,7 +1440,7 @@ Navrhnutí změny $\rightarrow$ Analýza dopadu $\rightarrow$ Schválení/Zamít
 
 **Koncept DevSecOps**
 
-![image-20221204002029961](PV017_vypisky.assets/image-20221204002029961.png)
+![ops](images/ops.png)
 
 **Security Framworks**, příklady
 
