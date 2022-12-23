@@ -2,7 +2,7 @@
 
 **Use at your own risk**
 
-_Based na [dokumentu](https://github.com/hojkas/MUNI_notes_and_stuff) by [hojkas](https://github.com/hojkas)_
+_Based na [dokumentu](https://github.com/hojkas/MUNI_notes_and_stuff) by [hojkas](https://github.com/hojkas), doplněny informace z přednášek_
 
 ---
 
@@ -103,101 +103,6 @@ Podle druhu a paremetrů klíčů dělíme na:
 - Nešifrujeme soukromým klíčem – podepisujeme
 - Nerozšifrováváme – dešifrujeme
 - Neautentikujeme, neautentifikujeme a neidentizujeme – autentizujeme a identifikujeme
-
-### Otázky
-
-- **Digitální podpis ověříme pomocí**
-
-  - Veřejného klíče podepisující osoby
-  - Soukromého klíče podepisující osoby
-  - Privátního klíče podepisující osoby
-  - Certifikátu veřejného klíče podepisující osoby
-  - Klíče sdíleného s podepisující osobou
-  <details> <summary>Odpověď</summary>
-
-  - Veřejného klíče podepisující osoby
-  - Certifikátu veřejného klíče podepisující osoby
-  </details>
-
-- **Digitální podpis může vytvořit**
-
-  - Pouze osoba vlastnící sdílený klíč
-  - Pouze osoba vlastnící soukromý klíč
-  - Pouze osoba vlastnící veřejný klíč
-  - Pouze osoba vlastnící certifikovaný klíč
-  <details> <summary>Odpověď</summary>
-
-  - Pouze osoba vlastnící soukromý klíč
-  </details>
-
-- **Co je to zaručený elektronický podpis**
-
-  - Jednoznačně ověřitelný podpis
-  - Podpis, který má záruky srovnatelné jako elektronický podpis
-  - Elektronický podpis, za který se dokážeme nějak důvěryhodně zaručit
-  - Podpis vytvořený pomocí kryptografických prostředků
-  <details> <summary>Odpověď</summary>
-  - Jednoznačně ověřitelný podpis
-  - Elektronický podpis, za který se dokážeme nějak důvěryhodně zaručit
-  </details>
-
-- **V dobrých autentizačních protokolech se typicky**
-
-  - Heslo posílá v hašované podobě
-  - Heslo neposílá vůbec
-  - Heslo posílá v otevřené podobě
-  <details> <summary>Odpověď</summary>
-
-  - Heslo posílá v hašované podobě
-  - Heslo neposílá vůbec
-  </details>
-
-- **Pro bezpečné používání digitálního podpisu**
-
-  - Je nutné zajistit integritu privátního klíče
-  - Je nutné zajistit integritu veřejného klíče
-  - Je nutné udržet privátní klíč v tajnosti
-  - Je nutné udržet veřejný klíč v tajnosti
-  <details> <summary>Odpověď</summary>
-
-  - Je nutné udržet privátní klíč v tajnosti
-  - Je nutné zajistit integritu veřejného klíče
-  </details>
-
-- **Při kombinaci šifrování veřejným klíčem a podpisu dokumentu se doporučuje operace provést v následujícím pořadí**:
-
-  - Podpis, šifrování, podpis
-  - Šifrování, podpis, šifrování
-  - Šifrování, podpis
-  - Na pořadí operací nezáleží
-  - Podpis, šifrování
-  <details> <summary><b>Odpověď</b></summary>
-
-  - Podpis, šifrování
-  </details>
-
-- **Integrita dat znamená**:
-
-  - Data v původní podobě lze obnovit i přesto, že byla modifikována
-  - Data nebyla neautorizovaně změněna pouze v průběhu přenosu nezabezpečeným kanálem
-  - Data nebyla neautorizovaně změněna
-  - Data nebyla autorizovaně předána
-  <details> <summary><b>Odpověď</b></summary>
-
-  - Data nebyla neautorizovaně změněna
-  </details>
-
-- **Nadpis**:
-
-  - Odp1
-  - Odp2
-  - Odp3
-  - Odp4
-  - Odp5
-  <details> <summary><b>Odpověď</b></summary>
-
-  - CorrOdp
-  </details>
 
 ## Téma #2: Autentizace uživatelů tajnými informacemi
 
@@ -539,7 +444,7 @@ Nejčastěji používané tokeny:
   - _Rychlost_: výpočetně náročné, verifikace v řádu vteřin.
   - _Přesnost_: FRR i FAR několik procent.
 - **Další**: DNA (délka analýzy stovky minut), lůžka nehtů, tvar ucha, vůně/pot (how), pohyby tváře, dynamika chůze, …
-  ![](biometcompare.png)
+  ![](images/biometcompare.png)
 
 **Nejslibnější technologie**:
 
@@ -613,7 +518,7 @@ Autentizujeme během protokolu jednu stran, obě strany, popř. kontinuální au
 - **Útok impersonací**. Při autentizaci heslem může útočník odposlechnout heslo a použít na impersonaci.
 - **Útok přehráním**. Při autentizaci hashovaným heslem může útočník přenos hashe zaznamenat a potom znovu poslat při vydávání se za původního uživatele.
 - **Útok prolínáním** (interleaving) kombinuje zpráv z více průběhů obvykle stejného protokolu. (Komunikací s oběma stranami protokolem výzva odpověď získá dostatek informací, aby se úspěšně vydala za druhou stranu.)
-  ![](prol.png)
+  ![](images/prol.png)
 - **Slovníkový útok** využívá často používaná hesla.
 - **Využití známého klíče**. U protoklů pro ustanovení klíče, kde se klíč ustanoví na základě staršího útočníkovi známého klíče.
 - Další útoky [nebo jen jiné názvy, idk]: **Odraz** (využití odeslané zprávy k okamžitému poslání odesilateli), **Man-in-the-middle**, **Volený text** (vhodná volba výzev v protokolech výzva-odpověď pro získání dlouhodbého klíče; cíleně posílá ty výzvy na které potřebuje znát odpověď).
