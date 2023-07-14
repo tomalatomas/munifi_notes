@@ -14,3 +14,11 @@
   - [x] **PV017** - Information Technology Security
   - [x] **PV119** - Elements of Law
   - [x] **PV157** - Authentication and Access Control
+- **Second Semester**
+  - [x] **NJII_641** - Swedish for beginners I
+  - [x] **PA165** - Enterprise Applications in Java Course
+  - [x] **PA036** - Database System Project
+  - [x] **PA179** - Project Management
+  - [x] **PV239** - Mobile Application Development
+  - [x] **PA053** - Distributed Systems and Middleware Star
+  - [x] **PV247** - Modern Development of User Interfaces
